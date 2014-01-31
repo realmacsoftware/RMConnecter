@@ -88,11 +88,11 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
                           switch ([sender tag]) {
                               case 1:
                                   [self verifyiTunesPackageAtURL:selectedPackageURL];
-                                  [[self statusTextField] setStringValue:[NSString stringWithFormat:@"Verifying iTunes Package: %@", selectedPackageURL.path]];
+                                  [[self statusTextField] setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Verifying iTunes Package: %@", @"Verifying Package String"), selectedPackageURL.path]];
                                   break;
                               case 2:
                                   [self submitPackageAtURL:selectedPackageURL];
-                                  [[self statusTextField] setStringValue:[NSString stringWithFormat:@"Submitting iTunes Package: %@", selectedPackageURL.path]];
+                                  [[self statusTextField] setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Submitting iTunes Package: %@", @"Submitting Package String"), selectedPackageURL.path]];
                                   break;
                               default:
                                   break;
@@ -108,8 +108,8 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
     [openPanel setCanCreateDirectories:YES];
     [openPanel setCanChooseFiles:NO];
     
-    NSString * filePath = @"~/Desktop";
-    filePath = [filePath stringByExpandingTildeInPath];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString * filePath = [defaults stringForKey:LastPackageLocationDefaultsKey];
     NSURL *fileURL = [NSURL fileURLWithPath:filePath];
     [openPanel setDirectoryURL:fileURL];
     
@@ -120,7 +120,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
                           }
                           [[self logView] setString:@""];
                           NSURL *selectedPackageURL = [openPanel URL];
-                          [[self statusTextField] setStringValue:[NSString stringWithFormat:@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", selectedPackageURL.path]];
+                          [[self statusTextField] setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", "Downloaded Info String"), selectedPackageURL.path]];
                           [self lookupMetadataAndPlaceInPackageAtURL:selectedPackageURL];
                       }];
 }
@@ -151,6 +151,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
         [self setCredentialEntryAvailability:YES];
         [self setTransporterInteractionAvailability:YES];
         [self shouldShowAndAnimateActivityIndicator:NO];
+        [[self statusTextField] setStringValue:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
         [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[PackageURL]];
     }];
 }
@@ -213,7 +214,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
 #pragma mark Transporter Preflighting
 
 - (BOOL)transporterIsInstalled {
-    [[self statusTextField] setStringValue:@"Checking for iTunes Transporter…"];
+    [[self statusTextField] setStringValue:NSLocalizedString(@"Checking for iTunes Transporter…", @"Checking for Transporter String")];
     return ([[NSFileManager defaultManager] fileExistsAtPath:DefaultiTunesTransporterPath]);
 }
 
@@ -260,7 +261,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
 - (void)controlTextDidChange:(NSNotification *)aNotification  {
     if (([self.iTunesConnectUsernameField.stringValue length] > 0) && ([self.iTunesConnectPasswordField.stringValue length] > 0)) {
         [self setTransporterInteractionAvailability:YES];
-        [[self statusTextField] setStringValue:@"Awaiting your command…"];
+        [[self statusTextField] setStringValue:NSLocalizedString(@"Awaiting your command…", @"Awaiting your Command String")];
     }
     if ([self.iTunesConnectAppSKUField.stringValue length] > 0) {
         [[self downloadPackageFromiTunesConnectButton] setEnabled:YES];
@@ -268,7 +269,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
     
     if (([self.iTunesConnectUsernameField.stringValue length] == 0) && ([self.iTunesConnectPasswordField.stringValue length] == 0)) {
         [self setTransporterInteractionAvailability:NO];
-        [[self statusTextField] setStringValue:@"Please enter your iTunes Connect credentials…"];
+        [[self statusTextField] setStringValue:NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"Enter Credentials Prompt")];
     }
     if ([self.iTunesConnectAppSKUField.stringValue length]== 0) {
         [[self downloadPackageFromiTunesConnectButton] setEnabled:NO];
