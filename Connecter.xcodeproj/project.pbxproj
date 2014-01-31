@@ -1,0 +1,497 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		247F280B189127D8000F8041 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F280A189127D8000F8041 /* Cocoa.framework */; };
+		247F2815189127D8000F8041 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 247F2813189127D8000F8041 /* InfoPlist.strings */; };
+		247F2817189127D8000F8041 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 247F2816189127D8000F8041 /* main.m */; };
+		247F281B189127D8000F8041 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 247F2819189127D8000F8041 /* Credits.rtf */; };
+		247F281E189127D8000F8041 /* RMConnecterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 247F281D189127D8000F8041 /* RMConnecterAppDelegate.m */; };
+		247F2821189127D8000F8041 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247F281F189127D8000F8041 /* MainMenu.xib */; };
+		247F2823189127D8000F8041 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247F2822189127D8000F8041 /* Images.xcassets */; };
+		247F282A189127D8000F8041 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F2829189127D8000F8041 /* XCTest.framework */; };
+		247F282B189127D8000F8041 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F280A189127D8000F8041 /* Cocoa.framework */; };
+		247F2833189127D8000F8041 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 247F2831189127D8000F8041 /* InfoPlist.strings */; };
+		247F2835189127D8000F8041 /* ConnecterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 247F2834189127D8000F8041 /* ConnecterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		247F282C189127D8000F8041 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 247F27FF189127D7000F8041 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 247F2806189127D8000F8041;
+			remoteInfo = Connecter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		247F2807189127D8000F8041 /* Connecter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connecter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		247F280A189127D8000F8041 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		247F280D189127D8000F8041 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		247F280E189127D8000F8041 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		247F280F189127D8000F8041 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		247F2812189127D8000F8041 /* Connecter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Connecter-Info.plist"; sourceTree = "<group>"; };
+		247F2814189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		247F2816189127D8000F8041 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		247F2818189127D8000F8041 /* Connecter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Connecter-Prefix.pch"; sourceTree = "<group>"; };
+		247F281A189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		247F281C189127D8000F8041 /* RMConnecterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMConnecterAppDelegate.h; sourceTree = "<group>"; };
+		247F281D189127D8000F8041 /* RMConnecterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMConnecterAppDelegate.m; sourceTree = "<group>"; };
+		247F2820189127D8000F8041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		247F2822189127D8000F8041 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		247F2828189127D8000F8041 /* ConnecterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnecterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		247F2829189127D8000F8041 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		247F2830189127D8000F8041 /* ConnecterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConnecterTests-Info.plist"; sourceTree = "<group>"; };
+		247F2832189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		247F2834189127D8000F8041 /* ConnecterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnecterTests.m; sourceTree = "<group>"; };
+		247F283E1891282D000F8041 /* Connecter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Connecter.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		247F2804189127D8000F8041 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247F280B189127D8000F8041 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247F2825189127D8000F8041 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247F282B189127D8000F8041 /* Cocoa.framework in Frameworks */,
+				247F282A189127D8000F8041 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		247F27FE189127D7000F8041 = {
+			isa = PBXGroup;
+			children = (
+				247F2810189127D8000F8041 /* Connecter */,
+				247F282E189127D8000F8041 /* ConnecterTests */,
+				247F2809189127D8000F8041 /* Frameworks */,
+				247F2808189127D8000F8041 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		247F2808189127D8000F8041 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				247F2807189127D8000F8041 /* Connecter.app */,
+				247F2828189127D8000F8041 /* ConnecterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247F2809189127D8000F8041 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				247F280A189127D8000F8041 /* Cocoa.framework */,
+				247F2829189127D8000F8041 /* XCTest.framework */,
+				247F280C189127D8000F8041 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		247F280C189127D8000F8041 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				247F280D189127D8000F8041 /* AppKit.framework */,
+				247F280E189127D8000F8041 /* CoreData.framework */,
+				247F280F189127D8000F8041 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		247F2810189127D8000F8041 /* Connecter */ = {
+			isa = PBXGroup;
+			children = (
+				247F283E1891282D000F8041 /* Connecter.entitlements */,
+				247F281C189127D8000F8041 /* RMConnecterAppDelegate.h */,
+				247F281D189127D8000F8041 /* RMConnecterAppDelegate.m */,
+				247F281F189127D8000F8041 /* MainMenu.xib */,
+				247F2822189127D8000F8041 /* Images.xcassets */,
+				247F2811189127D8000F8041 /* Supporting Files */,
+			);
+			path = Connecter;
+			sourceTree = "<group>";
+		};
+		247F2811189127D8000F8041 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				247F2812189127D8000F8041 /* Connecter-Info.plist */,
+				247F2813189127D8000F8041 /* InfoPlist.strings */,
+				247F2816189127D8000F8041 /* main.m */,
+				247F2818189127D8000F8041 /* Connecter-Prefix.pch */,
+				247F2819189127D8000F8041 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		247F282E189127D8000F8041 /* ConnecterTests */ = {
+			isa = PBXGroup;
+			children = (
+				247F2834189127D8000F8041 /* ConnecterTests.m */,
+				247F282F189127D8000F8041 /* Supporting Files */,
+			);
+			path = ConnecterTests;
+			sourceTree = "<group>";
+		};
+		247F282F189127D8000F8041 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				247F2830189127D8000F8041 /* ConnecterTests-Info.plist */,
+				247F2831189127D8000F8041 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		247F2806189127D8000F8041 /* Connecter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247F2838189127D8000F8041 /* Build configuration list for PBXNativeTarget "Connecter" */;
+			buildPhases = (
+				247F2803189127D8000F8041 /* Sources */,
+				247F2804189127D8000F8041 /* Frameworks */,
+				247F2805189127D8000F8041 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Connecter;
+			productName = Connecter;
+			productReference = 247F2807189127D8000F8041 /* Connecter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		247F2827189127D8000F8041 /* ConnecterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 247F283B189127D8000F8041 /* Build configuration list for PBXNativeTarget "ConnecterTests" */;
+			buildPhases = (
+				247F2824189127D8000F8041 /* Sources */,
+				247F2825189127D8000F8041 /* Frameworks */,
+				247F2826189127D8000F8041 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				247F282D189127D8000F8041 /* PBXTargetDependency */,
+			);
+			name = ConnecterTests;
+			productName = ConnecterTests;
+			productReference = 247F2828189127D8000F8041 /* ConnecterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		247F27FF189127D7000F8041 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RMConnecter;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Realmac Software";
+				TargetAttributes = {
+					247F2806189127D8000F8041 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					247F2827189127D8000F8041 = {
+						TestTargetID = 247F2806189127D8000F8041;
+					};
+				};
+			};
+			buildConfigurationList = 247F2802189127D7000F8041 /* Build configuration list for PBXProject "Connecter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 247F27FE189127D7000F8041;
+			productRefGroup = 247F2808189127D8000F8041 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				247F2806189127D8000F8041 /* Connecter */,
+				247F2827189127D8000F8041 /* ConnecterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		247F2805189127D8000F8041 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247F2815189127D8000F8041 /* InfoPlist.strings in Resources */,
+				247F2823189127D8000F8041 /* Images.xcassets in Resources */,
+				247F281B189127D8000F8041 /* Credits.rtf in Resources */,
+				247F2821189127D8000F8041 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247F2826189127D8000F8041 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247F2833189127D8000F8041 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		247F2803189127D8000F8041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247F2817189127D8000F8041 /* main.m in Sources */,
+				247F281E189127D8000F8041 /* RMConnecterAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		247F2824189127D8000F8041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				247F2835189127D8000F8041 /* ConnecterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		247F282D189127D8000F8041 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 247F2806189127D8000F8041 /* Connecter */;
+			targetProxy = 247F282C189127D8000F8041 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		247F2813189127D8000F8041 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247F2814189127D8000F8041 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		247F2819189127D8000F8041 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247F281A189127D8000F8041 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		247F281F189127D8000F8041 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247F2820189127D8000F8041 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		247F2831189127D8000F8041 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				247F2832189127D8000F8041 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		247F2836189127D8000F8041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		247F2837189127D8000F8041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		247F2839189127D8000F8041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Connecter/Connecter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Connecter/Connecter-Prefix.pch";
+				INFOPLIST_FILE = "Connecter/Connecter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		247F283A189127D8000F8041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Connecter/Connecter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Connecter/Connecter-Prefix.pch";
+				INFOPLIST_FILE = "Connecter/Connecter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		247F283C189127D8000F8041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Connecter.app/Contents/MacOS/Connecter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Connecter/Connecter-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ConnecterTests/ConnecterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		247F283D189127D8000F8041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Connecter.app/Contents/MacOS/Connecter";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Connecter/Connecter-Prefix.pch";
+				INFOPLIST_FILE = "ConnecterTests/ConnecterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		247F2802189127D7000F8041 /* Build configuration list for PBXProject "Connecter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247F2836189127D8000F8041 /* Debug */,
+				247F2837189127D8000F8041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247F2838189127D8000F8041 /* Build configuration list for PBXNativeTarget "Connecter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247F2839189127D8000F8041 /* Debug */,
+				247F283A189127D8000F8041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		247F283B189127D8000F8041 /* Build configuration list for PBXNativeTarget "ConnecterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				247F283C189127D8000F8041 /* Debug */,
+				247F283D189127D8000F8041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 247F27FF189127D7000F8041 /* Project object */;
+}
