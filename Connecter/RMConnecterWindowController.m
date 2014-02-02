@@ -31,15 +31,45 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
 
 #import "RMConnecterWindowController.h"
 
-@interface RMConnecterWindowController ()
+@interface RMConnecterWindowController () <NSTextFieldDelegate>
 
 @end
 
 @implementation RMConnecterWindowController
 
++ (void)load
+{
+	@autoreleasepool {
+		NSDictionary *registrationDefaults = @{LastPackageLocationDefaultsKey : @"~/Desktop"};
+		[[NSUserDefaults standardUserDefaults] registerDefaults:registrationDefaults];
+	}
+}
+
 - (id)init
 {
 	return [self initWithWindowNibName:@"RMConnecterWindow" owner:self];
+}
+
+- (void)windowDidLoad
+{
+	[super windowDidLoad];
+	
+	if (![self transporterIsInstalled]) {
+        
+        [[self statusTextField] setStringValue:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
+        [self setCredentialEntryAvailability:NO];
+        [self setTransporterInteractionAvailability:NO];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
+        [alert addButtonWithTitle:NSLocalizedString(@"Get Xcode", "Transporter Missing Alert Get Xcode Button Label")];
+        [alert setMessageText:NSLocalizedString(@"Unable to Locate iTMSTransporter", @"")];
+        [alert setInformativeText:NSLocalizedString(@"Connecter requires the iTMSTransporter binary to be installed. Please install Xcode from the Mac App Store.", @"")];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    } else {
+        [[self statusTextField] setStringValue:NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"")];
+        [self setTransporterInteractionAvailability:NO];
+    };
 }
 
 - (IBAction)chooseiTunesPackage:(id)sender
