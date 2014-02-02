@@ -21,6 +21,7 @@
 		6D739024189E79E9000764E4 /* RMConnecterWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739022189E79E9000764E4 /* RMConnecterWindowController.m */; };
 		6D739025189E79E9000764E4 /* RMConnecterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D739023189E79E9000764E4 /* RMConnecterWindow.xib */; };
 		6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739027189E91BE000764E4 /* RMConnecterCredentials.m */; };
+		6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		6D739023189E79E9000764E4 /* RMConnecterWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMConnecterWindow.xib; sourceTree = "<group>"; };
 		6D739026189E91BE000764E4 /* RMConnecterCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMConnecterCredentials.h; sourceTree = "<group>"; };
 		6D739027189E91BE000764E4 /* RMConnecterCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMConnecterCredentials.m; sourceTree = "<group>"; };
+		6D73902B189E9AE2000764E4 /* RMConnecterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMConnecterOperation.h; sourceTree = "<group>"; };
+		6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMConnecterOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 			children = (
 				6D739026189E91BE000764E4 /* RMConnecterCredentials.h */,
 				6D739027189E91BE000764E4 /* RMConnecterCredentials.m */,
+				6D73902B189E9AE2000764E4 /* RMConnecterOperation.h */,
+				6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				247F2817189127D8000F8041 /* main.m in Sources */,
+				6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */,
 				6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */,
 				247F281E189127D8000F8041 /* RMConnecterAppDelegate.m in Sources */,
 				6D739024189E79E9000764E4 /* RMConnecterWindowController.m in Sources */,
