@@ -31,6 +31,8 @@ static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPacka
 
 @interface RMConnecterWindowController () <NSTextFieldDelegate>
 
+@property (strong, nonatomic) NSOperationQueue *operationQueue;
+
 @end
 
 @implementation RMConnecterWindowController
@@ -63,6 +65,9 @@ static NSString *_RMConnecterTransporterPath(void)
 - (void)windowDidLoad
 {
 	[super windowDidLoad];
+	
+	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+	[self setOperationQueue:operationQueue];
 	
 	if (_RMConnecterTransporterPath() == nil) {
 		[[self statusTextField] setStringValue:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
@@ -155,29 +160,62 @@ static NSString *_RMConnecterTransporterPath(void)
 
 - (void)lookupMetadataAndPlaceInPackageAtURL:(NSURL *)packageURL
 {
+	NSArray *arguments = @[
+		@"-vendor_id", [[self iTunesConnectAppSKUField] stringValue],
+		@"-destination", packageURL,
+	];
+	[self _enqueueiTunesConnectInteractionOperationForPackageAtURL:packageURL method:@"lookupMetadata" arguments:arguments openPackageUponTermination:YES];
+}
+
+- (void)verifyiTunesPackageAtURL:(NSURL *)packageURL
+{
+	NSArray *arguments = @[
+		@"-f", packageURL,
+	];
+	[self _enqueueiTunesConnectInteractionOperationForPackageAtURL:packageURL method:@"verify" arguments:arguments openPackageUponTermination:NO];
+}
+
+- (void)submitPackageAtURL:(NSURL *)packageURL
+{
+	NSArray *arguments = @[
+		@"-f", packageURL,
+	];
+	[self _enqueueiTunesConnectInteractionOperationForPackageAtURL:packageURL method:@"upload" arguments:arguments openPackageUponTermination:NO];
+}
+
+- (void)_enqueueiTunesConnectInteractionOperationForPackageAtURL:(NSURL *)packageURL method:(NSString *)method arguments:(NSArray *)arguments openPackageUponTermination:(BOOL)openPackageUponTermination
+{
+	NSParameterAssert(packageURL != nil);
+	NSParameterAssert(method != nil);
+	
+	NSArray *taskArguments = @[
+		@"-m", method,
+		@"-u", [[self iTunesConnectUsernameField] stringValue],
+		@"-p", [[self iTunesConnectPasswordField] stringValue],
+	];
+	taskArguments = [taskArguments arrayByAddingObjectsFromArray:arguments];
+	
 	[self shouldShowAndAnimateActivityIndicator:YES];
 	[self setTransporterInteractionAvailability:NO];
 	[self setCredentialEntryAvailability:NO];
-	
-	NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 	
 	__block NSString *result = @"";
 	
 	NSOperation *taskOperation = [NSBlockOperation blockOperationWithBlock:^{
 		NSTask *task = [[NSTask alloc] init];
 		[task setLaunchPath:_RMConnecterTransporterPath()];
+		[task setArguments:taskArguments];
 		
 		NSPipe *pipe = [NSPipe pipe];
 		[task setStandardOutput:pipe];
 		NSFileHandle *file = [pipe fileHandleForReading];
 		
-		[task setArguments:@[@"-m", @"lookupMetadata", @"-u", [[self iTunesConnectUsernameField] stringValue], @"-p", self.iTunesConnectPasswordField.stringValue, @"-vendor_id", [[self iTunesConnectAppSKUField] stringValue], @"-destination", packageURL]];
 		[task launch];
 		
 		NSData *data = [file readDataToEndOfFile];
 		result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	}];
-	[queue addOperation:taskOperation];
+	[[self operationQueue] addOperation:taskOperation];
 	
 	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^{
 		[self setCredentialEntryAvailability:YES];
@@ -187,83 +225,9 @@ static NSString *_RMConnecterTransporterPath(void)
 		[[self statusTextField] setStringValue:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
 		[[self logView] setString:result];
 		
-		[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[packageURL]];
-	}];
-	[resultOperation addDependency:taskOperation];
-	[[NSOperationQueue mainQueue] addOperation:resultOperation];
-}
-
-- (void)verifyiTunesPackageAtURL:(NSURL *)packageURL
-{
-	[self shouldShowAndAnimateActivityIndicator:YES];
-	[self setTransporterInteractionAvailability:NO];
-	[self setCredentialEntryAvailability:NO];
-	
-	NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-	
-	__block NSString *result = @"";
-	
-	NSOperation *taskOperation = [NSBlockOperation blockOperationWithBlock:^ {
-		NSTask *task = [[NSTask alloc] init];
-		[task setLaunchPath:_RMConnecterTransporterPath()];
-		
-		NSPipe *pipe = [NSPipe pipe];
-		[task setStandardOutput:pipe];
-		NSFileHandle *file = [pipe fileHandleForReading];
-		
-		[task setArguments:@[@"-m", @"verify",  @"-f", packageURL, @"-u", [[self iTunesConnectUsernameField] stringValue], @"-p", [[self iTunesConnectPasswordField] stringValue]]];
-		[task launch];
-		
-		NSData *data = [file readDataToEndOfFile];
-		result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	}];
-	[queue addOperation:taskOperation];
-	
-	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^ {
-		[self setCredentialEntryAvailability:YES];
-		[self setTransporterInteractionAvailability:YES];
-		[self shouldShowAndAnimateActivityIndicator:NO];
-		
-		[[self statusTextField] setStringValue:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
-		[[self logView] setString:result];
-	}];
-	[resultOperation addDependency:taskOperation];
-	[[NSOperationQueue mainQueue] addOperation:resultOperation];
-}
-
-- (void)submitPackageAtURL:(NSURL *)packageURL
-{
-	[self shouldShowAndAnimateActivityIndicator:YES];
-	[self setTransporterInteractionAvailability:NO];
-	[self setCredentialEntryAvailability:NO];
-	
-	NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-	
-	__block NSString *result = @"";
-	
-	NSOperation *taskOperation = [NSBlockOperation blockOperationWithBlock:^ {
-		NSTask *task = [[NSTask alloc] init];
-		[task setLaunchPath:_RMConnecterTransporterPath()];
-		
-		NSPipe *pipe = [NSPipe pipe];
-		[task setStandardOutput:pipe];
-		NSFileHandle *file = [pipe fileHandleForReading];
-		
-		[task setArguments:@[@"-m", @"upload",  @"-f", packageURL, @"-u", [[self iTunesConnectUsernameField] stringValue], @"-p", [[self iTunesConnectPasswordField] stringValue]]];
-		[task launch];
-		
-		NSData *data = [file readDataToEndOfFile];
-		result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	}];
-	[queue addOperation:taskOperation];
-	
-	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^ {
-		[self setCredentialEntryAvailability:YES];
-		[self setTransporterInteractionAvailability:YES];
-		[self shouldShowAndAnimateActivityIndicator:NO];
-		
-		[[self statusTextField] setStringValue:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
-		[[self logView] setString:result];
+		if (openPackageUponTermination) {
+			[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[packageURL]];
+		}
 	}];
 	[resultOperation addDependency:taskOperation];
 	[[NSOperationQueue mainQueue] addOperation:resultOperation];
