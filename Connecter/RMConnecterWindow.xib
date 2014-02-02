@@ -22,7 +22,7 @@
         <window title="iTunes Connecter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="HZn-zH-jiB">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="488" height="498"/>
+            <rect key="contentRect" x="102" y="107" width="488" height="498"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="ub2-yI-JEG">
                 <rect key="frame" x="0.0" y="0.0" width="488" height="498"/>
