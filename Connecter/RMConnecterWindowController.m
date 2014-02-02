@@ -25,8 +25,6 @@
 //    SOFTWARE.
 //
 
-NSString * const DefaultiTunesTransporterPath = @"/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/MacOS/itms/bin/iTMSTransporter";
-
 NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
 
 #import "RMConnecterWindowController.h"
@@ -36,6 +34,18 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
 @end
 
 @implementation RMConnecterWindowController
+
+static NSString *_RMConnecterTransporterPath(void)
+{
+	static NSString * const _RMConnecterApplicationLoaderName = @"Application Loader";
+	
+	NSString *applicationLoaderPath = [[NSWorkspace sharedWorkspace] fullPathForApplication:_RMConnecterApplicationLoaderName];
+	if (applicationLoaderPath == nil) {
+		return nil;
+	}
+	
+	return [applicationLoaderPath stringByAppendingPathComponent:@"Contents/MacOS/itms/bin/iTMSTransporter"];
+}
 
 + (void)load
 {
@@ -54,8 +64,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
 {
 	[super windowDidLoad];
 	
-	if (![self transporterIsInstalled]) {
-        
+	if (_RMConnecterTransporterPath() == nil) {
         [[self statusTextField] setStringValue:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
         [self setCredentialEntryAvailability:NO];
         [self setTransporterInteractionAvailability:NO];
@@ -146,7 +155,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
         [self setTransporterInteractionAvailability:NO];
         [self setCredentialEntryAvailability:NO];
         NSTask *task = [[NSTask alloc] init];
-        [task setLaunchPath:DefaultiTunesTransporterPath];
+        [task setLaunchPath:_RMConnecterTransporterPath()];
         
         NSPipe *pipe = [NSPipe pipe];
         [task setStandardOutput:pipe];
@@ -174,7 +183,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
         [self setTransporterInteractionAvailability:NO];
         [self setCredentialEntryAvailability:NO];
         NSTask *task = [[NSTask alloc] init];
-        [task setLaunchPath:DefaultiTunesTransporterPath];
+        [task setLaunchPath:_RMConnecterTransporterPath()];
         
         NSPipe *pipe = [NSPipe pipe];
         [task setStandardOutput:pipe];
@@ -201,7 +210,7 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
         [self setTransporterInteractionAvailability:NO];
         [self setCredentialEntryAvailability:NO];
         NSTask *task = [[NSTask alloc] init];
-        [task setLaunchPath:DefaultiTunesTransporterPath];
+        [task setLaunchPath:_RMConnecterTransporterPath()];
         
         NSPipe *pipe = [NSPipe pipe];
         [task setStandardOutput:pipe];
@@ -222,11 +231,6 @@ NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
 
 #pragma mark -
 #pragma mark Transporter Preflighting
-
-- (BOOL)transporterIsInstalled {
-    [[self statusTextField] setStringValue:NSLocalizedString(@"Checking for iTunes Transporter…", @"Checking for Transporter String")];
-    return ([[NSFileManager defaultManager] fileExistsAtPath:DefaultiTunesTransporterPath]);
-}
 
 - (void)setCredentialEntryAvailability:(BOOL)b {
     [[self iTunesConnectPasswordField] setEnabled:b];
