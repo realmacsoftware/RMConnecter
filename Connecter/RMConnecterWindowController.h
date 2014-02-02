@@ -31,19 +31,12 @@
 
 @interface RMConnecterWindowController : NSWindowController
 
-@property (unsafe_unretained) IBOutlet NSTextView *logView;
-@property (weak) IBOutlet NSTextField *iTunesConnectAppSKUField;
-
-// State Controls
-@property (assign) IBOutlet NSProgressIndicator *activityQueueProgressIndicator;
-@property (weak) IBOutlet NSTextField *statusTextField;
-
-// Buttons
-@property (weak) IBOutlet NSButton *downloadPackageFromiTunesConnectButton;
-@property (weak) IBOutlet NSButton *verifyLocalPackageButton;
-@property (weak) IBOutlet NSButton *submitLocalPackageToiTunesConnectButton;
-
 @property (readonly, strong, nonatomic) RMConnecterCredentials *credentials;
+@property (readonly, copy, nonatomic) NSString *appSKU;
+
+@property (readonly, copy, nonatomic) NSString *status;
+@property (readonly, copy, nonatomic) NSString *log;
+
 @property (readonly, getter = isLoading, assign, nonatomic) BOOL loading;
 
 @end

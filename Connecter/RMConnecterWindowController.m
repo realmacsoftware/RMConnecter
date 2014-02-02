@@ -29,7 +29,16 @@ static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPacka
 
 #import "RMConnecterWindowController.h"
 
+#import "RMConnecterCredentials.h"
+
 @interface RMConnecterWindowController () <NSTextFieldDelegate>
+
+@property (readwrite, strong, nonatomic) RMConnecterCredentials *credentials;
+
+@property (readwrite, copy, nonatomic) NSString *appSKU;
+
+@property (readwrite, copy, nonatomic) NSString *status;
+@property (readwrite, copy, nonatomic) NSString *log;
 
 @property (readwrite, assign, nonatomic) BOOL loading;
 
@@ -71,9 +80,11 @@ static NSString *_RMConnecterTransporterPath(void)
 	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
 	[self setOperationQueue:operationQueue];
 	
+	RMConnecterCredentials *credentials = [[RMConnecterCredentials alloc] init];
+	[self setCredentials:credentials];
+	
 	if (_RMConnecterTransporterPath() == nil) {
-		[[self statusTextField] setStringValue:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
-		[self setTransporterInteractionAvailability:NO];
+		[self setStatus:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
 		
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
@@ -87,8 +98,7 @@ static NSString *_RMConnecterTransporterPath(void)
 		}];
 	}
 	else {
-		[[self statusTextField] setStringValue:NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"")];
-		[self setTransporterInteractionAvailability:NO];
+		[self setStatus:NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"")];
 	};
 }
 
@@ -113,18 +123,21 @@ static NSString *_RMConnecterTransporterPath(void)
 						  if (result == NSFileHandlingPanelCancelButton) {
 							  return;
 						  }
-						  [[self logView] setString:@""];
+						  
+						  [self setLog:@""];
+						  
 						  NSURL *selectedPackageURL = [openPanel URL];
 						  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 						  [defaults setObject:selectedPackageURL.path forKey:_RMConnecterLastPackageLocationDefaultsKey];
+						  
 						  switch ([sender tag]) {
 							  case 1:
 								  [self verifyiTunesPackageAtURL:selectedPackageURL];
-								  [[self statusTextField] setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Verifying iTunes Package: %@", @"Verifying Package String"), selectedPackageURL.path]];
+								  [self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Verifying iTunes Package: %@", @"Verifying Package String"), [selectedPackageURL path]]];
 								  break;
 							  case 2:
 								  [self submitPackageAtURL:selectedPackageURL];
-								  [[self statusTextField] setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Submitting iTunes Package: %@", @"Submitting Package String"), selectedPackageURL.path]];
+								  [self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Submitting iTunes Package: %@", @"Submitting Package String"), [selectedPackageURL path]]];
 								  break;
 							  default:
 								  break;
@@ -150,9 +163,11 @@ static NSString *_RMConnecterTransporterPath(void)
 						  if (result == NSFileHandlingPanelCancelButton) {
 							  return;
 						  }
-						  [[self logView] setString:@""];
+						  
+						  [self setLog:@""];
+						  
 						  NSURL *selectedPackageURL = [openPanel URL];
-						  [[self statusTextField] setStringValue:[NSString stringWithFormat:NSLocalizedString(@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", "Downloaded Info String"), selectedPackageURL.path]];
+						  [self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", "Downloaded Info String"), [selectedPackageURL path]]];
 						  [self lookupMetadataAndPlaceInPackageAtURL:selectedPackageURL];
 					  }];
 }
@@ -162,7 +177,7 @@ static NSString *_RMConnecterTransporterPath(void)
 - (void)lookupMetadataAndPlaceInPackageAtURL:(NSURL *)packageURL
 {
 	NSArray *arguments = @[
-		@"-vendor_id", [[self iTunesConnectAppSKUField] stringValue],
+		@"-vendor_id", [self appSKU],
 		@"-destination", packageURL,
 	];
 	[self _enqueueiTunesConnectInteractionOperationForPackageAtURL:packageURL method:@"lookupMetadata" arguments:arguments openPackageUponTermination:YES];
@@ -191,15 +206,12 @@ static NSString *_RMConnecterTransporterPath(void)
 	
 	NSArray *taskArguments = @[
 		@"-m", method,
-		@"-u", [[self iTunesConnectUsernameField] stringValue],
-		@"-p", [[self iTunesConnectPasswordField] stringValue],
+		@"-u", [[self credentials] username],
+		@"-p", [[self credentials] password],
 	];
 	taskArguments = [taskArguments arrayByAddingObjectsFromArray:arguments];
 	
 	[self setLoading:YES];
-	
-	[self shouldShowAndAnimateActivityIndicator:YES];
-	[self setTransporterInteractionAvailability:NO];
 	
 	__block NSString *result = @"";
 	
@@ -222,11 +234,8 @@ static NSString *_RMConnecterTransporterPath(void)
 	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^{
 		[self setLoading:NO];
 		
-		[self setTransporterInteractionAvailability:YES];
-		[self shouldShowAndAnimateActivityIndicator:NO];
-		
-		[[self statusTextField] setStringValue:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
-		[[self logView] setString:result];
+		[self setStatus:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
+		[self setLog:result];
 		
 		if (openPackageUponTermination) {
 			[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[packageURL]];
@@ -234,51 +243,6 @@ static NSString *_RMConnecterTransporterPath(void)
 	}];
 	[resultOperation addDependency:taskOperation];
 	[[NSOperationQueue mainQueue] addOperation:resultOperation];
-}
-
-#pragma mark - Transporter Preflighting
-
-- (void)setTransporterInteractionAvailability:(BOOL)b {
-	[[self submitLocalPackageToiTunesConnectButton] setEnabled:b];
-	[[self verifyLocalPackageButton] setEnabled:b];
-	[[self iTunesConnectAppSKUField] setEnabled:b];
-	if ([self.iTunesConnectAppSKUField.stringValue length] > 0) {
-		[[self downloadPackageFromiTunesConnectButton] setEnabled:b];
-	}
-}
-
-- (void)shouldShowAndAnimateActivityIndicator:(BOOL)b {
-	switch (b) {
-		case YES:
-			[_activityQueueProgressIndicator setHidden:NO];
-			[_activityQueueProgressIndicator startAnimation:self];
-			break;
-		default:
-			[_activityQueueProgressIndicator setHidden:YES];
-			
-			[_activityQueueProgressIndicator stopAnimation:self];
-			break;
-	}
-}
-
-#pragma mark - NSTextFieldDelegate
-
-- (void)controlTextDidChange:(NSNotification *)aNotification  {
-	if (([self.iTunesConnectUsernameField.stringValue length] > 0) && ([self.iTunesConnectPasswordField.stringValue length] > 0)) {
-		[self setTransporterInteractionAvailability:YES];
-		[[self statusTextField] setStringValue:NSLocalizedString(@"Awaiting your command…", @"Awaiting your Command String")];
-	}
-	if ([self.iTunesConnectAppSKUField.stringValue length] > 0) {
-		[[self downloadPackageFromiTunesConnectButton] setEnabled:YES];
-	}
-	
-	if (([self.iTunesConnectUsernameField.stringValue length] == 0) && ([self.iTunesConnectPasswordField.stringValue length] == 0)) {
-		[self setTransporterInteractionAvailability:NO];
-		[[self statusTextField] setStringValue:NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"Enter Credentials Prompt")];
-	}
-	if ([self.iTunesConnectAppSKUField.stringValue length]== 0) {
-		[[self downloadPackageFromiTunesConnectButton] setEnabled:NO];
-	}
 }
 
 @end
