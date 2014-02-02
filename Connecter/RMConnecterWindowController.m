@@ -149,8 +149,7 @@ static NSString *_RMConnecterTransporterPath(void)
 					  }];
 }
 
-#pragma mark -
-#pragma mark iTunes Connect Interaction
+#pragma mark - iTunes Connect Interaction
 
 - (void)lookupMetadataAndPlaceInPackageAtURL:(NSURL *)PackageURL {
 	
@@ -234,8 +233,7 @@ static NSString *_RMConnecterTransporterPath(void)
 	}];
 }
 
-#pragma mark -
-#pragma mark Transporter Preflighting
+#pragma mark - Transporter Preflighting
 
 - (void)setCredentialEntryAvailability:(BOOL)b {
 	[[self iTunesConnectPasswordField] setEnabled:b];
@@ -265,7 +263,7 @@ static NSString *_RMConnecterTransporterPath(void)
 	}
 }
 
-#pragma mark NSTextField Delegate
+#pragma mark - NSTextFieldDelegate
 
 - (void)controlTextDidChange:(NSNotification *)aNotification  {
 	if (([self.iTunesConnectUsernameField.stringValue length] > 0) && ([self.iTunesConnectPasswordField.stringValue length] > 0)) {
