@@ -10,4 +10,21 @@
 
 @implementation RMConnecterCredentials
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+	NSMutableSet *keyPaths = [NSMutableSet setWithSet:[super keyPathsForValuesAffectingValueForKey:key]];
+	
+	if ([key isEqualToString:@"valid"]) {
+		[keyPaths addObject:@"username"];
+		[keyPaths addObject:@"password"];
+	}
+	
+	return keyPaths;
+}
+
+- (BOOL)isValid
+{
+	return ([[self username] length] > 0 && [[self password] length] > 0);
+}
+
 @end

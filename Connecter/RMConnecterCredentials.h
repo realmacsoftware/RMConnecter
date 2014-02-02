@@ -13,4 +13,6 @@
 @property (copy, nonatomic) NSString *username;
 @property (copy, nonatomic) NSString *password;
 
+@property (readonly, getter = isValid, assign, nonatomic) BOOL valid;
+
 @end
