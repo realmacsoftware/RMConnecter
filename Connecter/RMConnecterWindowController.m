@@ -261,7 +261,7 @@ static NSString *_RMConnecterTransporterPath(void)
 	RMConnecterOperation *connecterOperation = [[RMConnecterOperation alloc] initWithToolLaunchPath:launchPath arguments:launchArguments];
 	[[self operationQueue] addOperation:connecterOperation];
 	
-	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^{
+	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^ {
 		[self setLoading:NO];
 		
 		NSError *connecterError = nil;
