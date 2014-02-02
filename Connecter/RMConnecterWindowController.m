@@ -50,6 +50,7 @@ static NSString * const _RMConnecterCredentialsUsernameDefaultsKey = @"credentia
 @property (readwrite, copy, nonatomic) NSString *log;
 
 @property (readwrite, assign, nonatomic) BOOL loading;
+@property (readwrite, assign, nonatomic) BOOL hasTransporter;
 
 @property (strong, nonatomic) NSOperationQueue *operationQueue;
 
@@ -109,23 +110,33 @@ static NSString *_RMConnecterTransporterPath(void)
 	}
 	[self setCredentials:credentials];
 	
-	if (_RMConnecterTransporterPath() == nil) {
-		[self setInternalStatus:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
-		
-		NSAlert *alert = [[NSAlert alloc] init];
-		[alert addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
-		[alert addButtonWithTitle:NSLocalizedString(@"Get Xcode", "Transporter Missing Alert Get Xcode Button Label")];
-		[alert setMessageText:NSLocalizedString(@"Unable to Locate iTMSTransporter", @"")];
-		[alert setInformativeText:NSLocalizedString(@"Connecter requires the iTMSTransporter binary to be installed. Please install Xcode from the Mac App Store.", @"")];
-		[alert beginSheetModalForWindow:[self window] completionHandler:^ (NSModalResponse returnCode) {
-			if (returnCode == NSAlertSecondButtonReturn) {
-				[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://itunes.apple.com/gb/app/xcode/id497799835?mt=12"]];
-			}
-		}];
+	BOOL hasTransporter = (_RMConnecterTransporterPath() != nil);
+	[self setHasTransporter:hasTransporter];
+	
+	[self setInternalStatus:NSLocalizedString(@"Awaiting your command…", @"Awaiting your Command String")];
+	
+	[self performSelector:@selector(_checkTransporter) withObject:nil afterDelay:0.0];
+}
+
+- (void)_checkTransporter
+{
+	if ([self hasTransporter]) {
+		return;
 	}
-	else {
-		[self setInternalStatus:NSLocalizedString(@"Awaiting your command…", @"Awaiting your Command String")];
-	};
+	
+	[self setInternalStatus:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
+	
+	NSAlert *alert = [[NSAlert alloc] init];
+	[alert addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
+	[alert addButtonWithTitle:NSLocalizedString(@"Get Xcode", "Transporter Missing Alert Get Xcode Button Label")];
+	[alert setMessageText:NSLocalizedString(@"Unable to Locate iTMSTransporter", @"")];
+	[alert setInformativeText:NSLocalizedString(@"Connecter requires the iTMSTransporter binary to be installed. Please install Xcode from the Mac App Store.", @"")];
+	
+	[alert beginSheetModalForWindow:[self window] completionHandler:^ (NSModalResponse returnCode) {
+		if (returnCode == NSAlertSecondButtonReturn) {
+			[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://itunes.apple.com/gb/app/xcode/id497799835?mt=12"]];
+		}
+	}];
 }
 
 #pragma mark - Properties
