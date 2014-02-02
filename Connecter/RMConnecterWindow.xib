@@ -53,9 +53,10 @@
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="value" keyPath="self.credentials.username" id="bUo-zc-jdU">
+                            <binding destination="-2" name="value" keyPath="self.credentials.username" id="Q6n-HH-aGh">
                                 <dictionary key="options">
                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                    <string key="NSNullPlaceholder">me@developer.com</string>
                                 </dictionary>
                             </binding>
                         </connections>
@@ -93,6 +94,20 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="lQJ-Ul-iho"/>
+                            <binding destination="-2" name="enabled2" keyPath="self.credentials.password" previousBinding="bT1-Up-1q7" id="DNw-ZK-VOk">
+                                <dictionary key="options">
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.username" id="bT1-Up-1q7">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="kHZ-3S-1SX">
@@ -104,6 +119,20 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="69s-6e-OeI"/>
+                            <binding destination="-2" name="enabled2" keyPath="self.credentials.password" previousBinding="ax7-9c-ynG" id="yEI-gO-4xp">
+                                <dictionary key="options">
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.username" id="ax7-9c-ynG">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </button>
                     <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="T2i-xe-DWB">
