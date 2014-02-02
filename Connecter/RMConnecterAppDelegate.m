@@ -37,12 +37,19 @@
 
 @implementation RMConnecterAppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
 	RMConnecterWindowController *windowController = [[RMConnecterWindowController alloc] init];
 	[self setWindowController:windowController];
 	
 	[windowController showWindow:nil];
+}
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)application hasVisibleWindows:(BOOL)hasVisibleWindows
+{
+	[[self windowController] showWindow:application];
+	
+	return YES;
 }
 
 @end
