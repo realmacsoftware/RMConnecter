@@ -40,7 +40,7 @@
                         </connections>
                     </button>
                     <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-DH-i3e">
-                        <rect key="frame" x="201" y="418" width="259" height="22"/>
+                        <rect key="frame" x="201" y="418" width="267" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="spu-1u-WhI">
                             <font key="font" metaFont="system"/>
@@ -55,7 +55,7 @@
                         </connections>
                     </secureTextField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-V0-2sZ">
-                        <rect key="frame" x="201" y="450" width="259" height="22"/>
+                        <rect key="frame" x="201" y="450" width="267" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="me@developer.com" drawsBackground="YES" id="2Xt-OJ-52M">
                             <font key="font" metaFont="system"/>
@@ -67,7 +67,7 @@
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-qY-l0o">
-                        <rect key="frame" x="291" y="201" width="87" height="32"/>
+                        <rect key="frame" x="284" y="201" width="87" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Verify" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HQR-0U-lnJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -78,7 +78,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="kHZ-3S-1SX">
-                        <rect key="frame" x="375" y="201" width="103" height="32"/>
+                        <rect key="frame" x="371" y="201" width="103" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mfg-SV-EY5">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -111,14 +111,14 @@
                         </textFieldCell>
                     </textField>
                     <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="V2f-1y-Jxv">
-                        <rect key="frame" x="12" y="407" width="456" height="5"/>
+                        <rect key="frame" x="20" y="407" width="448" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqt-X6-GMC">
-                        <rect key="frame" x="18" y="384" width="256" height="17"/>
+                        <rect key="frame" x="18" y="384" width="452" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Download from iTunes Connect" id="TM4-3a-0D6">
                             <font key="font" metaFont="systemBold"/>
@@ -127,7 +127,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LeI-0H-cK6">
-                        <rect key="frame" x="20" y="348" width="450" height="28"/>
+                        <rect key="frame" x="18" y="348" width="452" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="0Fq-U9-mJS">
                             <font key="font" metaFont="smallSystem"/>
@@ -137,14 +137,14 @@
                         </textFieldCell>
                     </textField>
                     <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-4k-Fny">
-                        <rect key="frame" x="16" y="296" width="456" height="5"/>
+                        <rect key="frame" x="20" y="296" width="448" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kpb-7u-D53">
-                        <rect key="frame" x="22" y="273" width="256" height="17"/>
+                        <rect key="frame" x="18" y="273" width="452" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Submit to iTunes Connect" id="8I0-0d-deA">
                             <font key="font" metaFont="systemBold"/>
@@ -153,7 +153,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBJ-GI-ap6">
-                        <rect key="frame" x="24" y="237" width="450" height="28"/>
+                        <rect key="frame" x="18" y="237" width="452" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Before submitting an iTunes Connect package, you should verify the contents of the package." id="vlG-7g-G9O">
                             <font key="font" metaFont="smallSystem"/>
@@ -162,7 +162,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoW-Pf-xTX">
-                        <rect key="frame" x="22" y="171" width="424" height="17"/>
+                        <rect key="frame" x="18" y="171" width="428" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Waiting…" id="2CU-si-Gz2">
                             <font key="font" metaFont="smallSystem"/>
@@ -170,14 +170,14 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7v-qJ-acO">
-                        <rect key="frame" x="24" y="20" width="448" height="143"/>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7v-qJ-acO">
+                        <rect key="frame" x="20" y="20" width="448" height="143"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="QLp-3C-Me2">
+                        <clipView key="contentView" id="QLp-3C-Me2">
                             <rect key="frame" x="1" y="1" width="446" height="141"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView ambiguous="YES" editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Vy9-Vu-UKb">
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Vy9-Vu-UKb">
                                     <rect key="frame" x="0.0" y="0.0" width="446" height="141"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,6 +198,10 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </clipView>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="448" id="N5N-s7-uxX"/>
+                            <constraint firstAttribute="height" constant="143" id="m17-hn-4Cj"/>
+                        </constraints>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="eO7-LX-eUp">
                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                             <autoresizingMask key="autoresizingMask"/>
@@ -220,6 +224,10 @@
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="o7v-qJ-acO" secondAttribute="bottom" constant="20" id="3ze-2V-d0g"/>
+                    <constraint firstAttribute="centerX" secondItem="o7v-qJ-acO" secondAttribute="centerX" id="UF0-jh-fFg"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="vG3-Aw-eGO"/>
