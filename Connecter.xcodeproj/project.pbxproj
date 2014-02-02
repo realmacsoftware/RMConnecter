@@ -124,15 +124,11 @@
 		247F2810189127D8000F8041 /* Connecter */ = {
 			isa = PBXGroup;
 			children = (
-				247F283E1891282D000F8041 /* Connecter.entitlements */,
 				247F281C189127D8000F8041 /* RMConnecterAppDelegate.h */,
 				247F281D189127D8000F8041 /* RMConnecterAppDelegate.m */,
 				247F281F189127D8000F8041 /* MainMenu.xib */,
-				6D739021189E79E9000764E4 /* RMConnecterWindowController.h */,
-				6D739022189E79E9000764E4 /* RMConnecterWindowController.m */,
-				6D739023189E79E9000764E4 /* RMConnecterWindow.xib */,
-				6D739026189E91BE000764E4 /* RMConnecterCredentials.h */,
-				6D739027189E91BE000764E4 /* RMConnecterCredentials.m */,
+				6D739029189E9A65000764E4 /* UI */,
+				6D73902A189E9A69000764E4 /* Model */,
 				247F2822189127D8000F8041 /* Images.xcassets */,
 				247F2811189127D8000F8041 /* Supporting Files */,
 			);
@@ -142,6 +138,7 @@
 		247F2811189127D8000F8041 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				247F283E1891282D000F8041 /* Connecter.entitlements */,
 				247F2812189127D8000F8041 /* Connecter-Info.plist */,
 				247F2813189127D8000F8041 /* InfoPlist.strings */,
 				247F2816189127D8000F8041 /* main.m */,
@@ -167,6 +164,25 @@
 				247F2831189127D8000F8041 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6D739029189E9A65000764E4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6D739021189E79E9000764E4 /* RMConnecterWindowController.h */,
+				6D739022189E79E9000764E4 /* RMConnecterWindowController.m */,
+				6D739023189E79E9000764E4 /* RMConnecterWindow.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		6D73902A189E9A69000764E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D739026189E91BE000764E4 /* RMConnecterCredentials.h */,
+				6D739027189E91BE000764E4 /* RMConnecterCredentials.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
