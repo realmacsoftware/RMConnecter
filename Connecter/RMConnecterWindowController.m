@@ -30,6 +30,7 @@ static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPacka
 #import "RMConnecterWindowController.h"
 
 #import "RMConnecterCredentials.h"
+#import "RMConnecterOperation.h"
 
 @interface RMConnecterWindowController () <NSTextFieldDelegate>
 
@@ -222,44 +223,34 @@ static NSString *_RMConnecterTransporterPath(void)
 	NSParameterAssert(packageURL != nil);
 	NSParameterAssert(method != nil);
 	
-	NSArray *taskArguments = @[
+	NSString *launchPath = _RMConnecterTransporterPath();
+	
+	NSArray *launchArguments = @[
 		@"-m", method,
 		@"-u", [[self credentials] username],
 		@"-p", [[self credentials] password],
 	];
-	taskArguments = [taskArguments arrayByAddingObjectsFromArray:arguments];
+	launchArguments = [launchArguments arrayByAddingObjectsFromArray:arguments];
 	
 	[self setLoading:YES];
 	
-	__block NSString *result = @"";
-	
-	NSOperation *taskOperation = [NSBlockOperation blockOperationWithBlock:^{
-		NSTask *task = [[NSTask alloc] init];
-		[task setLaunchPath:_RMConnecterTransporterPath()];
-		[task setArguments:taskArguments];
-		
-		NSPipe *pipe = [NSPipe pipe];
-		[task setStandardOutput:pipe];
-		NSFileHandle *file = [pipe fileHandleForReading];
-		
-		[task launch];
-		
-		NSData *data = [file readDataToEndOfFile];
-		result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	}];
-	[[self operationQueue] addOperation:taskOperation];
+	RMConnecterOperation *connecterOperation = [[RMConnecterOperation alloc] initWithToolLaunchPath:launchPath arguments:launchArguments];
+	[[self operationQueue] addOperation:connecterOperation];
 	
 	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^{
 		[self setLoading:NO];
 		
+		NSError *connecterError = nil;
+		NSString *connecterResult = [connecterOperation completionProvider](&connecterError);
+		
 		[self setInternalStatus:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
-		[self setLog:result];
+		[self setLog:connecterResult];
 		
 		if (openPackageUponTermination) {
 			[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[packageURL]];
 		}
 	}];
-	[resultOperation addDependency:taskOperation];
+	[resultOperation addDependency:connecterOperation];
 	[[NSOperationQueue mainQueue] addOperation:resultOperation];
 }
 
