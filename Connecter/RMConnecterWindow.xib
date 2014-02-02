@@ -6,6 +6,14 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RMConnecterWindowController">
             <connections>
+                <outlet property="activityQueueProgressIndicator" destination="T2i-xe-DWB" id="7dD-AW-iyz"/>
+                <outlet property="downloadPackageFromiTunesConnectButton" destination="BXT-ee-SKW" id="AI1-5g-d42"/>
+                <outlet property="iTunesConnectAppSKUField" destination="aEj-eP-61c" id="xAU-CF-P8B"/>
+                <outlet property="iTunesConnectPasswordField" destination="gy4-DH-i3e" id="kfK-FV-cu3"/>
+                <outlet property="iTunesConnectUsernameField" destination="dbr-V0-2sZ" id="BLd-21-ip0"/>
+                <outlet property="logView" destination="Vy9-Vu-UKb" id="Bsb-Yz-gFy"/>
+                <outlet property="submitLocalPackageToiTunesConnectButton" destination="kHZ-3S-1SX" id="DsJ-e2-S8P"/>
+                <outlet property="verifyLocalPackageButton" destination="YZe-qY-l0o" id="1jD-fD-I7W"/>
                 <outlet property="window" destination="HZn-zH-jiB" id="q2v-AG-Daq"/>
             </connections>
         </customObject>
@@ -27,6 +35,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="selectLocationForDownloadedMetadata:" target="-2" id="rmV-Yt-XUP"/>
+                        </connections>
                     </button>
                     <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-DH-i3e">
                         <rect key="frame" x="201" y="418" width="259" height="22"/>
@@ -39,6 +50,9 @@
                                 <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="-2" id="Tws-ZN-Y2N"/>
+                        </connections>
                     </secureTextField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-V0-2sZ">
                         <rect key="frame" x="201" y="450" width="259" height="22"/>
@@ -48,6 +62,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="-2" id="qrE-Pw-8T0"/>
+                        </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-qY-l0o">
                         <rect key="frame" x="291" y="201" width="87" height="32"/>
@@ -56,6 +73,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="chooseiTunesPackage:" target="-2" id="lQJ-Ul-iho"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="kHZ-3S-1SX">
                         <rect key="frame" x="375" y="201" width="103" height="32"/>
@@ -64,6 +84,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="chooseiTunesPackage:" target="-2" id="69s-6e-OeI"/>
+                        </connections>
                     </button>
                     <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="T2i-xe-DWB">
                         <rect key="frame" x="452" y="172" width="16" height="16"/>
@@ -192,6 +215,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="-2" id="vuV-k0-03P"/>
+                        </connections>
                     </textField>
                 </subviews>
             </view>
