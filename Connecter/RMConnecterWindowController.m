@@ -25,7 +25,7 @@
 //	SOFTWARE.
 //
 
-NSString * const LastPackageLocationDefaultsKey = @"lastPackageLocation";
+static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPackageLocation";
 
 #import "RMConnecterWindowController.h"
 
@@ -50,7 +50,7 @@ static NSString *_RMConnecterTransporterPath(void)
 + (void)load
 {
 	@autoreleasepool {
-		NSDictionary *registrationDefaults = @{LastPackageLocationDefaultsKey : @"~/Desktop"};
+		NSDictionary *registrationDefaults = @{_RMConnecterLastPackageLocationDefaultsKey : @"~/Desktop"};
 		[[NSUserDefaults standardUserDefaults] registerDefaults:registrationDefaults];
 	}
 }
@@ -86,6 +86,8 @@ static NSString *_RMConnecterTransporterPath(void)
 	};
 }
 
+#pragma mark - Actions
+
 - (IBAction)chooseiTunesPackage:(id)sender
 {
 	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -96,7 +98,7 @@ static NSString *_RMConnecterTransporterPath(void)
 	[openPanel setAllowedFileTypes:@[@"itmsp"]];
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString * filePath = [defaults stringForKey:LastPackageLocationDefaultsKey];
+	NSString * filePath = [defaults stringForKey:_RMConnecterLastPackageLocationDefaultsKey];
 	NSURL *fileURL = [NSURL fileURLWithPath:filePath];
 	[openPanel setDirectoryURL:fileURL];
 	
@@ -108,7 +110,7 @@ static NSString *_RMConnecterTransporterPath(void)
 						  [[self logView] setString:@""];
 						  NSURL *selectedPackageURL = [openPanel URL];
 						  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-						  [defaults setObject:selectedPackageURL.path forKey:LastPackageLocationDefaultsKey];
+						  [defaults setObject:selectedPackageURL.path forKey:_RMConnecterLastPackageLocationDefaultsKey];
 						  switch ([sender tag]) {
 							  case 1:
 								  [self verifyiTunesPackageAtURL:selectedPackageURL];
@@ -133,7 +135,7 @@ static NSString *_RMConnecterTransporterPath(void)
 	[openPanel setCanChooseFiles:NO];
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString * filePath = [defaults stringForKey:LastPackageLocationDefaultsKey];
+	NSString * filePath = [defaults stringForKey:_RMConnecterLastPackageLocationDefaultsKey];
 	NSURL *fileURL = [NSURL fileURLWithPath:filePath];
 	[openPanel setDirectoryURL:fileURL];
 	
