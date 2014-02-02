@@ -34,10 +34,6 @@
 @property (unsafe_unretained) IBOutlet NSTextView *logView;
 @property (weak) IBOutlet NSTextField *iTunesConnectAppSKUField;
 
-// Sign-in Fields
-@property (assign) IBOutlet NSTextField *iTunesConnectUsernameField;
-@property (assign) IBOutlet NSSecureTextField *iTunesConnectPasswordField;
-
 // State Controls
 @property (assign) IBOutlet NSProgressIndicator *activityQueueProgressIndicator;
 @property (weak) IBOutlet NSTextField *statusTextField;

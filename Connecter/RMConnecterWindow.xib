@@ -9,8 +9,6 @@
                 <outlet property="activityQueueProgressIndicator" destination="T2i-xe-DWB" id="7dD-AW-iyz"/>
                 <outlet property="downloadPackageFromiTunesConnectButton" destination="BXT-ee-SKW" id="AI1-5g-d42"/>
                 <outlet property="iTunesConnectAppSKUField" destination="aEj-eP-61c" id="xAU-CF-P8B"/>
-                <outlet property="iTunesConnectPasswordField" destination="gy4-DH-i3e" id="kfK-FV-cu3"/>
-                <outlet property="iTunesConnectUsernameField" destination="dbr-V0-2sZ" id="BLd-21-ip0"/>
                 <outlet property="logView" destination="Vy9-Vu-UKb" id="Bsb-Yz-gFy"/>
                 <outlet property="submitLocalPackageToiTunesConnectButton" destination="kHZ-3S-1SX" id="DsJ-e2-S8P"/>
                 <outlet property="verifyLocalPackageButton" destination="YZe-qY-l0o" id="1jD-fD-I7W"/>
@@ -94,20 +92,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="lQJ-Ul-iho"/>
-                            <binding destination="-2" name="enabled2" keyPath="self.credentials.password" previousBinding="bT1-Up-1q7" id="DNw-ZK-VOk">
-                                <dictionary key="options">
-                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                    <integer key="NSNullPlaceholder" value="-1"/>
-                                    <string key="NSValueTransformerName">NSIsNotNil</string>
-                                </dictionary>
-                            </binding>
-                            <binding destination="-2" name="enabled" keyPath="self.credentials.username" id="bT1-Up-1q7">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSIsNotNil</string>
-                                </dictionary>
-                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="Rih-Ag-fTJ"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="kHZ-3S-1SX">
@@ -119,7 +104,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="69s-6e-OeI"/>
-                            <binding destination="-2" name="enabled2" keyPath="self.credentials.password" previousBinding="ax7-9c-ynG" id="yEI-gO-4xp">
+                            <binding destination="-2" name="enabled2" keyPath="self.credentials.password" previousBinding="YH7-fb-1e3" id="5yg-fB-VDb">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -128,11 +113,7 @@
                                     <string key="NSValueTransformerName">NSIsNotNil</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="enabled" keyPath="self.credentials.username" id="ax7-9c-ynG">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSIsNotNil</string>
-                                </dictionary>
-                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="YH7-fb-1e3"/>
                         </connections>
                     </button>
                     <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="T2i-xe-DWB">
