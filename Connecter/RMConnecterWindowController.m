@@ -73,7 +73,6 @@ static NSString *_RMConnecterTransporterPath(void)
 	
 	if (_RMConnecterTransporterPath() == nil) {
 		[[self statusTextField] setStringValue:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
-		[self setCredentialEntryAvailability:NO];
 		[self setTransporterInteractionAvailability:NO];
 		
 		NSAlert *alert = [[NSAlert alloc] init];
@@ -201,7 +200,6 @@ static NSString *_RMConnecterTransporterPath(void)
 	
 	[self shouldShowAndAnimateActivityIndicator:YES];
 	[self setTransporterInteractionAvailability:NO];
-	[self setCredentialEntryAvailability:NO];
 	
 	__block NSString *result = @"";
 	
@@ -224,7 +222,6 @@ static NSString *_RMConnecterTransporterPath(void)
 	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^{
 		[self setLoading:NO];
 		
-		[self setCredentialEntryAvailability:YES];
 		[self setTransporterInteractionAvailability:YES];
 		[self shouldShowAndAnimateActivityIndicator:NO];
 		
@@ -240,11 +237,6 @@ static NSString *_RMConnecterTransporterPath(void)
 }
 
 #pragma mark - Transporter Preflighting
-
-- (void)setCredentialEntryAvailability:(BOOL)b {
-	[[self iTunesConnectPasswordField] setEnabled:b];
-	[[self iTunesConnectUsernameField] setEnabled:b];
-}
 
 - (void)setTransporterInteractionAvailability:(BOOL)b {
 	[[self submitLocalPackageToiTunesConnectButton] setEnabled:b];
