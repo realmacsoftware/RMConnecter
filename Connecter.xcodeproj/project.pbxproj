@@ -129,8 +129,8 @@
 				247F281F189127D8000F8041 /* MainMenu.xib */,
 				6D739029189E9A65000764E4 /* UI */,
 				6D73902A189E9A69000764E4 /* Model */,
-				247F2822189127D8000F8041 /* Images.xcassets */,
 				247F2811189127D8000F8041 /* Supporting Files */,
+				247F2822189127D8000F8041 /* Images.xcassets */,
 			);
 			path = Connecter;
 			sourceTree = "<group>";
