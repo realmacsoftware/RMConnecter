@@ -10,4 +10,6 @@
 
 @interface RMConnecterCredentials (Keychain)
 
++ (instancetype)findCredentialsInKeychainForUsername:(NSString *)username error:(NSError **)errorRef;
+
 @end
