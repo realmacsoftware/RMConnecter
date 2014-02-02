@@ -41,10 +41,9 @@
 		247F280D189127D8000F8041 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		247F280E189127D8000F8041 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		247F280F189127D8000F8041 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		247F2812189127D8000F8041 /* Connecter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Connecter-Info.plist"; sourceTree = "<group>"; };
+		247F2812189127D8000F8041 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		247F2814189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		247F2816189127D8000F8041 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		247F2818189127D8000F8041 /* Connecter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Connecter-Prefix.pch"; sourceTree = "<group>"; };
 		247F281A189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		247F281C189127D8000F8041 /* RMConnecterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMConnecterAppDelegate.h; sourceTree = "<group>"; };
 		247F281D189127D8000F8041 /* RMConnecterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMConnecterAppDelegate.m; sourceTree = "<group>"; };
@@ -56,7 +55,7 @@
 		247F2832189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		247F2834189127D8000F8041 /* ConnecterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnecterTests.m; sourceTree = "<group>"; };
 		247F283E1891282D000F8041 /* Connecter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Connecter.entitlements; sourceTree = "<group>"; };
-		6D0C75BF189EB632008ADECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/RMConnecterWindow.xib; sourceTree = "<group>"; };
+		6D0C75BF189EB632008ADECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RMConnecterWindow.xib; sourceTree = "<group>"; };
 		6D0C75C2189EB637008ADECB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RMConnecterWindow.strings; sourceTree = "<group>"; };
 		6D0C75C4189EB63D008ADECB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		6D739021189E79E9000764E4 /* RMConnecterWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMConnecterWindowController.h; sourceTree = "<group>"; };
@@ -148,10 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				247F283E1891282D000F8041 /* Connecter.entitlements */,
-				247F2812189127D8000F8041 /* Connecter-Info.plist */,
+				247F2812189127D8000F8041 /* Info.plist */,
 				247F2813189127D8000F8041 /* InfoPlist.strings */,
 				247F2816189127D8000F8041 /* main.m */,
-				247F2818189127D8000F8041 /* Connecter-Prefix.pch */,
 				247F2819189127D8000F8041 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -462,9 +460,7 @@
 				CODE_SIGN_ENTITLEMENTS = Connecter/Connecter.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Connecter/Connecter-Prefix.pch";
-				INFOPLIST_FILE = "Connecter/Connecter-Info.plist";
+				INFOPLIST_FILE = Connecter/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -477,9 +473,7 @@
 				CODE_SIGN_ENTITLEMENTS = Connecter/Connecter.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Connecter/Connecter-Prefix.pch";
-				INFOPLIST_FILE = "Connecter/Connecter-Info.plist";
+				INFOPLIST_FILE = Connecter/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
