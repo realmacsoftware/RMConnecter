@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RMConnecterWindowController">
             <connections>
+                <outlet property="passwordTextField" destination="gy4-DH-i3e" id="tD0-Re-9cR"/>
+                <outlet property="usernameTextField" destination="dbr-V0-2sZ" id="vmP-m8-c7E"/>
                 <outlet property="window" destination="HZn-zH-jiB" id="q2v-AG-Daq"/>
             </connections>
         </customObject>
@@ -54,17 +56,18 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="enabled" keyPath="self.loading" id="0bf-nj-h4u">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                </dictionary>
-                            </binding>
                             <binding destination="-2" name="value" keyPath="self.credentials.username" id="Q6n-HH-aGh">
                                 <dictionary key="options">
                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                     <string key="NSNullPlaceholder">me@developer.com</string>
                                 </dictionary>
                             </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.loading" id="0bf-nj-h4u">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <outlet property="delegate" destination="-2" id="R4n-hS-xPT"/>
                         </connections>
                     </textField>
                     <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-DH-i3e">
@@ -79,16 +82,17 @@
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                         <connections>
-                            <binding destination="-2" name="enabled" keyPath="self.loading" id="fSo-I9-4R9">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                </dictionary>
-                            </binding>
                             <binding destination="-2" name="value" keyPath="self.credentials.password" id="p7k-2p-8WR">
                                 <dictionary key="options">
                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                 </dictionary>
                             </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.loading" id="fSo-I9-4R9">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <outlet property="delegate" destination="-2" id="ZGX-XZ-Ofg"/>
                         </connections>
                     </secureTextField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-qY-l0o">
@@ -100,6 +104,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="lQJ-Ul-iho"/>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="Rih-Ag-fTJ"/>
                             <binding destination="-2" name="enabled2" keyPath="self.loading" previousBinding="Rih-Ag-fTJ" id="cDg-gC-dJk">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -109,7 +114,6 @@
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="Rih-Ag-fTJ"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="kHZ-3S-1SX">
@@ -121,6 +125,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="69s-6e-OeI"/>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="YH7-fb-1e3"/>
                             <binding destination="-2" name="enabled2" keyPath="self.loading" previousBinding="YH7-fb-1e3" id="Oev-Ze-FRJ">
                                 <dictionary key="options">
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -130,7 +135,6 @@
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="YH7-fb-1e3"/>
                         </connections>
                     </button>
                     <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="T2i-xe-DWB">
@@ -278,14 +282,14 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="enabled" keyPath="self.loading" id="9ht-T7-T8T">
-                                <dictionary key="options">
-                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                </dictionary>
-                            </binding>
                             <binding destination="-2" name="value" keyPath="self.appSKU" id="lHy-p1-3MO">
                                 <dictionary key="options">
                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.loading" id="9ht-T7-T8T">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
                         </connections>

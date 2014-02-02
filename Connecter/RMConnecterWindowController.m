@@ -25,14 +25,22 @@
 //	SOFTWARE.
 //
 
-static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPackageLocation";
-
 #import "RMConnecterWindowController.h"
 
-#import "RMConnecterCredentials.h"
 #import "RMConnecterOperation.h"
+#import "RMConnecterCredentials.h"
+#import "RMConnecterCredentials+Keychain.h"
 
-@interface RMConnecterWindowController () <NSTextFieldDelegate>
+static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPackageLocation";
+static NSString * const _RMConnecterCredentialsUsernameDefaultsKey = @"credentialsUsername";
+
+@interface RMConnecterWindowController (/* User interface */)
+
+@property (strong, nonatomic) IBOutlet NSTextField *usernameTextField, *passwordTextField;
+
+@end
+
+@interface RMConnecterWindowController (/* Data */)
 
 @property (readwrite, strong, nonatomic) RMConnecterCredentials *credentials;
 
@@ -93,7 +101,12 @@ static NSString *_RMConnecterTransporterPath(void)
 	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
 	[self setOperationQueue:operationQueue];
 	
-	RMConnecterCredentials *credentials = [[RMConnecterCredentials alloc] init];
+	NSString *currentUsername = [[NSUserDefaults standardUserDefaults] stringForKey:_RMConnecterCredentialsUsernameDefaultsKey];
+	
+	RMConnecterCredentials *credentials = [RMConnecterCredentials findCredentialsInKeychainForUsername:currentUsername error:NULL];
+	if (credentials == nil) {
+		credentials = [[RMConnecterCredentials alloc] init];
+	}
 	[self setCredentials:credentials];
 	
 	if (_RMConnecterTransporterPath() == nil) {
@@ -252,6 +265,30 @@ static NSString *_RMConnecterTransporterPath(void)
 	}];
 	[resultOperation addDependency:connecterOperation];
 	[[NSOperationQueue mainQueue] addOperation:resultOperation];
+}
+
+#pragma mark - NSControlSubclassNotifications
+
+- (void)controlTextDidEndEditing:(NSNotification *)notification
+{
+	NSTextField *textField = [notification object];
+	
+	if (textField == [self usernameTextField]) {
+		NSString *username = [textField stringValue];
+		
+		if ([username length] == 0) {
+			return;
+		}
+		
+		if ([[[self credentials] password] length] == 0) {
+			RMConnecterCredentials *credentials = [RMConnecterCredentials findCredentialsInKeychainForUsername:username error:NULL];
+			if (credentials != nil) {
+				[self setCredentials:credentials];
+			}
+		}
+		
+		[[NSUserDefaults standardUserDefaults] setObject:username forKey:_RMConnecterCredentialsUsernameDefaultsKey];
+	}
 }
 
 @end
