@@ -27,6 +27,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RMConnecterCredentials;
+
 @interface RMConnecterWindowController : NSWindowController
 
 @property (unsafe_unretained) IBOutlet NSTextView *logView;
@@ -45,6 +47,7 @@
 @property (weak) IBOutlet NSButton *verifyLocalPackageButton;
 @property (weak) IBOutlet NSButton *submitLocalPackageToiTunesConnectButton;
 
+@property (readonly, strong, nonatomic) RMConnecterCredentials *credentials;
 @property (readonly, getter = isLoading, assign, nonatomic) BOOL loading;
 
 @end
