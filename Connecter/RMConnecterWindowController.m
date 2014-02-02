@@ -37,7 +37,7 @@ static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPacka
 
 @property (readwrite, copy, nonatomic) NSString *appSKU;
 
-@property (readwrite, copy, nonatomic) NSString *status;
+@property (readwrite, copy, nonatomic) NSString *internalStatus;
 @property (readwrite, copy, nonatomic) NSString *log;
 
 @property (readwrite, assign, nonatomic) BOOL loading;
@@ -68,6 +68,18 @@ static NSString *_RMConnecterTransporterPath(void)
 	}
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+	NSMutableSet *keyPaths = [NSMutableSet setWithSet:[super keyPathsForValuesAffectingValueForKey:key]];
+	
+	if ([key isEqualToString:@"status"]) {
+		[keyPaths addObject:@"credentials.valid"];
+		[keyPaths addObject:@"internalStatus"];
+	}
+	
+	return keyPaths;
+}
+
 - (id)init
 {
 	return [self initWithWindowNibName:@"RMConnecterWindow" owner:self];
@@ -84,7 +96,7 @@ static NSString *_RMConnecterTransporterPath(void)
 	[self setCredentials:credentials];
 	
 	if (_RMConnecterTransporterPath() == nil) {
-		[self setStatus:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
+		[self setInternalStatus:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
 		
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
@@ -98,8 +110,18 @@ static NSString *_RMConnecterTransporterPath(void)
 		}];
 	}
 	else {
-		[self setStatus:NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"")];
+		[self setInternalStatus:NSLocalizedString(@"Awaiting your command…", @"Awaiting your Command String")];
 	};
+}
+
+#pragma mark - Properties
+
+- (NSString *)status
+{
+	if (![[self credentials] isValid]) {
+		return NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"Enter Credentials Prompt");
+	}
+	return [self internalStatus];
 }
 
 #pragma mark - Actions
@@ -131,11 +153,11 @@ static NSString *_RMConnecterTransporterPath(void)
 		switch ([sender tag]) {
 			case 1:
 				[self verifyiTunesPackageAtURL:selectedPackageURL];
-				[self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Verifying iTunes Package: %@", @"Verifying Package String"), [selectedPackageURL path]]];
+				[self setInternalStatus:[NSString stringWithFormat:NSLocalizedString(@"Verifying iTunes Package: %@", @"Verifying Package String"), [selectedPackageURL path]]];
 				break;
 			case 2:
 				[self submitPackageAtURL:selectedPackageURL];
-				[self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Submitting iTunes Package: %@", @"Submitting Package String"), [selectedPackageURL path]]];
+				[self setInternalStatus:[NSString stringWithFormat:NSLocalizedString(@"Submitting iTunes Package: %@", @"Submitting Package String"), [selectedPackageURL path]]];
 				break;
 			default:
 				break;
@@ -163,7 +185,7 @@ static NSString *_RMConnecterTransporterPath(void)
 		[self setLog:@""];
 		
 		NSURL *selectedPackageURL = [openPanel URL];
-		[self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", "Downloaded Info String"), [selectedPackageURL path]]];
+		[self setInternalStatus:[NSString stringWithFormat:NSLocalizedString(@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", "Downloaded Info String"), [selectedPackageURL path]]];
 		[self lookupMetadataAndPlaceInPackageAtURL:selectedPackageURL];
 	}];
 }
@@ -230,7 +252,7 @@ static NSString *_RMConnecterTransporterPath(void)
 	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^{
 		[self setLoading:NO];
 		
-		[self setStatus:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
+		[self setInternalStatus:NSLocalizedString(@"Finished", "Finished Interacting with iTunes Connect Strings")];
 		[self setLog:result];
 		
 		if (openPackageUponTermination) {
