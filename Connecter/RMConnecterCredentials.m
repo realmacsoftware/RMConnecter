@@ -10,6 +10,14 @@
 
 @implementation RMConnecterCredentials
 
++ (instancetype)credentialsWithUsername:(NSString *)username password:(NSString *)password
+{
+	RMConnecterCredentials *credentials = [[self alloc] init];
+	[credentials setUsername:username];
+	[credentials setPassword:password];
+	return credentials;
+}
+
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
 {
 	NSMutableSet *keyPaths = [NSMutableSet setWithSet:[super keyPathsForValuesAffectingValueForKey:key]];

@@ -10,6 +10,8 @@
 
 @interface RMConnecterCredentials : NSObject
 
++ (instancetype)credentialsWithUsername:(NSString *)username password:(NSString *)password;
+
 @property (copy, nonatomic) NSString *username;
 @property (copy, nonatomic) NSString *password;
 
