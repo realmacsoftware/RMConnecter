@@ -38,5 +38,6 @@
 @property (readonly, copy, nonatomic) NSString *log;
 
 @property (readonly, getter = isLoading, assign, nonatomic) BOOL loading;
+@property (readonly, assign, nonatomic) BOOL hasTransporter;
 
 @end
