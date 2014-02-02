@@ -50,6 +50,11 @@
 	NSParameterAssert(arguments != nil);
 	_arguments = arguments;
 	
+	_controlQueue = [[NSOperationQueue alloc] init];
+	[_controlQueue setMaxConcurrentOperationCount:1];
+	
+	_workQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	
 	return self;
 }
 
