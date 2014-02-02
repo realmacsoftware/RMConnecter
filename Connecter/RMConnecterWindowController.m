@@ -68,14 +68,19 @@ static NSString *_RMConnecterTransporterPath(void)
 		[[self statusTextField] setStringValue:NSLocalizedString(@"Please install iTunes Transporter", @"Status Field Install Transporter String")];
 		[self setCredentialEntryAvailability:NO];
 		[self setTransporterInteractionAvailability:NO];
+		
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
 		[alert addButtonWithTitle:NSLocalizedString(@"Get Xcode", "Transporter Missing Alert Get Xcode Button Label")];
 		[alert setMessageText:NSLocalizedString(@"Unable to Locate iTMSTransporter", @"")];
 		[alert setInformativeText:NSLocalizedString(@"Connecter requires the iTMSTransporter binary to be installed. Please install Xcode from the Mac App Store.", @"")];
-		[alert setAlertStyle:NSWarningAlertStyle];
-		[alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-	} else {
+		[alert beginSheetModalForWindow:[self window] completionHandler:^ (NSModalResponse returnCode) {
+			if (returnCode == NSAlertSecondButtonReturn) {
+				[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://itunes.apple.com/gb/app/xcode/id497799835?mt=12"]];
+			}
+		}];
+	}
+	else {
 		[[self statusTextField] setStringValue:NSLocalizedString(@"Please enter your iTunes Connect credentials…", @"")];
 		[self setTransporterInteractionAvailability:NO];
 	};
@@ -257,16 +262,6 @@ static NSString *_RMConnecterTransporterPath(void)
 			
 			[_activityQueueProgressIndicator stopAnimation:self];
 			break;
-	}
-}
-
-#pragma mark Alert Handling
-
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode
-		contextInfo:(void *)contextInfo {
-	
-	if (returnCode == NSAlertSecondButtonReturn) {
-		[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://itunes.apple.com/gb/app/xcode/id497799835?mt=12"]];
 	}
 }
 
