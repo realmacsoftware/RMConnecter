@@ -118,31 +118,29 @@ static NSString *_RMConnecterTransporterPath(void)
 	NSURL *fileURL = [NSURL fileURLWithPath:filePath];
 	[openPanel setDirectoryURL:fileURL];
 	
-	[openPanel beginSheetModalForWindow:[self window]
-					  completionHandler:^(NSInteger result) {
-						  if (result == NSFileHandlingPanelCancelButton) {
-							  return;
-						  }
-						  
-						  [self setLog:@""];
-						  
-						  NSURL *selectedPackageURL = [openPanel URL];
-						  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-						  [defaults setObject:selectedPackageURL.path forKey:_RMConnecterLastPackageLocationDefaultsKey];
-						  
-						  switch ([sender tag]) {
-							  case 1:
-								  [self verifyiTunesPackageAtURL:selectedPackageURL];
-								  [self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Verifying iTunes Package: %@", @"Verifying Package String"), [selectedPackageURL path]]];
-								  break;
-							  case 2:
-								  [self submitPackageAtURL:selectedPackageURL];
-								  [self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Submitting iTunes Package: %@", @"Submitting Package String"), [selectedPackageURL path]]];
-								  break;
-							  default:
-								  break;
-						  }
-					  }];
+	[openPanel beginSheetModalForWindow:[self window] completionHandler:^ (NSInteger result) {
+		if (result == NSFileHandlingPanelCancelButton) {
+			return;
+		}
+		
+		[self setLog:@""];
+		
+		NSURL *selectedPackageURL = [openPanel URL];
+		[[NSUserDefaults standardUserDefaults] setObject:[selectedPackageURL path] forKey:_RMConnecterLastPackageLocationDefaultsKey];
+		
+		switch ([sender tag]) {
+			case 1:
+				[self verifyiTunesPackageAtURL:selectedPackageURL];
+				[self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Verifying iTunes Package: %@", @"Verifying Package String"), [selectedPackageURL path]]];
+				break;
+			case 2:
+				[self submitPackageAtURL:selectedPackageURL];
+				[self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Submitting iTunes Package: %@", @"Submitting Package String"), [selectedPackageURL path]]];
+				break;
+			default:
+				break;
+		}
+	}];
 }
 
 - (IBAction)selectLocationForDownloadedMetadata:(id)sender
@@ -153,23 +151,21 @@ static NSString *_RMConnecterTransporterPath(void)
 	[openPanel setCanCreateDirectories:YES];
 	[openPanel setCanChooseFiles:NO];
 	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString * filePath = [defaults stringForKey:_RMConnecterLastPackageLocationDefaultsKey];
+	NSString * filePath = [[NSUserDefaults standardUserDefaults] stringForKey:_RMConnecterLastPackageLocationDefaultsKey];
 	NSURL *fileURL = [NSURL fileURLWithPath:filePath];
 	[openPanel setDirectoryURL:fileURL];
 	
-	[openPanel beginSheetModalForWindow:[self window]
-					  completionHandler:^(NSInteger result) {
-						  if (result == NSFileHandlingPanelCancelButton) {
-							  return;
-						  }
-						  
-						  [self setLog:@""];
-						  
-						  NSURL *selectedPackageURL = [openPanel URL];
-						  [self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", "Downloaded Info String"), [selectedPackageURL path]]];
-						  [self lookupMetadataAndPlaceInPackageAtURL:selectedPackageURL];
-					  }];
+	[openPanel beginSheetModalForWindow:[self window] completionHandler:^ (NSInteger result) {
+		if (result == NSFileHandlingPanelCancelButton) {
+			return;
+		}
+		
+		[self setLog:@""];
+		
+		NSURL *selectedPackageURL = [openPanel URL];
+		[self setStatus:[NSString stringWithFormat:NSLocalizedString(@"Retrieving package from iTunes Connect. Metadata will be downloaded to %@", "Downloaded Info String"), [selectedPackageURL path]]];
+		[self lookupMetadataAndPlaceInPackageAtURL:selectedPackageURL];
+	}];
 }
 
 #pragma mark - iTunes Connect Interaction
