@@ -18,8 +18,8 @@
 		247F282B189127D8000F8041 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F280A189127D8000F8041 /* Cocoa.framework */; };
 		247F2833189127D8000F8041 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 247F2831189127D8000F8041 /* InfoPlist.strings */; };
 		247F2835189127D8000F8041 /* ConnecterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 247F2834189127D8000F8041 /* ConnecterTests.m */; };
+		6D0C75BE189EB632008ADECB /* RMConnecterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */; };
 		6D739024189E79E9000764E4 /* RMConnecterWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739022189E79E9000764E4 /* RMConnecterWindowController.m */; };
-		6D739025189E79E9000764E4 /* RMConnecterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D739023189E79E9000764E4 /* RMConnecterWindow.xib */; };
 		6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739027189E91BE000764E4 /* RMConnecterCredentials.m */; };
 		6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */; };
 		6D739031189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */; };
@@ -56,9 +56,11 @@
 		247F2832189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		247F2834189127D8000F8041 /* ConnecterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnecterTests.m; sourceTree = "<group>"; };
 		247F283E1891282D000F8041 /* Connecter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Connecter.entitlements; sourceTree = "<group>"; };
+		6D0C75BF189EB632008ADECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/RMConnecterWindow.xib; sourceTree = "<group>"; };
+		6D0C75C2189EB637008ADECB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RMConnecterWindow.strings; sourceTree = "<group>"; };
+		6D0C75C4189EB63D008ADECB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		6D739021189E79E9000764E4 /* RMConnecterWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMConnecterWindowController.h; sourceTree = "<group>"; };
 		6D739022189E79E9000764E4 /* RMConnecterWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMConnecterWindowController.m; sourceTree = "<group>"; };
-		6D739023189E79E9000764E4 /* RMConnecterWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMConnecterWindow.xib; sourceTree = "<group>"; };
 		6D739026189E91BE000764E4 /* RMConnecterCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMConnecterCredentials.h; sourceTree = "<group>"; };
 		6D739027189E91BE000764E4 /* RMConnecterCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMConnecterCredentials.m; sourceTree = "<group>"; };
 		6D73902B189E9AE2000764E4 /* RMConnecterOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMConnecterOperation.h; sourceTree = "<group>"; };
@@ -178,7 +180,7 @@
 			children = (
 				6D739021189E79E9000764E4 /* RMConnecterWindowController.h */,
 				6D739022189E79E9000764E4 /* RMConnecterWindowController.m */,
-				6D739023189E79E9000764E4 /* RMConnecterWindow.xib */,
+				6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -291,7 +293,7 @@
 				247F2823189127D8000F8041 /* Images.xcassets in Resources */,
 				247F281B189127D8000F8041 /* Credits.rtf in Resources */,
 				247F2821189127D8000F8041 /* MainMenu.xib in Resources */,
-				6D739025189E79E9000764E4 /* RMConnecterWindow.xib in Resources */,
+				6D0C75BE189EB632008ADECB /* RMConnecterWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +360,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				247F2820189127D8000F8041 /* Base */,
+				6D0C75C4189EB63D008ADECB /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -368,6 +371,15 @@
 				247F2832189127D8000F8041 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D0C75BF189EB632008ADECB /* Base */,
+				6D0C75C2189EB637008ADECB /* en */,
+			);
+			name = RMConnecterWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
