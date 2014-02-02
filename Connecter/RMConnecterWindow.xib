@@ -53,6 +53,11 @@
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
+                            <binding destination="-2" name="value" keyPath="self.username" id="rjW-2R-KrU">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                     <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-DH-i3e">
@@ -70,6 +75,11 @@
                             <binding destination="-2" name="enabled" keyPath="self.loading" id="fSo-I9-4R9">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="value" keyPath="self.password" id="DxA-xy-Bhx">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                 </dictionary>
                             </binding>
                         </connections>
