@@ -55,6 +55,13 @@
 	
 	_workQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	
+	_completionProvider = [^ NSString * (NSError **errorRef) {
+		if (errorRef != NULL) {
+			*errorRef = [NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil];
+		}
+		return nil;
+	} copy];
+	
 	return self;
 }
 
