@@ -53,7 +53,7 @@
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="value" keyPath="self.username" id="rjW-2R-KrU">
+                            <binding destination="-2" name="value" keyPath="self.credentials.username" id="bUo-zc-jdU">
                                 <dictionary key="options">
                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                 </dictionary>
@@ -77,7 +77,7 @@
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="value" keyPath="self.password" id="DxA-xy-Bhx">
+                            <binding destination="-2" name="value" keyPath="self.credentials.password" id="p7k-2p-8WR">
                                 <dictionary key="options">
                                     <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                 </dictionary>
