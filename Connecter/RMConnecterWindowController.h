@@ -45,4 +45,6 @@
 @property (weak) IBOutlet NSButton *verifyLocalPackageButton;
 @property (weak) IBOutlet NSButton *submitLocalPackageToiTunesConnectButton;
 
+@property (readonly, getter = isLoading, assign, nonatomic) BOOL loading;
+
 @end

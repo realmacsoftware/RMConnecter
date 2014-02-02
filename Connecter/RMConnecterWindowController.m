@@ -31,6 +31,8 @@ static NSString * const _RMConnecterLastPackageLocationDefaultsKey = @"lastPacka
 
 @interface RMConnecterWindowController () <NSTextFieldDelegate>
 
+@property (readwrite, assign, nonatomic) BOOL loading;
+
 @property (strong, nonatomic) NSOperationQueue *operationQueue;
 
 @end
@@ -195,6 +197,8 @@ static NSString *_RMConnecterTransporterPath(void)
 	];
 	taskArguments = [taskArguments arrayByAddingObjectsFromArray:arguments];
 	
+	[self setLoading:YES];
+	
 	[self shouldShowAndAnimateActivityIndicator:YES];
 	[self setTransporterInteractionAvailability:NO];
 	[self setCredentialEntryAvailability:NO];
@@ -218,6 +222,8 @@ static NSString *_RMConnecterTransporterPath(void)
 	[[self operationQueue] addOperation:taskOperation];
 	
 	NSOperation *resultOperation = [NSBlockOperation blockOperationWithBlock:^{
+		[self setLoading:NO];
+		
 		[self setCredentialEntryAvailability:YES];
 		[self setTransporterInteractionAvailability:YES];
 		[self shouldShowAndAnimateActivityIndicator:NO];
