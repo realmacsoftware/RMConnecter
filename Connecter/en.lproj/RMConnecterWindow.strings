@@ -1,0 +1,48 @@
+
+/* Class = "NSTextFieldCell"; title = "Get started by downloading the metadata for an existing app from iTunes Connect. You’ll need to know the SKU in order to download metadata."; ObjectID = "0Fq-U9-mJS"; */
+"0Fq-U9-mJS.title" = "Get started by downloading the metadata for an existing app from iTunes Connect. You’ll need to know the SKU in order to download metadata.";
+
+/* Class = "NSTextFieldCell"; title = "Waiting…"; ObjectID = "2CU-si-Gz2"; */
+"2CU-si-Gz2.title" = "Waiting…";
+
+/* Class = "NSTextFieldCell"; placeholderString = "me@developer.com"; ObjectID = "2Xt-OJ-52M"; */
+"2Xt-OJ-52M.placeholderString" = "me@developer.com";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "2d1-4k-Fny"; */
+"2d1-4k-Fny.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "Submit to iTunes Connect"; ObjectID = "8I0-0d-deA"; */
+"8I0-0d-deA.title" = "Submit to iTunes Connect";
+
+/* Class = "NSButtonCell"; title = "Verify"; ObjectID = "HQR-0U-lnJ"; */
+"HQR-0U-lnJ.title" = "Verify";
+
+/* Class = "NSWindow"; title = "iTunes Connecter"; ObjectID = "HZn-zH-jiB"; */
+"HZn-zH-jiB.title" = "iTunes Connecter";
+
+/* Class = "NSButtonCell"; title = "Submit"; ObjectID = "Mfg-SV-EY5"; */
+"Mfg-SV-EY5.title" = "Submit";
+
+/* Class = "IBBindingConnection"; ibShadowedIsNilPlaceholder = "me@developer.com"; ObjectID = "Q6n-HH-aGh"; */
+"Q6n-HH-aGh.ibShadowedIsNilPlaceholder" = "me@developer.com";
+
+/* Class = "NSTextFieldCell"; title = "Download from iTunes Connect"; ObjectID = "TM4-3a-0D6"; */
+"TM4-3a-0D6.title" = "Download from iTunes Connect";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "V2f-1y-Jxv"; */
+"V2f-1y-Jxv.title" = "Box";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Enter a SKU from iTunes Connect"; ObjectID = "bJr-Sf-kip"; */
+"bJr-Sf-kip.placeholderString" = "Enter a SKU from iTunes Connect";
+
+/* Class = "NSButtonCell"; title = "Download"; ObjectID = "cdm-fF-b09"; */
+"cdm-fF-b09.title" = "Download";
+
+/* Class = "NSTextFieldCell"; title = "iTunes Connect Username:"; ObjectID = "fru-rP-igj"; */
+"fru-rP-igj.title" = "iTunes Connect Username:";
+
+/* Class = "NSTextFieldCell"; title = "iTunes Connect Password:"; ObjectID = "oCh-09-a4j"; */
+"oCh-09-a4j.title" = "iTunes Connect Password:";
+
+/* Class = "NSTextFieldCell"; title = "Before submitting an iTunes Connect package, you should verify the contents of the package."; ObjectID = "vlG-7g-G9O"; */
+"vlG-7g-G9O.title" = "Before submitting an iTunes Connect package, you should verify the contents of the package.";

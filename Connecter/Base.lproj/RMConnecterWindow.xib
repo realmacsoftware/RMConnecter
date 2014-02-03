@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="RMConnecterWindowController">
+            <connections>
+                <outlet property="passwordTextField" destination="gy4-DH-i3e" id="tD0-Re-9cR"/>
+                <outlet property="usernameTextField" destination="dbr-V0-2sZ" id="vmP-m8-c7E"/>
+                <outlet property="window" destination="HZn-zH-jiB" id="q2v-AG-Daq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="iTunes Connecter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="HZn-zH-jiB">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="102" y="107" width="488" height="498"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="ub2-yI-JEG">
+                <rect key="frame" x="0.0" y="0.0" width="488" height="498"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BXT-ee-SKW">
+                        <rect key="frame" x="371" y="312" width="103" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cdm-fF-b09">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="selectLocationForDownloadedMetadata:" target="-2" id="rmV-Yt-XUP"/>
+                            <binding destination="-2" name="enabled3" keyPath="self.hasTransporter" previousBinding="eee-JF-XgK" id="28b-ya-2dZ">
+                                <dictionary key="options">
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled2" keyPath="self.appSKU" previousBinding="hcb-Ny-gdW" id="eee-JF-XgK">
+                                <dictionary key="options">
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.loading" id="hcb-Ny-gdW">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-V0-2sZ">
+                        <rect key="frame" x="201" y="450" width="267" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="me@developer.com" drawsBackground="YES" id="2Xt-OJ-52M">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.credentials.username" id="Q6n-HH-aGh">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                    <string key="NSNullPlaceholder">me@developer.com</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.loading" id="0bf-nj-h4u">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <outlet property="delegate" destination="-2" id="R4n-hS-xPT"/>
+                        </connections>
+                    </textField>
+                    <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-DH-i3e">
+                        <rect key="frame" x="201" y="418" width="267" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="spu-1u-WhI">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <allowedInputSourceLocales>
+                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                            </allowedInputSourceLocales>
+                        </secureTextFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.credentials.password" id="p7k-2p-8WR">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.loading" id="fSo-I9-4R9">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <outlet property="delegate" destination="-2" id="ZGX-XZ-Ofg"/>
+                        </connections>
+                    </secureTextField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-qY-l0o">
+                        <rect key="frame" x="284" y="201" width="87" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Verify" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HQR-0U-lnJ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="chooseiTunesPackage:" target="-2" id="lQJ-Ul-iho"/>
+                            <binding destination="-2" name="enabled3" keyPath="self.hasTransporter" previousBinding="cDg-gC-dJk" id="p09-qu-U0m">
+                                <dictionary key="options">
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="Rih-Ag-fTJ"/>
+                            <binding destination="-2" name="enabled2" keyPath="self.loading" previousBinding="Rih-Ag-fTJ" id="cDg-gC-dJk">
+                                <dictionary key="options">
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="kHZ-3S-1SX">
+                        <rect key="frame" x="371" y="201" width="103" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mfg-SV-EY5">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="chooseiTunesPackage:" target="-2" id="69s-6e-OeI"/>
+                            <binding destination="-2" name="enabled3" keyPath="self.hasTransporter" previousBinding="Oev-Ze-FRJ" id="zaK-RQ-58y">
+                                <dictionary key="options">
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="YH7-fb-1e3"/>
+                            <binding destination="-2" name="enabled2" keyPath="self.loading" previousBinding="YH7-fb-1e3" id="Oev-Ze-FRJ">
+                                <dictionary key="options">
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="T2i-xe-DWB">
+                        <rect key="frame" x="452" y="172" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="self.loading" id="NRf-AX-Sxt">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="animate" keyPath="self.loading" id="f4E-y6-MRq"/>
+                        </connections>
+                    </progressIndicator>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZe-Ml-dl0">
+                        <rect key="frame" x="18" y="453" width="177" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="iTunes Connect Username:" id="fru-rP-igj">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JwR-uJ-lAh">
+                        <rect key="frame" x="18" y="421" width="167" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="iTunes Connect Password:" id="oCh-09-a4j">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="V2f-1y-Jxv">
+                        <rect key="frame" x="20" y="407" width="448" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqt-X6-GMC">
+                        <rect key="frame" x="18" y="384" width="452" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Download from iTunes Connect" id="TM4-3a-0D6">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LeI-0H-cK6">
+                        <rect key="frame" x="18" y="348" width="452" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="0Fq-U9-mJS">
+                            <font key="font" metaFont="smallSystem"/>
+                            <string key="title">Get started by downloading the metadata for an existing app from iTunes Connect. You’ll need to know the SKU in order to download metadata.</string>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-4k-Fny">
+                        <rect key="frame" x="20" y="296" width="448" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kpb-7u-D53">
+                        <rect key="frame" x="18" y="273" width="452" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Submit to iTunes Connect" id="8I0-0d-deA">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBJ-GI-ap6">
+                        <rect key="frame" x="18" y="237" width="452" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Before submitting an iTunes Connect package, you should verify the contents of the package." id="vlG-7g-G9O">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoW-Pf-xTX">
+                        <rect key="frame" x="18" y="171" width="428" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Waiting…" id="2CU-si-Gz2">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.status" id="TbK-eA-Xj8"/>
+                        </connections>
+                    </textField>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7v-qJ-acO">
+                        <rect key="frame" x="20" y="20" width="448" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" id="QLp-3C-Me2">
+                            <rect key="frame" x="1" y="1" width="446" height="141"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Vy9-Vu-UKb">
+                                    <rect key="frame" x="0.0" y="0.0" width="446" height="141"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="446" height="141"/>
+                                    <size key="maxSize" width="631" height="10000000"/>
+                                    <attributedString key="textStorage">
+                                        <fragment content="Select an option above to start. Output from Transporter will be shown here.">
+                                            <attributes>
+                                                <font key="NSFont" size="11" name="Menlo-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="446" height="141"/>
+                                    <size key="maxSize" width="631" height="10000000"/>
+                                    <connections>
+                                        <binding destination="-2" name="value" keyPath="self.log" id="3UY-mT-7mV">
+                                            <dictionary key="options">
+                                                <bool key="NSConditionallySetsEditable" value="NO"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="448" id="N5N-s7-uxX"/>
+                            <constraint firstAttribute="height" constant="143" id="m17-hn-4Cj"/>
+                        </constraints>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="eO7-LX-eUp">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="r4B-Mm-5to">
+                            <rect key="frame" x="431" y="1" width="16" height="141"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-eP-61c">
+                        <rect key="frame" x="20" y="318" width="327" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Enter a SKU from iTunes Connect" drawsBackground="YES" id="bJr-Sf-kip">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="enabled2" keyPath="self.hasTransporter" previousBinding="9ht-T7-T8T" id="7dY-gS-7V8">
+                                <dictionary key="options">
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="value" keyPath="self.appSKU" id="lHy-p1-3MO">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="enabled" keyPath="self.loading" id="9ht-T7-T8T">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="o7v-qJ-acO" secondAttribute="bottom" constant="20" id="3ze-2V-d0g"/>
+                    <constraint firstAttribute="centerX" secondItem="o7v-qJ-acO" secondAttribute="centerX" id="UF0-jh-fFg"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="vG3-Aw-eGO"/>
+            </connections>
+        </window>
+    </objects>
+</document>

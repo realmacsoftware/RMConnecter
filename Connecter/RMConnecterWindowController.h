@@ -1,5 +1,5 @@
 //
-//    RMiTunesConnecterAppDelegate.m
+//    RMiTunesConnecterAppDelegate.h
 //    Connecter
 //
 //    Created by Nik Fletcher on 31/01/2014.
@@ -25,31 +25,19 @@
 //    SOFTWARE.
 //
 
-#import "RMConnecterAppDelegate.h"
+#import <Cocoa/Cocoa.h>
 
-#import "RMConnecterWindowController.h"
+@class RMConnecterCredentials;
 
-@interface RMConnecterAppDelegate ()
+@interface RMConnecterWindowController : NSWindowController
 
-@property (readwrite, strong, nonatomic) RMConnecterWindowController *windowController;
+@property (readonly, strong, nonatomic) RMConnecterCredentials *credentials;
+@property (readonly, copy, nonatomic) NSString *appSKU;
 
-@end
+@property (readonly, copy, nonatomic) NSString *status;
+@property (readonly, copy, nonatomic) NSString *log;
 
-@implementation RMConnecterAppDelegate
-
-- (void)applicationDidFinishLaunching:(NSNotification *)notification
-{
-	RMConnecterWindowController *windowController = [[RMConnecterWindowController alloc] init];
-	[self setWindowController:windowController];
-	
-	[windowController showWindow:nil];
-}
-
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)application hasVisibleWindows:(BOOL)hasVisibleWindows
-{
-	[[self windowController] showWindow:application];
-	
-	return YES;
-}
+@property (readonly, getter = isLoading, assign, nonatomic) BOOL loading;
+@property (readonly, assign, nonatomic) BOOL hasTransporter;
 
 @end
