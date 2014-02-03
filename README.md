@@ -3,11 +3,11 @@ Connecter
 
 Connecter is an OS X app to help you interact with iTunes Connect’s Transporter binary, which allows you to interact with app metadata in iTunes Connect. If you’ve got Xcode installed, you’re all sorted and ready to use this with your Apple ID and password.
 
-Connecter is a work-in-progress, built quickly to allow us to improve our own iTunes Connect workflow. For the more seasoned developers amongst us, you can probably tell that the codebase was written in a morning by a Product Manager :-). 
+Connecter is a work-in-progress, built quickly to allow us to improve our own iTunes Connect workflow. For the more seasoned developers amongst us, looking back at the commit history you can probably tell that the codebase was written in a morning by a Product Manager :-). 
 
 We’re open-sourcing it because we think it might be useful to other iOS and OS X developers, and because as we add more features to the app it’ll save you time.
 
-If you’ve got any feedback, feel free to open an Issue, submit a Pull Request or contact me on Twitter ([@nikf](https://twitter.com/nikf)).
+If you’ve got any feedback, feel free to open an Issue, submit a Pull Request or contact me on Twitter ([@nikf](https://twitter.com/nikf)). Thanks to [Damien DeVille](https://twitter.com/damiendeville) for the code review.
 
 ## Points of Interest
 
@@ -18,9 +18,8 @@ If you’ve got any feedback, feel free to open an Issue, submit a Pull Request 
 
 - Better presentation of feedback from the Transporter binary.
 - Support retrieval of In-App Purchase and Game Centre metadata.
-- Persist login details in the Keychain (a much nicer solution than having a bunch of scripts with your Apple ID password in ’em).
+- Persist login details in the Keychain.
 - Error handling.
-- Breaking down the monolithic App Delegate.
 
 ## License
 
@@ -28,7 +27,7 @@ Connecter is released under the MIT License:
 
 	The MIT License (MIT)
 
-	Copyright (c) 2014 Nik Fletcher, Realmac Software
+	Copyright (c) 2014 Realmac Software
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
