@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="102" y="107" width="488" height="498"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" id="ub2-yI-JEG">
                 <rect key="frame" x="0.0" y="0.0" width="488" height="498"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -31,21 +31,21 @@
                         </buttonCell>
                         <connections>
                             <action selector="selectLocationForDownloadedMetadata:" target="-2" id="rmV-Yt-XUP"/>
+                            <binding destination="-2" name="enabled2" keyPath="self.appSKU" previousBinding="hcb-Ny-gdW" id="eee-JF-XgK">
+                                <dictionary key="options">
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
                             <binding destination="-2" name="enabled3" keyPath="self.hasTransporter" previousBinding="eee-JF-XgK" id="28b-ya-2dZ">
                                 <dictionary key="options">
                                     <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
                                     <integer key="NSNullPlaceholder" value="-1"/>
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                </dictionary>
-                            </binding>
-                            <binding destination="-2" name="enabled2" keyPath="self.appSKU" previousBinding="hcb-Ny-gdW" id="eee-JF-XgK">
-                                <dictionary key="options">
-                                    <integer key="NSNullPlaceholder" value="-1"/>
-                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                    <string key="NSValueTransformerName">NSIsNotNil</string>
                                 </dictionary>
                             </binding>
                             <binding destination="-2" name="enabled" keyPath="self.loading" id="hcb-Ny-gdW">
@@ -112,6 +112,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="lQJ-Ul-iho"/>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="Rih-Ag-fTJ"/>
                             <binding destination="-2" name="enabled3" keyPath="self.hasTransporter" previousBinding="cDg-gC-dJk" id="p09-qu-U0m">
                                 <dictionary key="options">
                                     <integer key="NSNotApplicablePlaceholder" value="-1"/>
@@ -120,13 +121,12 @@
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="Rih-Ag-fTJ"/>
                             <binding destination="-2" name="enabled2" keyPath="self.loading" previousBinding="Rih-Ag-fTJ" id="cDg-gC-dJk">
                                 <dictionary key="options">
-                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
@@ -141,6 +141,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="chooseiTunesPackage:" target="-2" id="69s-6e-OeI"/>
+                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="YH7-fb-1e3"/>
                             <binding destination="-2" name="enabled3" keyPath="self.hasTransporter" previousBinding="Oev-Ze-FRJ" id="zaK-RQ-58y">
                                 <dictionary key="options">
                                     <integer key="NSNotApplicablePlaceholder" value="-1"/>
@@ -149,13 +150,12 @@
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                 </dictionary>
                             </binding>
-                            <binding destination="-2" name="enabled" keyPath="self.credentials.valid" id="YH7-fb-1e3"/>
                             <binding destination="-2" name="enabled2" keyPath="self.loading" previousBinding="YH7-fb-1e3" id="Oev-Ze-FRJ">
                                 <dictionary key="options">
-                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                     <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
@@ -311,17 +311,17 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
+                            <binding destination="-2" name="value" keyPath="self.appSKU" id="lHy-p1-3MO">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
                             <binding destination="-2" name="enabled2" keyPath="self.hasTransporter" previousBinding="9ht-T7-T8T" id="7dY-gS-7V8">
                                 <dictionary key="options">
                                     <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                     <integer key="NSNoSelectionPlaceholder" value="-1"/>
                                     <integer key="NSNullPlaceholder" value="-1"/>
                                     <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                </dictionary>
-                            </binding>
-                            <binding destination="-2" name="value" keyPath="self.appSKU" id="lHy-p1-3MO">
-                                <dictionary key="options">
-                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                 </dictionary>
                             </binding>
                             <binding destination="-2" name="enabled" keyPath="self.loading" id="9ht-T7-T8T">

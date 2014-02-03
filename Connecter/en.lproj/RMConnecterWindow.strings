@@ -17,8 +17,8 @@
 /* Class = "NSButtonCell"; title = "Verify"; ObjectID = "HQR-0U-lnJ"; */
 "HQR-0U-lnJ.title" = "Verify";
 
-/* Class = "NSWindow"; title = "iTunes Connecter"; ObjectID = "HZn-zH-jiB"; */
-"HZn-zH-jiB.title" = "iTunes Connecter";
+/* Class = "NSWindow"; title = "Connecter"; ObjectID = "HZn-zH-jiB"; */
+"HZn-zH-jiB.title" = "Connecter";
 
 /* Class = "NSButtonCell"; title = "Submit"; ObjectID = "Mfg-SV-EY5"; */
 "Mfg-SV-EY5.title" = "Submit";

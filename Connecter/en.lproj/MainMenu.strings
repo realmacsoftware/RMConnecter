@@ -14,14 +14,14 @@
 /* Class = "NSMenu"; title = "AMainMenu"; ObjectID = "29"; */
 "29.title" = "AMainMenu";
 
-/* Class = "NSMenuItem"; title = "iTunes Connecter"; ObjectID = "56"; */
-"56.title" = "iTunes Connecter";
+/* Class = "NSMenuItem"; title = "Connecter"; ObjectID = "56"; */
+"56.title" = "Connecter";
 
-/* Class = "NSMenu"; title = "iTunes Connecter"; ObjectID = "57"; */
-"57.title" = "iTunes Connecter";
+/* Class = "NSMenu"; title = "Connecter"; ObjectID = "57"; */
+"57.title" = "Connecter";
 
-/* Class = "NSMenuItem"; title = "About iTunes Connecter"; ObjectID = "58"; */
-"58.title" = "About iTunes Connecter";
+/* Class = "NSMenuItem"; title = "About Connecter"; ObjectID = "58"; */
+"58.title" = "About Connecter";
 
 /* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
 "72.title" = "Open…";
@@ -68,11 +68,11 @@
 /* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
 "131.title" = "Services";
 
-/* Class = "NSMenuItem"; title = "Hide iTunes Connecter"; ObjectID = "134"; */
-"134.title" = "Hide iTunes Connecter";
+/* Class = "NSMenuItem"; title = "Hide Connecter"; ObjectID = "134"; */
+"134.title" = "Hide Connecter";
 
-/* Class = "NSMenuItem"; title = "Quit iTunes Connecter"; ObjectID = "136"; */
-"136.title" = "Quit iTunes Connecter";
+/* Class = "NSMenuItem"; title = "Quit Connecter"; ObjectID = "136"; */
+"136.title" = "Quit Connecter";
 
 /* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
 "145.title" = "Hide Others";
@@ -317,8 +317,8 @@
 /* Class = "NSMenu"; title = "Help"; ObjectID = "491"; */
 "491.title" = "Help";
 
-/* Class = "NSMenuItem"; title = "iTunes Connecter Help"; ObjectID = "492"; */
-"492.title" = "iTunes Connecter Help";
+/* Class = "NSMenuItem"; title = "Connecter Help"; ObjectID = "492"; */
+"492.title" = "Connecter Help";
 
 /* Class = "NSMenuItem"; title = "Text"; ObjectID = "496"; */
 "496.title" = "Text";
