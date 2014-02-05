@@ -220,7 +220,7 @@ static NSString *_RMConnecterTransporterPath(void)
 - (void)lookupMetadataAndPlaceInPackageAtURL:(NSURL *)packageURL
 {
 	NSArray *arguments = @[
-		@"-vendor_id", [self appSKU],
+		@"-vendor_id", [NSString stringWithFormat:@"\"%@\"", [self appSKU]],
 		@"-destination", packageURL,
 	];
 	[self _enqueueiTunesConnectInteractionOperationForPackageAtURL:packageURL method:@"lookupMetadata" arguments:arguments openPackageUponTermination:YES];
@@ -251,8 +251,8 @@ static NSString *_RMConnecterTransporterPath(void)
 	
 	NSArray *launchArguments = @[
 		@"-m", method,
-		@"-u", [[self credentials] username],
-		@"-p", [[self credentials] password],
+		@"-u", [NSString stringWithFormat:@"\"%@\"", [[self credentials] username]],
+		@"-p", [NSString stringWithFormat:@"\"%@\"", [[self credentials] password]],
 	];
 	launchArguments = [launchArguments arrayByAddingObjectsFromArray:arguments];
 	
