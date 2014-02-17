@@ -12,6 +12,6 @@
 
 @interface RMAppDataDocument : NSDocument
 
-@property (nonatomic, assign) RXMLElement *activeXMLFile;
+@property (nonatomic, strong) RXMLElement *activeXMLFile;
 
 @end

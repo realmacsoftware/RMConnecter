@@ -32,6 +32,11 @@
     return @"RMDocumentWindow";
 }
 
+- (NSString*)xmlFileName;
+{
+    return @"metadata.xml";
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
@@ -45,13 +50,14 @@
 
 - (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError;
 {
-    
+    // @TODO
     return YES;
 }
 
 - (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError;
 {
-    
+    NSString *xmlPath = [[url path] stringByAppendingPathComponent:[self xmlFileName]];
+    self.activeXMLFile = [[RXMLElement alloc] initFromXMLFilePath:xmlPath];
     
     return YES;
 }
