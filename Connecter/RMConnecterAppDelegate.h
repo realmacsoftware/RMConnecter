@@ -27,10 +27,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class RMConnecterWindowController;
-
 @interface RMConnecterAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (readonly, strong, nonatomic) RMConnecterWindowController *windowController;
+@property (readonly, strong, nonatomic) NSWindowController *mainWindowController;
 
 @end
