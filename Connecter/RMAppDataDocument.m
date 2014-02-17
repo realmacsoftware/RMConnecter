@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
-#import <RaptureXML/RXMLElement.h>
-
 #import "RMAppDataDocument.h"
 
 @interface RMAppDataDocument ()
@@ -16,13 +14,11 @@
 
 @implementation RMAppDataDocument
 
-- (id)init
+- (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
-    self = [super init];
-    if (self) {
-        // Add your subclass-specific initialization here.
-    }
-    return self;
+    [super windowControllerDidLoadNib:aController];
+    // Add any code here that needs to be executed once the
+    // windowController has loaded the document's window.
 }
 
 - (NSString *)windowNibName
@@ -35,29 +31,33 @@
     return @"metadata.xml";
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
-    [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
-}
-
 + (BOOL)autosavesInPlace
 {
     return YES;
 }
 
-- (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError;
+- (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName
+             error:(NSError *__autoreleasing *)outError;
 {
-    // @TODO
-    return YES;
+    NSString *path = [[url path] stringByAppendingPathComponent:[self xmlFileName]];
+    
+    NSData *xmlData = [self.activeXMLFile XMLData];
+    return [xmlData writeToURL:[NSURL fileURLWithPath:path] atomically:YES];
 }
 
-- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError;
+- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName
+              error:(NSError *__autoreleasing *)outError;
 {
     NSString *xmlPath = [[url path] stringByAppendingPathComponent:[self xmlFileName]];
-    self.activeXMLFile = [[RXMLElement alloc] initFromXMLFilePath:xmlPath];
+    NSData *xmlData = [NSData dataWithContentsOfFile:xmlPath options:0 error:outError];
+    self.activeXMLFile = [[NSXMLDocument alloc] initWithData:xmlData options:0 error:outError];
+    self.bundlePath = [url path];
     
-    return YES;
+    if (*outError != nil) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end

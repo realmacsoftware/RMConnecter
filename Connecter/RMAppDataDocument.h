@@ -8,10 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class RXMLElement;
-
 @interface RMAppDataDocument : NSDocument
 
-@property (nonatomic, strong) RXMLElement *activeXMLFile;
+@property (nonatomic, strong) NSString *bundlePath;
+@property (nonatomic, strong) NSXMLDocument *activeXMLFile;
 
 @end
