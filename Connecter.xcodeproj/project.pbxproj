@@ -26,7 +26,7 @@
 		76940F0249AC47E9B93522F6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A0CF47412B459084E2ABDA /* libPods.a */; };
 		D225B07218AE7A290061CA42 /* RMAppDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D225B07118AE7A290061CA42 /* RMAppDataDocument.m */; };
 		D2ED44A318AE654100976E49 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ED44A218AE654100976E49 /* NSData+MD5.m */; };
-		D2ED44A618AE6D2900976E49 /* RMDocumentWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2ED44A518AE6D2900976E49 /* RMDocumentWindow.xib */; };
+		D2ED44A618AE6D2900976E49 /* RMAppDataDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +76,7 @@
 		D225B07118AE7A290061CA42 /* RMAppDataDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppDataDocument.m; sourceTree = "<group>"; };
 		D2ED44A118AE654100976E49 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
 		D2ED44A218AE654100976E49 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
-		D2ED44A518AE6D2900976E49 /* RMDocumentWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMDocumentWindow.xib; sourceTree = "<group>"; };
+		D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMAppDataDocument.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +196,7 @@
 				6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */,
 				D225B07018AE7A290061CA42 /* RMAppDataDocument.h */,
 				D225B07118AE7A290061CA42 /* RMAppDataDocument.m */,
-				D2ED44A518AE6D2900976E49 /* RMDocumentWindow.xib */,
+				D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			files = (
 				247F2815189127D8000F8041 /* InfoPlist.strings in Resources */,
 				247F2823189127D8000F8041 /* Images.xcassets in Resources */,
-				D2ED44A618AE6D2900976E49 /* RMDocumentWindow.xib in Resources */,
+				D2ED44A618AE6D2900976E49 /* RMAppDataDocument.xib in Resources */,
 				247F281B189127D8000F8041 /* Credits.rtf in Resources */,
 				247F2821189127D8000F8041 /* MainMenu.xib in Resources */,
 				6D0C75BE189EB632008ADECB /* RMConnecterWindow.xib in Resources */,
