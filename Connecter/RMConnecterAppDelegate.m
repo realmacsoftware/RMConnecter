@@ -28,7 +28,6 @@
 #import "RMConnecterAppDelegate.h"
 
 #import "RMConnecterWindowController.h"
-#import "RMDocumentWindowController.h"
 
 @interface RMConnecterAppDelegate ()
 @property (readwrite, strong, nonatomic) NSWindowController *mainWindowController;
@@ -41,10 +40,6 @@
 //	RMConnecterWindowController *windowController = [[RMConnecterWindowController alloc] init];
 //	[self setMainWindowController:windowController];
 //	[windowController showWindow:nil];
-    
-    RMDocumentWindowController *windowController = [[RMDocumentWindowController alloc] init];
-    [self setMainWindowController:windowController];
-    [windowController showWindow:nil];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)application hasVisibleWindows:(BOOL)hasVisibleWindows

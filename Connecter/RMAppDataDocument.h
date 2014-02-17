@@ -10,7 +10,7 @@
 
 @class RXMLElement;
 
-@interface RMDocumentWindowController : NSWindowController
+@interface RMAppDataDocument : NSDocument
 
 @property (nonatomic, assign) RXMLElement *activeXMLFile;
 

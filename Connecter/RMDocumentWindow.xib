@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="RMDocumentWindowController">
+        <customObject id="-2" userLabel="File's Owner" customClass="RMAppDataDocument">
             <connections>
                 <outlet property="deviceChooserControl" destination="8A8-Pv-pvE" id="wAs-gy-4r4"/>
                 <outlet property="window" destination="1" id="aEU-6c-cVH"/>
@@ -260,7 +260,7 @@
                         </tokenFieldCell>
                     </tokenField>
                     <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="B4I-z1-sJK">
-                        <rect key="frame" x="10" y="194" width="560" height="5"/>
+                        <rect key="frame" x="10" y="194" width="560" height="4"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
