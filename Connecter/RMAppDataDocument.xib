@@ -6,7 +6,13 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RMAppDataDocument">
             <connections>
+                <outlet property="descriptionTextField" destination="L2T-Md-bL4" id="UEd-Xd-u7M"/>
                 <outlet property="deviceChooserControl" destination="8A8-Pv-pvE" id="wAs-gy-4r4"/>
+                <outlet property="keywordsField" destination="CdH-p6-a6N" id="Kia-dm-Ykz"/>
+                <outlet property="localesPopup" destination="30v-14-zTN" id="m0p-2p-oVH"/>
+                <outlet property="titleTextField" destination="ThY-cl-guu" id="Yhc-Ej-EcY"/>
+                <outlet property="versionsPopup" destination="fBp-pW-E3U" id="ZmE-RY-VAE"/>
+                <outlet property="whatsNewField" destination="TzS-aS-4PR" id="sOj-gm-rVq"/>
                 <outlet property="window" destination="1" id="aEU-6c-cVH"/>
             </connections>
         </customObject>
@@ -199,7 +205,7 @@
                         </scroller>
                     </scrollView>
                     <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="qeZ-ai-KNe">
-                        <rect key="frame" x="10" y="327" width="560" height="4"/>
+                        <rect key="frame" x="10" y="327" width="560" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
