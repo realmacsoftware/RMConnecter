@@ -37,9 +37,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-//	RMConnecterWindowController *windowController = [[RMConnecterWindowController alloc] init];
-//	[self setMainWindowController:windowController];
-//	[windowController showWindow:nil];
+	RMConnecterWindowController *windowController = [[RMConnecterWindowController alloc] init];
+	[self setMainWindowController:windowController];
+	[windowController showWindow:nil];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)application hasVisibleWindows:(BOOL)hasVisibleWindows
