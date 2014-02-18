@@ -18,14 +18,14 @@
 @property (nonatomic, strong) RMAppMetaData *metaData;
 
 @property (weak) IBOutlet NSPopUpButton *versionsPopup;
-@property (weak) IBOutlet NSComboBox *localesPopup;
+@property (weak) IBOutlet NSPopUpButton *localesPopup;
 @property (weak) IBOutlet NSTextField *titleTextField;
 @property (weak) IBOutlet NSTokenField *keywordsField;
 @property (unsafe_unretained) IBOutlet NSTextView *whatsNewField;
 @property (unsafe_unretained) IBOutlet NSTextView *descriptionTextField;
 @property (weak) IBOutlet NSTextField *supportUrlField;
-@property (weak) IBOutlet NSTokenField *softwareUrlField;
-@property (weak) IBOutlet NSTokenField *privacyUrlField;
+@property (weak) IBOutlet NSTextField *softwareUrlField;
+@property (weak) IBOutlet NSTextField *privacyUrlField;
 
 @end
 
@@ -114,7 +114,7 @@
     [self.localesPopup removeAllItems];
     NSArray *locales = [[self selectedVersion] locales];
     [locales enumerateObjectsUsingBlock:^(RMAppLocale *locale, NSUInteger idx, BOOL *stop) {
-        [self.localesPopup addItemWithObjectValue:locale.localeName];
+        [self.localesPopup addItemWithTitle:locale.localeName];
         if (idx==0) {
             [self.localesPopup setStringValue:locale.localeName];
         }
