@@ -6,15 +6,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RMAppDataDocument">
             <connections>
-                <outlet property="descriptionTextField" destination="L2T-Md-bL4" id="UEd-Xd-u7M"/>
-                <outlet property="keywordsField" destination="CdH-p6-a6N" id="Kia-dm-Ykz"/>
-                <outlet property="localesPopup" destination="KiL-AV-9jc" id="RWb-ab-OEU"/>
-                <outlet property="privacyUrlField" destination="ODB-UK-o6F" id="XEo-l0-xA3"/>
-                <outlet property="softwareUrlField" destination="vlO-cC-NMH" id="oaL-W6-bxt"/>
-                <outlet property="supportUrlField" destination="jbO-5W-psZ" id="Emg-5s-nCg"/>
-                <outlet property="titleTextField" destination="ThY-cl-guu" id="Yhc-Ej-EcY"/>
-                <outlet property="versionsPopup" destination="fBp-pW-E3U" id="ZmE-RY-VAE"/>
-                <outlet property="whatsNewField" destination="TzS-aS-4PR" id="sOj-gm-rVq"/>
                 <outlet property="window" destination="1" id="aEU-6c-cVH"/>
             </connections>
         </customObject>
@@ -54,7 +45,8 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <action selector="didSelectVersion:" target="-2" id="lnR-Ks-FNq"/>
+                            <binding destination="Qcn-rz-95j" name="content" keyPath="arrangedObjects.versionString" id="7hv-Id-hx2"/>
+                            <binding destination="Qcn-rz-95j" name="selectedIndex" keyPath="selectionIndex" previousBinding="7hv-Id-hx2" id="07I-nb-cpF"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fo6-qE-s2u">
@@ -90,6 +82,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.title" id="zMF-tv-u50"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wrQ-hT-udn">
                         <rect key="frame" x="20" y="560" width="80" height="18"/>
@@ -108,6 +103,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
+                        <connections>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.keywords" id="b9A-az-uZu"/>
+                        </connections>
                     </tokenField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sUk-tz-j37">
                         <rect key="frame" x="20" y="527" width="80" height="18"/>
@@ -134,6 +132,9 @@
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="448" height="56"/>
                                     <size key="maxSize" width="538" height="10000000"/>
+                                    <connections>
+                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.whatsNew" id="nL0-nd-zJr"/>
+                                    </connections>
                                 </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,6 +173,9 @@
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="448" height="131"/>
                                     <size key="maxSize" width="538" height="10000000"/>
+                                    <connections>
+                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.description" id="vIL-7B-Wtx"/>
+                                    </connections>
                                 </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -209,6 +213,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.supportURL" id="Rfe-m9-wwY"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="91Z-n1-Dus">
                         <rect key="frame" x="20" y="254" width="120" height="18"/>
@@ -227,6 +234,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.softwareURL" id="mzV-yL-01C"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="XUn-EZ-FiB">
                         <rect key="frame" x="20" y="218" width="120" height="18"/>
@@ -245,6 +255,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.privacyURL" id="3Sh-2a-Eto"/>
+                        </connections>
                     </textField>
                     <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="B4I-z1-sJK">
                         <rect key="frame" x="10" y="194" width="560" height="5"/>
@@ -323,7 +336,8 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <action selector="didSelectLocale:" target="-2" id="dVl-c5-bLU"/>
+                            <binding destination="wkQ-lw-xLY" name="content" keyPath="arrangedObjects.localeName" id="qHi-3X-ZhY"/>
+                            <binding destination="wkQ-lw-xLY" name="selectedIndex" keyPath="selectionIndex" previousBinding="qHi-3X-ZhY" id="ioF-hc-a9m"/>
                         </connections>
                     </popUpButton>
                 </subviews>
@@ -332,5 +346,16 @@
                 <outlet property="delegate" destination="-2" id="JZ2-BH-z4M"/>
             </connections>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="Noj-2I-CqB"/>
+        <arrayController objectClassName="RMAppVersion" editable="NO" id="Qcn-rz-95j" userLabel="Versions Array Controller">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="self.metaData.versions" id="7Qx-LK-0Cx"/>
+            </connections>
+        </arrayController>
+        <arrayController objectClassName="RMAppLocale" editable="NO" id="wkQ-lw-xLY" userLabel="Locales Array Controller">
+            <connections>
+                <binding destination="Qcn-rz-95j" name="contentArray" keyPath="selection.locales" id="C41-qS-FNz"/>
+            </connections>
+        </arrayController>
     </objects>
 </document>

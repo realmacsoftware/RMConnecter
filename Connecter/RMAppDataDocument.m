@@ -17,27 +17,9 @@
 @property (nonatomic, strong) NSString *bundlePath;
 @property (nonatomic, strong) RMAppMetaData *metaData;
 
-@property (weak) IBOutlet NSPopUpButton *versionsPopup;
-@property (weak) IBOutlet NSPopUpButton *localesPopup;
-@property (weak) IBOutlet NSTextField *titleTextField;
-@property (weak) IBOutlet NSTokenField *keywordsField;
-@property (unsafe_unretained) IBOutlet NSTextView *whatsNewField;
-@property (unsafe_unretained) IBOutlet NSTextView *descriptionTextField;
-@property (weak) IBOutlet NSTextField *supportUrlField;
-@property (weak) IBOutlet NSTextField *softwareUrlField;
-@property (weak) IBOutlet NSTextField *privacyUrlField;
-
 @end
 
 @implementation RMAppDataDocument
-
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
-    [super windowControllerDidLoadNib:aController];
-    [self updateVersionsPopup];
-    [self updateLocalesPopup];
-    [self updateUI];
-}
 
 - (NSString *)windowNibName
 {
@@ -78,77 +60,6 @@
     } else {
         return YES;
     }
-}
-
-#pragma mark UI
-
-- (RMAppVersion*)selectedVersion;
-{
-    NSString *selectedText = [[self.versionsPopup selectedItem] title];
-    for (RMAppVersion *version in self.metaData.versions) {
-        if ([version.versionString isEqualToString:selectedText]) return version;
-    }
-    return [[self.metaData versions] firstObject];
-}
-
-- (RMAppLocale*)selectedLocale;
-{
-    NSString *selectedText = [[self.localesPopup selectedItem] title];
-    for (RMAppLocale *locale in [[self selectedVersion] locales]) {
-        if ([locale.localeName isEqualToString:selectedText]) return locale;
-    }
-    return [[[self selectedVersion] locales] firstObject];
-}
-
-- (void)updateVersionsPopup;
-{
-    // versions popup
-    [self.versionsPopup removeAllItems];
-    [self.metaData.versions enumerateObjectsUsingBlock:^(RMAppVersion *version, NSUInteger idx, BOOL *stop) {
-        [self.versionsPopup addItemWithTitle:version.versionString];
-        if (idx==0) {
-            [self.versionsPopup setObjectValue:version.versionString];
-        }
-    }];
-}
-
-- (void)updateLocalesPopup;
-{
-    // locales popup
-    [self.localesPopup removeAllItems];
-    NSArray *locales = [[self selectedVersion] locales];
-    [locales enumerateObjectsUsingBlock:^(RMAppLocale *locale, NSUInteger idx, BOOL *stop) {
-        [self.localesPopup addItemWithTitle:locale.localeName];
-        if (idx==0) {
-            [self.localesPopup setStringValue:locale.localeName];
-        }
-    }];
-}
-
-- (void)updateUI;
-{
-    RMAppLocale *currentLocale = [self selectedLocale];
-    
-    self.titleTextField.objectValue = currentLocale.title;
-    self.whatsNewField.string = currentLocale.whatsNew ?: @"";
-    self.descriptionTextField.string = currentLocale.description ?: @"";
-    self.keywordsField.objectValue = currentLocale.keywords;
-    self.supportUrlField.objectValue = currentLocale.supportURL;
-    self.softwareUrlField.objectValue = currentLocale.softwareURL;
-    self.privacyUrlField.objectValue = currentLocale.privacyURL;
-}
-
-#pragma mark actions
-
-- (IBAction)didSelectVersion:(id)sender;
-{
-    [self updateLocalesPopup];
-    [self updateUI];
-}
-
-- (IBAction)didSelectLocale:(id)sender;
-{
-    [self updateUI];
 }
 
 @end
