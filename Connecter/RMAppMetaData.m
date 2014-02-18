@@ -16,12 +16,16 @@
 {
     self = [super init];
     if (self) {
-        NSArray *versionElements = [xmlElement children];
-        NSMutableArray *versions = [NSMutableArray array];
+        NSXMLElement *software = [[xmlElement elementsForName:@"software"] firstObject];
+        NSXMLElement *metaData = [[software elementsForName:@"software_metadata"] firstObject];
+        NSXMLElement *versions = [[metaData elementsForName:@"versions"] firstObject];
+        
+        NSArray *versionElements = [versions children];
+        NSMutableArray *versionsArray = [NSMutableArray array];
         for (NSXMLElement *version in versionElements) {
-            [versions addObject:[[RMAppVersion alloc] initWithXMLElement:version]];
+            [versionsArray addObject:[[RMAppVersion alloc] initWithXMLElement:version]];
         }
-        self.versions = versions;
+        self.versions = versionsArray;
     }
     return self;
 }

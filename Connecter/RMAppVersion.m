@@ -18,8 +18,9 @@
     if (self) {
         self.versionString = [[xmlElement attributeForName:@"string"] stringValue];
         
-        NSArray *localeElements = [xmlElement children];
         NSMutableArray *locales = [NSMutableArray array];
+        NSXMLElement *localesElement = [[xmlElement elementsForName:@"locales"] firstObject];
+        NSArray *localeElements = [localesElement children];
         for (NSXMLElement *locale in localeElements) {
             [locales addObject:[[RMAppLocale alloc] initWithXMLElement:locale]];
         }
