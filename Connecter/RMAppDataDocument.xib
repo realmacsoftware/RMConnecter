@@ -9,6 +9,9 @@
                 <outlet property="descriptionTextField" destination="L2T-Md-bL4" id="UEd-Xd-u7M"/>
                 <outlet property="keywordsField" destination="CdH-p6-a6N" id="Kia-dm-Ykz"/>
                 <outlet property="localesPopup" destination="30v-14-zTN" id="m0p-2p-oVH"/>
+                <outlet property="privacyUrlField" destination="16y-j9-cFx" id="vfS-w7-4BH"/>
+                <outlet property="softwareUrlField" destination="JwS-HC-Fct" id="o8J-yv-s6j"/>
+                <outlet property="supportUrlField" destination="jbO-5W-psZ" id="Emg-5s-nCg"/>
                 <outlet property="titleTextField" destination="ThY-cl-guu" id="Yhc-Ej-EcY"/>
                 <outlet property="versionsPopup" destination="fBp-pW-E3U" id="ZmE-RY-VAE"/>
                 <outlet property="whatsNewField" destination="TzS-aS-4PR" id="sOj-gm-rVq"/>
