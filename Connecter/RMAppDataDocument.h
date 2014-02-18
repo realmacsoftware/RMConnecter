@@ -10,7 +10,6 @@
 
 @interface RMAppDataDocument : NSDocument
 
-@property (nonatomic, readonly) NSString *bundlePath;
 @property (nonatomic, readonly) RMAppMetaData *metaData;
 
 @end

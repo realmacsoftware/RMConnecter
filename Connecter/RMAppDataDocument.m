@@ -14,7 +14,6 @@
 
 @interface RMAppDataDocument ()
 
-@property (nonatomic, strong) NSString *bundlePath;
 @property (nonatomic, strong) RMAppMetaData *metaData;
 
 @end
@@ -36,14 +35,15 @@
     return YES;
 }
 
-- (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName
-             error:(NSError *__autoreleasing *)outError;
+- (NSFileWrapper *)fileWrapperOfType:(NSString *)typeName error:(NSError **)outError;
 {
-    NSString *path = [[url path] stringByAppendingPathComponent:[self xmlFileName]];
-    
     NSXMLDocument *document = [[NSXMLDocument alloc] initWithRootElement:self.metaData.xmlRepresentation];
     NSData *xmlData = [document XMLData];
-    return [xmlData writeToURL:[NSURL fileURLWithPath:path] atomically:YES];
+    
+    NSFileWrapper *xmlWrapper = [[NSFileWrapper alloc] initRegularFileWithContents:xmlData];
+    NSFileWrapper *folderWrapper = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{[self xmlFileName]:xmlWrapper}];
+    
+    return folderWrapper;
 }
 
 - (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName
@@ -53,7 +53,6 @@
     NSData *xmlData = [NSData dataWithContentsOfFile:xmlPath options:0 error:outError];
     NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:xmlData options:0 error:outError];
     self.metaData = [[RMAppMetaData alloc] initWithXMLElement:document.rootElement];
-    self.bundlePath = [url path];
     
     if (*outError != nil) {
         return NO;
