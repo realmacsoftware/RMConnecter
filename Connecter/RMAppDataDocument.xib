@@ -53,6 +53,9 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="didSelectVersion:" target="-2" id="lnR-Ks-FNq"/>
+                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fo6-qE-s2u">
                         <rect key="frame" x="20" y="647" width="55" height="18"/>
@@ -319,6 +322,9 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="didSelectLocale:" target="-2" id="dVl-c5-bLU"/>
+                        </connections>
                     </popUpButton>
                 </subviews>
             </view>

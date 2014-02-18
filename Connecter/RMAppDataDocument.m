@@ -34,7 +34,8 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    [self updatePopups];
+    [self updateVersionsPopup];
+    [self updateLocalesPopup];
     [self updateUI];
 }
 
@@ -83,23 +84,23 @@
 
 - (RMAppVersion*)selectedVersion;
 {
-    NSString *selectedText = [self.versionsPopup stringValue];
+    NSString *selectedText = [[self.versionsPopup selectedItem] title];
     for (RMAppVersion *version in self.metaData.versions) {
         if ([version.versionString isEqualToString:selectedText]) return version;
     }
-    return self.metaData.versions[0];
+    return [[self.metaData versions] firstObject];
 }
 
 - (RMAppLocale*)selectedLocale;
 {
-    NSString *selectedText = [self.localesPopup objectValue];
+    NSString *selectedText = [[self.localesPopup selectedItem] title];
     for (RMAppLocale *locale in [[self selectedVersion] locales]) {
         if ([locale.localeName isEqualToString:selectedText]) return locale;
     }
-    return [[self selectedVersion] locales][0];
+    return [[[self selectedVersion] locales] firstObject];
 }
 
-- (void)updatePopups;
+- (void)updateVersionsPopup;
 {
     // versions popup
     [self.versionsPopup removeAllItems];
@@ -109,7 +110,10 @@
             [self.versionsPopup setObjectValue:version.versionString];
         }
     }];
-    
+}
+
+- (void)updateLocalesPopup;
+{
     // locales popup
     [self.localesPopup removeAllItems];
     NSArray *locales = [[self selectedVersion] locales];
@@ -126,12 +130,26 @@
     RMAppLocale *currentLocale = [self selectedLocale];
     
     self.titleTextField.objectValue = currentLocale.title;
-    self.whatsNewField.string = currentLocale.whatsNew;
-    self.descriptionTextField.string = currentLocale.description;
+    self.whatsNewField.string = currentLocale.whatsNew ?: @"";
+    self.descriptionTextField.string = currentLocale.description ?: @"";
     self.keywordsField.objectValue = currentLocale.keywords;
     self.supportUrlField.objectValue = currentLocale.supportURL;
     self.softwareUrlField.objectValue = currentLocale.softwareURL;
     self.privacyUrlField.objectValue = currentLocale.privacyURL;
 }
 
+#pragma mark actions
+
+- (IBAction)didSelectVersion:(id)sender;
+{
+    [self updateLocalesPopup];
+    [self updateUI];
+}
+
+- (IBAction)didSelectLocale:(id)sender;
+{
+    [self updateUI];
+}
+
 @end
+
