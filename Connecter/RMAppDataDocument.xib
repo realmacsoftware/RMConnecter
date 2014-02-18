@@ -83,7 +83,12 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.title" id="zMF-tv-u50"/>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.title" id="BJH-RA-jgz">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Title</string>
+                                    <string key="NSNoSelectionPlaceholder">Title</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wrQ-hT-udn">
@@ -104,7 +109,12 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </tokenFieldCell>
                         <connections>
-                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.keywords" id="b9A-az-uZu"/>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.keywords" id="FYF-yB-zmM">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Keywords</string>
+                                    <string key="NSNoSelectionPlaceholder">Keywords</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </tokenField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sUk-tz-j37">
@@ -214,7 +224,12 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.supportURL" id="Rfe-m9-wwY"/>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.supportURL" id="6ZQ-Fy-eOu">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Support URL</string>
+                                    <string key="NSNoSelectionPlaceholder">Support URL</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="91Z-n1-Dus">
@@ -235,7 +250,12 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.softwareURL" id="mzV-yL-01C"/>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.softwareURL" id="SK5-il-8qz">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Marketing URL</string>
+                                    <string key="NSNoSelectionPlaceholder">Marketing URL</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="XUn-EZ-FiB">
@@ -256,7 +276,12 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.privacyURL" id="3Sh-2a-Eto"/>
+                            <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.privacyURL" id="9WK-Fa-Evq">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Privacy Policy URL</string>
+                                    <string key="NSNoSelectionPlaceholder">Privacy Policy URL</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                     <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="B4I-z1-sJK">
