@@ -10,7 +10,4 @@
 
 @interface RMAppDataDocument : NSDocument
 
-@property (nonatomic, strong) NSString *bundlePath;
-@property (nonatomic, strong) NSXMLDocument *activeXMLFile;
-
 @end

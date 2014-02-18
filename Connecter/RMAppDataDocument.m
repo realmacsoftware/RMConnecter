@@ -6,15 +6,27 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
+#import "RMAppMetaData.h"
+#import "RMAppVersion.h"
+#import "RMAppLocale.h"
+
 #import "RMAppDataDocument.h"
 
 @interface RMAppDataDocument ()
+
+@property (nonatomic, strong) NSString *bundlePath;
+@property (nonatomic, strong) RMAppMetaData *metaData;
+
 @property (weak) IBOutlet NSPopUpButton *versionsPopup;
 @property (weak) IBOutlet NSComboBox *localesPopup;
 @property (weak) IBOutlet NSTextField *titleTextField;
 @property (weak) IBOutlet NSTokenField *keywordsField;
 @property (unsafe_unretained) IBOutlet NSTextView *whatsNewField;
 @property (unsafe_unretained) IBOutlet NSTextView *descriptionTextField;
+@property (weak) IBOutlet NSTextField *supportUrlField;
+@property (weak) IBOutlet NSTokenField *softwareUrlField;
+@property (weak) IBOutlet NSTokenField *privacyUrlField;
+
 @end
 
 @implementation RMAppDataDocument
@@ -22,6 +34,7 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
+    [self updatePopups];
     [self updateUI];
 }
 
@@ -45,7 +58,8 @@
 {
     NSString *path = [[url path] stringByAppendingPathComponent:[self xmlFileName]];
     
-    NSData *xmlData = [self.activeXMLFile XMLData];
+    NSXMLDocument *document = [[NSXMLDocument alloc] initWithRootElement:self.metaData.xmlRepresentation];
+    NSData *xmlData = [document XMLData];
     return [xmlData writeToURL:[NSURL fileURLWithPath:path] atomically:YES];
 }
 
@@ -54,7 +68,8 @@
 {
     NSString *xmlPath = [[url path] stringByAppendingPathComponent:[self xmlFileName]];
     NSData *xmlData = [NSData dataWithContentsOfFile:xmlPath options:0 error:outError];
-    self.activeXMLFile = [[NSXMLDocument alloc] initWithData:xmlData options:0 error:outError];
+    NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:xmlData options:0 error:outError];
+    self.metaData = [[RMAppMetaData alloc] initWithXMLElement:document.rootElement];
     self.bundlePath = [url path];
     
     if (*outError != nil) {
@@ -66,50 +81,57 @@
 
 #pragma mark UI
 
-- (void)updateUI;
+- (RMAppVersion*)selectedVersion;
 {
-    NSXMLElement *root = self.activeXMLFile.rootElement;
-    NSXMLNode *versionsElement = [[[root childAtIndex:0] childAtIndex:0] childAtIndex:0];
-    
+    NSString *selectedText = [self.versionsPopup stringValue];
+    for (RMAppVersion *version in self.metaData.versions) {
+        if ([version.versionString isEqualToString:selectedText]) return version;
+    }
+    return self.metaData.versions[0];
+}
+
+- (RMAppLocale*)selectedLocale;
+{
+    NSString *selectedText = [self.localesPopup objectValue];
+    for (RMAppLocale *locale in [[self selectedVersion] locales]) {
+        if ([locale.localeName isEqualToString:selectedText]) return locale;
+    }
+    return [[self selectedVersion] locales][0];
+}
+
+- (void)updatePopups;
+{
     // versions popup
     [self.versionsPopup removeAllItems];
-    NSArray *versions = [versionsElement children];
-    for (NSXMLElement *element in versions) {
-        NSString *versionString = [[element attributeForName:@"string"] stringValue];
-        [self.versionsPopup addItemWithTitle:versionString];
-    }
-    
-    NSXMLNode *localesOfCurrentVersion = [[versions firstObject] childAtIndex:0];
-    
-    // locales popup
-    [self.localesPopup removeAllItems];
-    NSArray *locales = [localesOfCurrentVersion children];
-    [locales enumerateObjectsUsingBlock:^(NSXMLElement *element, NSUInteger idx, BOOL *stop) {
-        NSString *localeString = [[element attributeForName:@"name"] stringValue];
-        [self.localesPopup addItemWithObjectValue:localeString];
+    [self.metaData.versions enumerateObjectsUsingBlock:^(RMAppVersion *version, NSUInteger idx, BOOL *stop) {
+        [self.versionsPopup addItemWithTitle:version.versionString];
         if (idx==0) {
-            [self.localesPopup setObjectValue:localeString];
+            [self.versionsPopup setObjectValue:version.versionString];
         }
     }];
     
-    NSXMLElement *currentLocale = [locales firstObject];
-    
-    NSString *title = [[[currentLocale elementsForName:@"title"] firstObject] stringValue];
-    self.titleTextField.objectValue = title;
-    
-    NSString *description = [[[currentLocale elementsForName:@"description"] firstObject] stringValue];
-    self.descriptionTextField.string = description;
-    
-    NSString *whatsnew = [[[currentLocale elementsForName:@"version_whats_new"] firstObject] stringValue];
-    self.whatsNewField.string = whatsnew;
-    
-    // keywords
-    NSXMLElement *keywords = [[currentLocale elementsForName:@"keywords"] firstObject];
-    NSMutableString *keywordsString = [NSMutableString string];
-    [[keywords children] enumerateObjectsUsingBlock:^(NSXMLElement *element, NSUInteger idx, BOOL *stop) {
-        [keywordsString appendFormat:@"%@,", [element stringValue]];
+    // locales popup
+    [self.localesPopup removeAllItems];
+    NSArray *locales = [[self selectedVersion] locales];
+    [locales enumerateObjectsUsingBlock:^(RMAppLocale *locale, NSUInteger idx, BOOL *stop) {
+        [self.localesPopup addItemWithObjectValue:locale.localeName];
+        if (idx==0) {
+            [self.localesPopup setStringValue:locale.localeName];
+        }
     }];
-    self.keywordsField.stringValue = keywordsString;
+}
+
+- (void)updateUI;
+{
+    RMAppLocale *currentLocale = [self selectedLocale];
+    
+    self.titleTextField.objectValue = currentLocale.title;
+    self.whatsNewField.string = currentLocale.whatsNew;
+    self.descriptionTextField.string = currentLocale.description;
+    self.keywordsField.objectValue = currentLocale.keywords;
+    self.supportUrlField.objectValue = currentLocale.supportURL;
+    self.softwareUrlField.objectValue = currentLocale.softwareURL;
+    self.privacyUrlField.objectValue = currentLocale.privacyURL;
 }
 
 @end
