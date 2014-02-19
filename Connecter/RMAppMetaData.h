@@ -11,6 +11,11 @@
 
 @interface RMAppMetaData : NSObject <RMXMLObject>
 
+@property (nonatomic, strong) NSString *metadataToken;
+@property (nonatomic, strong) NSString *provider;
+@property (nonatomic, strong) NSString *teamID;
+@property (nonatomic, strong) NSString *vendorID;
+
 @property (nonatomic, strong) NSArray *versions;
 
 - (NSXMLDocument*)xmlDocumentRepresentation;
