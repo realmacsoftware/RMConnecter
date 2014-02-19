@@ -15,24 +15,27 @@
     self = [super init];
     if (self) {
         self.shouldDeleteLocale = NO;
-        self.localeName = [[xmlElement attributeForName:@"name"] stringValue];
         
-        self.title = [[[xmlElement elementsForName:@"title"] firstObject] stringValue];
-        self.description = [[[xmlElement elementsForName:@"description"] firstObject] stringValue];
-        self.whatsNew = [[[xmlElement elementsForName:@"version_whats_new"] firstObject] stringValue];
-        self.softwareURL = [[[xmlElement elementsForName:@"software_url"] firstObject] stringValue];
-        self.supportURL = [[[xmlElement elementsForName:@"support_url"] firstObject] stringValue];
-        self.privacyURL = [[[xmlElement elementsForName:@"privacy_url"] firstObject] stringValue];
-        
-        // keywords
-        NSMutableString *keywordsString = [NSMutableString string];
-        NSXMLElement *keywords = [[xmlElement elementsForName:@"keywords"] firstObject];
-        for (NSXMLElement *element in [keywords children]) {
-            [keywordsString appendFormat:@"%@,", [element stringValue]];
+        if ([[xmlElement name] isEqualToString:@"locale"]) {
+            self.localeName = [[xmlElement attributeForName:@"name"] stringValue];
+            
+            self.title = [[[xmlElement elementsForName:@"title"] firstObject] stringValue];
+            self.description = [[[xmlElement elementsForName:@"description"] firstObject] stringValue];
+            self.whatsNew = [[[xmlElement elementsForName:@"version_whats_new"] firstObject] stringValue];
+            self.softwareURL = [[[xmlElement elementsForName:@"software_url"] firstObject] stringValue];
+            self.supportURL = [[[xmlElement elementsForName:@"support_url"] firstObject] stringValue];
+            self.privacyURL = [[[xmlElement elementsForName:@"privacy_url"] firstObject] stringValue];
+            
+            // keywords
+            NSMutableString *keywordsString = [NSMutableString string];
+            NSXMLElement *keywords = [[xmlElement elementsForName:@"keywords"] firstObject];
+            for (NSXMLElement *element in [keywords children]) {
+                [keywordsString appendFormat:@"%@,", [element stringValue]];
+            }
+            self.keywords = keywordsString;
+            
+            // @TODO: screenshots
         }
-        self.keywords = keywordsString;
-        
-        // @TODO: screenshots
     }
     return self;
 }

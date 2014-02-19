@@ -19,20 +19,22 @@ NSString *const RMAppMetaDataVersion = @"software5.1";
 {
     self = [super init];
     if (self) {
-         NSXMLElement *software = [[xmlElement elementsForName:@"software"] firstObject];
-        NSXMLElement *metaData = [[software elementsForName:@"software_metadata"] firstObject];
-        NSXMLElement *versions = [[metaData elementsForName:@"versions"] firstObject];
-        
-        NSArray *versionElements = [versions children];
-        NSMutableArray *versionsArray = [NSMutableArray array];
-        for (NSXMLElement *version in versionElements) {
-            [versionsArray addObject:[[RMAppVersion alloc] initWithXMLElement:version]];
+        if ([[xmlElement name] isEqualToString:@"package"]) {
+            NSXMLElement *software = [[xmlElement elementsForName:@"software"] firstObject];
+            NSXMLElement *metaData = [[software elementsForName:@"software_metadata"] firstObject];
+            NSXMLElement *versions = [[metaData elementsForName:@"versions"] firstObject];
+            
+            NSArray *versionElements = [versions children];
+            NSMutableArray *versionsArray = [NSMutableArray array];
+            for (NSXMLElement *version in versionElements) {
+                [versionsArray addObject:[[RMAppVersion alloc] initWithXMLElement:version]];
+            }
+            self.versions = versionsArray;
+            self.metadataToken = [[[xmlElement elementsForName:@"metadata_token"] firstObject] objectValue];
+            self.provider = [[[xmlElement elementsForName:@"provider"] firstObject] objectValue];
+            self.teamID = [[[xmlElement elementsForName:@"team_id"] firstObject] objectValue];
+            self.vendorID = [[[software elementsForName:@"vendor_id"] firstObject] objectValue];
         }
-        self.versions = versionsArray;
-        self.metadataToken = [[[xmlElement elementsForName:@"metadata_token"] firstObject] objectValue];
-        self.provider = [[[xmlElement elementsForName:@"provider"] firstObject] objectValue];
-        self.teamID = [[[xmlElement elementsForName:@"team_id"] firstObject] objectValue];
-        self.vendorID = [[[software elementsForName:@"vendor_id"] firstObject] objectValue];
     }
     return self;
 }

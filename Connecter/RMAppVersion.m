@@ -16,15 +16,17 @@
 {
     self = [super init];
     if (self) {
-        self.versionString = [[xmlElement attributeForName:@"string"] stringValue];
-        
-        NSMutableArray *locales = [NSMutableArray array];
-        NSXMLElement *localesElement = [[xmlElement elementsForName:@"locales"] firstObject];
-        NSArray *localeElements = [localesElement children];
-        for (NSXMLElement *locale in localeElements) {
-            [locales addObject:[[RMAppLocale alloc] initWithXMLElement:locale]];
+        if ([[xmlElement name] isEqualToString:@"version"]) {
+            self.versionString = [[xmlElement attributeForName:@"string"] stringValue];
+            
+            NSMutableArray *locales = [NSMutableArray array];
+            NSXMLElement *localesElement = [[xmlElement elementsForName:@"locales"] firstObject];
+            NSArray *localeElements = [localesElement children];
+            for (NSXMLElement *locale in localeElements) {
+                [locales addObject:[[RMAppLocale alloc] initWithXMLElement:locale]];
+            }
+            self.locales = locales;
         }
-        self.locales = locales;
     }
     return self;
 }
