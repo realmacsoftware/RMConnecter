@@ -22,8 +22,8 @@
             NSMutableArray *locales = [NSMutableArray array];
             NSXMLElement *localesElement = [[xmlElement elementsForName:@"locales"] firstObject];
             NSArray *localeElements = [localesElement children];
-            for (NSXMLElement *locale in localeElements) {
-                [locales addObject:[[RMAppLocale alloc] initWithXMLElement:locale]];
+            for (NSXMLElement *localeElement in localeElements) {
+                [locales addObject:[[RMAppLocale alloc] initWithXMLElement:localeElement]];
             }
             self.locales = locales;
         }
@@ -36,13 +36,13 @@
     NSXMLElement *version = [NSXMLElement elementWithName:@"version"];
     [version setAttributesWithDictionary:@{@"string":self.versionString}];
     
+    // locales
     NSXMLElement *locales = [NSXMLElement elementWithName:@"locales"];
-    [version addChild:locales];
-    
     for (RMAppLocale *locale in self.locales) {
         NSXMLElement *localeElement = [locale xmlRepresentation];
         [locales addChild:localeElement];
     }
+    [version addChild:locales];
     
     return version;
 }

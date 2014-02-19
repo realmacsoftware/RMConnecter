@@ -45,27 +45,24 @@ NSString *const RMAppMetaDataVersion = @"software5.1";
     [root setAttributesWithDictionary:@{@"xmlns":RMAppMetaDataXMLNS,
                                         @"version":RMAppMetaDataVersion}];
     
-    [root addChild:[NSXMLElement elementWithName:@"metadata_token"
-                                     stringValue:self.metadataToken]];
-    [root addChild:[NSXMLElement elementWithName:@"provider"
-                                     stringValue:self.provider]];
-    [root addChild:[NSXMLElement elementWithName:@"team_id"
-                                     stringValue:self.teamID]];
-    NSXMLElement *vendor = [NSXMLElement elementWithName:@"vendor_id"
-                                             stringValue:self.vendorID];
+    [root addChild:[NSXMLElement elementWithName:@"metadata_token" stringValue:self.metadataToken]];
+    [root addChild:[NSXMLElement elementWithName:@"provider" stringValue:self.provider]];
+    [root addChild:[NSXMLElement elementWithName:@"team_id" stringValue:self.teamID]];
     
     NSXMLElement *software = [NSXMLElement elementWithName:@"software"];
+    NSXMLElement *vendor = [NSXMLElement elementWithName:@"vendor_id" stringValue:self.vendorID];
     NSXMLElement *metadata = [NSXMLElement elementWithName:@"software_metadata"];
-    NSXMLElement *versions = [NSXMLElement elementWithName:@"versions"];
     [root addChild:software];
     [software addChild:vendor];
     [software addChild:metadata];
-    [metadata addChild:versions];
     
+    // versions
+    NSXMLElement *versions = [NSXMLElement elementWithName:@"versions"];
     for (RMAppVersion *version in self.versions) {
         NSXMLElement *versionElement = [version xmlRepresentation];
         [versions addChild:versionElement];
     }
+    [metadata addChild:versions];
     
     return root;
 }
