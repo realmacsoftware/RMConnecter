@@ -20,6 +20,17 @@
 
 @implementation RMAppDataDocument
 
+- (id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
+{
+    self = [super initWithType:typeName error:outError];
+    if (self) {
+        if (!self.metaData) {
+            self.metaData = [[RMAppMetaData alloc] init];
+        }
+    }
+    return self;
+}
+
 - (NSString *)windowNibName
 {
     return NSStringFromClass([self class]);
