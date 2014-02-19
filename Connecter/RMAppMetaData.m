@@ -10,6 +10,9 @@
 
 #import "RMAppMetaData.h"
 
+NSString *const RMAppMetaDataXMLNS = @"http://apple.com/itunes/importer";
+NSString *const RMAppMetaDataVersion = @"software5.1";
+
 @implementation RMAppMetaData
 
 - (id)initWithXMLElement:(NSXMLElement*)xmlElement;
@@ -37,8 +40,8 @@
 - (NSXMLElement *)xmlRepresentation;
 {
     NSXMLElement *root = [NSXMLElement elementWithName:@"package"];
-    [root setAttributesWithDictionary:@{@"xmlns":@"http://apple.com/itunes/importer",
-                                        @"version":@"software5.1"}];
+    [root setAttributesWithDictionary:@{@"xmlns":RMAppMetaDataXMLNS,
+                                        @"version":RMAppMetaDataVersion}];
     
     [root addChild:[NSXMLElement elementWithName:@"metadata_token"
                                      stringValue:self.metadataToken]];
