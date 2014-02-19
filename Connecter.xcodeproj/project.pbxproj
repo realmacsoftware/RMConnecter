@@ -23,7 +23,6 @@
 		6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739027189E91BE000764E4 /* RMConnecterCredentials.m */; };
 		6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */; };
 		6D739031189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */; };
-		76940F0249AC47E9B93522F6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A0CF47412B459084E2ABDA /* libPods.a */; };
 		D225B07218AE7A290061CA42 /* RMAppDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D225B07118AE7A290061CA42 /* RMAppDataDocument.m */; };
 		D2DFEC5318B3695600FF33AD /* RMAppMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */; };
 		D2DFEC5A18B3754200FF33AD /* RMAppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5918B3754200FF33AD /* RMAppVersion.m */; };
@@ -77,7 +76,6 @@
 		6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMConnecterOperation.m; sourceTree = "<group>"; };
 		6D73902F189EA5D6000764E4 /* RMConnecterCredentials+Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMConnecterCredentials+Keychain.h"; sourceTree = "<group>"; };
 		6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMConnecterCredentials+Keychain.m"; sourceTree = "<group>"; };
-		AF194806122C4C21B523B678 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D225B07018AE7A290061CA42 /* RMAppDataDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppDataDocument.h; sourceTree = "<group>"; };
 		D225B07118AE7A290061CA42 /* RMAppDataDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppDataDocument.m; sourceTree = "<group>"; };
 		D2DFEC5118B3695600FF33AD /* RMAppMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppMetaData.h; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				247F280B189127D8000F8041 /* Cocoa.framework in Frameworks */,
-				76940F0249AC47E9B93522F6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +118,6 @@
 				247F282E189127D8000F8041 /* ConnecterTests */,
 				247F2809189127D8000F8041 /* Frameworks */,
 				247F2808189127D8000F8041 /* Products */,
-				AF194806122C4C21B523B678 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -265,11 +261,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 247F2838189127D8000F8041 /* Build configuration list for PBXNativeTarget "Connecter" */;
 			buildPhases = (
-				36E1BF071B5C49F5AF7C8791 /* Check Pods Manifest.lock */,
 				247F2803189127D8000F8041 /* Sources */,
 				247F2804189127D8000F8041 /* Frameworks */,
 				247F2805189127D8000F8041 /* Resources */,
-				491DFA7175EE4177AC9E005D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -362,39 +356,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		36E1BF071B5C49F5AF7C8791 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		491DFA7175EE4177AC9E005D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		247F2803189127D8000F8041 /* Sources */ = {
@@ -554,7 +515,6 @@
 		};
 		247F2839189127D8000F8041 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF194806122C4C21B523B678 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Connecter/Connecter.entitlements;
@@ -568,7 +528,6 @@
 		};
 		247F283A189127D8000F8041 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF194806122C4C21B523B678 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Connecter/Connecter.entitlements;
