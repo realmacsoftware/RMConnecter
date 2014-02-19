@@ -51,4 +51,14 @@
     return root;
 }
 
+- (NSXMLDocument *)xmlDocumentRepresentation;
+{
+    NSXMLDocument *document = [[NSXMLDocument alloc] initWithRootElement:self.xmlRepresentation];
+    [document setCharacterEncoding:@"UTF-8"];
+    [document setVersion:@"1.0"];
+    [document setStandalone:YES];
+    [document setMIMEType:@"text/xml"];
+    return document;
+}
+
 @end

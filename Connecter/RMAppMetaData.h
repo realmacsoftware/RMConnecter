@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSArray *versions;
 
+- (NSXMLDocument*)xmlDocumentRepresentation;
+
 @end
