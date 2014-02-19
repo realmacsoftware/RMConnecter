@@ -472,5 +472,10 @@
                 <binding destination="Qcn-rz-95j" name="contentArray" keyPath="selection.locales" id="C41-qS-FNz"/>
             </connections>
         </arrayController>
+        <arrayController objectClassName="RMAppScreenshot" id="5qQ-CF-0Zp" userLabel="Screenshots Array Controller">
+            <connections>
+                <binding destination="wkQ-lw-xLY" name="contentArray" keyPath="selection.screenshots" id="9L9-yk-vbg"/>
+            </connections>
+        </arrayController>
     </objects>
 </document>
