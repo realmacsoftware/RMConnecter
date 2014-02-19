@@ -32,7 +32,7 @@ NSString *const RMAppScreenshotTypeValueTransformerName = @"RMAppScreenshotTypeV
             
             self.position = [[[xmlElement attributeForName:@"position"] objectValue] integerValue];
             self.filename = [[[xmlElement elementsForName:@"file_name"] firstObject] objectValue];
-            self.size = [[[[xmlElement elementsForName:@"size"] firstObject] objectValue] longValue];
+            self.size = [[[[xmlElement elementsForName:@"size"] firstObject] objectValue] integerValue];
             
             NSXMLElement *checksumElement = [[xmlElement elementsForName:@"checksum"] firstObject];
             self.checksum = [checksumElement objectValue];
@@ -48,12 +48,12 @@ NSString *const RMAppScreenshotTypeValueTransformerName = @"RMAppScreenshotTypeV
     
     NSString *typeString = [[self valueTransformer] reverseTransformedValue:@(self.displayTarget)];
     [screenshot setAttributesWithDictionary:@{@"display_target":typeString,
-                                              @"position":@(self.position)}];
+                                              @"position":[NSString stringWithFormat:@"%d", self.position]}];
     
     [screenshot addChild:[NSXMLElement elementWithName:@"file_name"
                                            stringValue:self.filename]];
     [screenshot addChild:[NSXMLElement elementWithName:@"size"
-                                           stringValue:[NSString stringWithFormat: @"%ld", self.size]]];
+                                           stringValue:[NSString stringWithFormat: @"%d", self.size]]];
     
     NSXMLElement *checksum = [NSXMLElement elementWithName:@"checksum"
                                                stringValue:self.checksum];

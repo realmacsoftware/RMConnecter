@@ -20,12 +20,12 @@ typedef NS_ENUM(NSInteger, RMAppScreenshotType) {
 @interface RMAppScreenshot : NSObject <RMXMLObject>
 
 @property (nonatomic, assign) RMAppScreenshotType displayTarget;
-@property (nonatomic, assign) NSInteger position;
+@property (nonatomic, assign) int position;
 
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *checksum;
 @property (nonatomic, strong) NSString *checksumType;
-@property (nonatomic, assign) long size;
+@property (nonatomic, assign) int size;
 
 @end
 
