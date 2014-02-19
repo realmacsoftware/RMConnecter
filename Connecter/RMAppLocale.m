@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
+#import "RMAppScreenshot.h"
+
 #import "RMAppLocale.h"
 
 @implementation RMAppLocale
@@ -34,7 +36,14 @@
             }
             self.keywords = keywordsString;
             
-            // @TODO: screenshots
+            // screenshots
+            NSMutableArray *screenshots = [NSMutableArray array];
+            NSXMLElement *screenshotsElement = [[xmlElement elementsForName:@"software_screenshots"] firstObject];
+            NSArray *screenshotElements = [screenshotsElement children];
+            for (NSXMLElement *screenshotElement in screenshotElements) {
+                [screenshots addObject:[[RMAppScreenshot alloc] initWithXMLElement:screenshotElement]];
+            }
+            self.screenshots = screenshots;
         }
     }
     return self;
@@ -77,7 +86,13 @@
         }
         [locale addChild:keywords];
         
-        // @TODO: screenshots
+        // screenshots
+        NSXMLElement *screenshots = [NSXMLElement elementWithName:@"software_screenshots"];
+        for (RMAppLocale *screenshot in self.screenshots) {
+            NSXMLElement *screenshotElement = [screenshot xmlRepresentation];
+            [screenshots addChild:screenshotElement];
+        }
+        [locale addChild:screenshots];
     }
     
     return locale;
