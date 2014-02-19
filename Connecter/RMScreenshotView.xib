@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="RMScreenshotView"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customView id="1" customClass="RMScreenshotView">
+            <rect key="frame" x="0.0" y="0.0" width="74" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8lE-Sd-5Wz">
+                    <rect key="frame" x="-3" y="29" width="80" height="120"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyUpOrDown" imageFrameStyle="grayBezel" id="0QP-rE-QsC"/>
+                    <connections>
+                        <action selector="imageDidChange:" target="1" id="Vxz-ix-S2z"/>
+                    </connections>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Vgp-6X-fSm">
+                    <rect key="frame" x="-2" y="12" width="78" height="13"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="eins.png" placeholderString="None" id="Bbv-no-5fP">
+                        <font key="font" size="10" name="LucidaGrande"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.screenshot.filename" id="WoB-bn-VSz">
+                            <dictionary key="options">
+                                <string key="NSNullPlaceholder">None</string>
+                                <string key="NSNoSelectionPlaceholder">None</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8mp-4z-gKF">
+                    <rect key="frame" x="-2" y="0.0" width="78" height="13"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="1.2 MB" placeholderString="-" id="QGx-HY-Bl4">
+                        <font key="font" size="10" name="LucidaGrande"/>
+                        <color key="textColor" red="0.42473378779999998" green="0.42470559479999997" blue="0.42472207550000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.screenshot.size" id="7fr-eZ-ZU8">
+                            <dictionary key="options">
+                                <string key="NSNullPlaceholder">-</string>
+                                <string key="NSNoSelectionPlaceholder">-</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+            </subviews>
+            <connections>
+                <outlet property="imageView" destination="8lE-Sd-5Wz" id="J03-4I-z5P"/>
+            </connections>
+        </customView>
+    </objects>
+</document>
