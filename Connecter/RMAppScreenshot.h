@@ -27,5 +27,7 @@ typedef NS_ENUM(NSInteger, RMAppScreenshotType) {
 @property (nonatomic, strong) NSString *checksumType;
 @property (nonatomic, assign) int size;
 
+- (NSString*)generateFilename;
+
 @end
 
