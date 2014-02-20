@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RMAppDataDocument">
             <connections>
+                <outlet property="screenshotsController" destination="5qQ-CF-0Zp" id="hSd-t6-9Vw"/>
+                <outlet property="screenshotsView" destination="aCv-uj-Pte" id="P4X-xp-4XM"/>
                 <outlet property="window" destination="1" id="aEU-6c-cVH"/>
             </connections>
         </customObject>
@@ -339,6 +341,9 @@
                                 <segment label="Mac"/>
                             </segments>
                         </segmentedCell>
+                        <connections>
+                            <binding destination="5qQ-CF-0Zp" name="selectedIndex" keyPath="selectionIndex" id="4hH-ak-qCt"/>
+                        </connections>
                     </segmentedControl>
                     <customView id="aCv-uj-Pte" customClass="RMScreenshotsGroupView">
                         <rect key="frame" x="22" y="12" width="538" height="140"/>

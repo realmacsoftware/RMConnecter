@@ -12,6 +12,6 @@
 
 @interface RMScreenshotsGroupView : NSView
 
-- (void)setScreenshots:(NSArray*)screenshots;
+@property (nonatomic, strong) NSArray *screenshots;
 
 @end

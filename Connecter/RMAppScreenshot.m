@@ -63,6 +63,14 @@ NSString *const RMAppScreenshotTypeValueTransformerName = @"RMAppScreenshotTypeV
     return screenshot;
 }
 
+- (NSString *)description;
+{
+    return [NSString stringWithFormat: @"%@ - %@, %d., %@, %d",
+            [super description],
+            [[self valueTransformer] reverseTransformedValue:@(self.displayTarget)],
+            self.position, self.filename, self.size];
+}
+
 - (RMAppScreenshotTypeValueTransformer*)valueTransformer;
 {
     return (RMAppScreenshotTypeValueTransformer*)[NSValueTransformer valueTransformerForName:RMAppScreenshotTypeValueTransformerName];

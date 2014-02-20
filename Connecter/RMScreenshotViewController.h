@@ -1,5 +1,5 @@
 //
-//  RMScreenshotView.h
+//  RMScreenshotViewController.h
 //  Connecter
 //
 //  Created by Markus on 19.02.14.
@@ -10,7 +10,7 @@
 
 @class RMAppScreenshot;
 
-@interface RMScreenshotView : NSView
+@interface RMScreenshotViewController : NSViewController
 
 @property (nonatomic, weak) RMAppScreenshot *screenshot;
 

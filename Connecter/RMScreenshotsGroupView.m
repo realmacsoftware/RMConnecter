@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
-#import "RMScreenshotView.h"
+#import "RMScreenshotViewController.h"
 
 #import "RMScreenshotsGroupView.h"
 
 @interface RMScreenshotsGroupView ()
-@property (nonatomic, copy) NSArray *screenshotViews;
+@property (nonatomic, copy) NSArray *screenshotViewController;
 @end
 
 @implementation RMScreenshotsGroupView
@@ -24,26 +24,13 @@
 
 - (void)addScreenshotViews;
 {
-    NSMutableArray *viewsArray = [NSMutableArray array];
+    NSMutableArray *controllerArray = [NSMutableArray array];
     for (NSInteger i=0; i<5; i++) {
-        NSArray *nibObjects;
-        NSNib *nib = [[NSNib alloc] initWithNibNamed:NSStringFromClass([RMScreenshotView class]) bundle:nil];
-        BOOL success = [nib instantiateWithOwner:nil topLevelObjects:&nibObjects];
-        if (success && nibObjects != nil) {
-            RMScreenshotView *view;
-            for (id obj in nibObjects) {
-                if ([obj isKindOfClass:[RMScreenshotView class]]) {
-                    view = obj;
-                    break;
-                }
-            }
-            if(view) {
-                [viewsArray addObject:view];
-                [self addSubview:view];
-            }
-        }
+        RMScreenshotViewController *controller = [[RMScreenshotViewController alloc] initWithNibName:@"RMScreenshotViewController" bundle:nil];
+        [controllerArray addObject:controller];
+        [self addSubview:controller.view];
     }
-    self.screenshotViews = viewsArray;
+    self.screenshotViewController = controllerArray;
     
     // relayout
     [self setFrame:self.frame];
@@ -54,8 +41,8 @@
     [super setFrame:frameRect];
     
     NSInteger xPos=0, margin=12;
-    NSInteger viewWidth = [[self.screenshotViews firstObject] frame].size.width;
-    for (RMScreenshotView *view in self.screenshotViews) {
+    NSInteger viewWidth = [[[self.screenshotViewController firstObject] view] frame].size.width;
+    for (NSView *view in [self.screenshotViewController valueForKey:@"view"]) {
         [view setFrameOrigin:NSMakePoint(xPos, 0)];
         [view setFrameSize:NSMakeSize(viewWidth, frameRect.size.height)];
         xPos += view.frame.size.width + margin;
@@ -66,8 +53,17 @@
 
 - (void)setScreenshots:(NSArray*)screenshots;
 {
+    _screenshots = screenshots;
+
+    for (RMScreenshotViewController *controller in self.screenshotViewController) {
+        controller.screenshot = nil;
+    }
+    
     for (RMAppScreenshot *screenshot in screenshots) {
-        [self.screenshotViews[screenshot.position] setScreenshot:screenshot];
+        int index = screenshot.position-1;
+        if(self.screenshotViewController.count > index) {
+            [self.screenshotViewController[index] setScreenshot:screenshot];
+        }
     }
 }
 

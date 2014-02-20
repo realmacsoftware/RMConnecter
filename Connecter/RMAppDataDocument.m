@@ -6,15 +6,18 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
+#import "RMScreenshotsGroupView.h"
+#import "RMAppScreenshot.h"
 #import "RMAppMetaData.h"
-#import "RMAppVersion.h"
-#import "RMAppLocale.h"
 
 #import "RMAppDataDocument.h"
 
 @interface RMAppDataDocument ()
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
+
+@property (nonatomic, strong) IBOutlet NSArrayController *screenshotsController;
+@property (nonatomic, weak)   IBOutlet RMScreenshotsGroupView *screenshotsView;
 
 @end
 
@@ -31,6 +34,27 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [self.screenshotsController removeObserver:self forKeyPath:@"arrangedObjects"];
+    [self.screenshotsController removeObserver:self forKeyPath:@"selectionIndex"];
+}
+
+#pragma mark additional setup
+
+- (void)windowControllerDidLoadNib:(NSWindowController *)windowController;
+{
+    [super windowControllerDidLoadNib:windowController];
+    
+    [self.screenshotsController addObserver:self forKeyPath:@"arrangedObjects"
+                                    options:0 context:nil];
+    [self.screenshotsController addObserver:self forKeyPath:@"selectionIndex"
+                                    options:0 context:nil];
+    [self updateScreenshots];
+}
+
+#pragma mark helper
+
 - (NSString *)windowNibName
 {
     return NSStringFromClass([self class]);
@@ -45,6 +69,27 @@
 {
     return YES;
 }
+
+#pragma mark KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
+                        change:(NSDictionary *)change context:(void *)context;
+{
+    if (object == self.screenshotsController &&
+        ([keyPath isEqualToString:@"arrangedObjects"] || [keyPath isEqualToString:@"selectionIndex"])) {
+        [self updateScreenshots];
+    }
+}
+
+- (void)updateScreenshots;
+{
+    RMAppScreenshotType type = (RMAppScreenshotType)self.screenshotsController.selectionIndex;
+    NSArray *currentScreenshots = [self.screenshotsController.arrangedObjects
+                                   filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"displayTarget == %d", type]];
+    self.screenshotsView.screenshots = currentScreenshots;
+}
+
+#pragma mark reading/saving the document
 
 - (NSFileWrapper *)fileWrapperOfType:(NSString *)typeName error:(NSError **)outError;
 {
