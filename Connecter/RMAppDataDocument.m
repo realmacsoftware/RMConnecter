@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) IBOutlet NSArrayController *screenshotsController;
 @property (nonatomic, weak)   IBOutlet RMScreenshotsGroupView *screenshotsView;
+@property (nonatomic, weak)   IBOutlet NSSegmentedControl *segmentedControl;
 
 @end
 
@@ -37,7 +38,7 @@
 - (void)dealloc
 {
     [self.screenshotsController removeObserver:self forKeyPath:@"arrangedObjects"];
-    [self.screenshotsController removeObserver:self forKeyPath:@"selectionIndex"];
+    [self.segmentedControl removeObserver:self forKeyPath:@"cell.selectedSegment"];
 }
 
 #pragma mark additional setup
@@ -46,11 +47,8 @@
 {
     [super windowControllerDidLoadNib:windowController];
     
-    [self.screenshotsController addObserver:self forKeyPath:@"arrangedObjects"
-                                    options:0 context:nil];
-    [self.screenshotsController addObserver:self forKeyPath:@"selectionIndex"
-                                    options:0 context:nil];
-    [self updateScreenshots];
+    [self.screenshotsController addObserver:self forKeyPath:@"arrangedObjects" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
+    [self.segmentedControl addObserver:self forKeyPath:@"cell.selectedSegment" options:0 context:nil];
 }
 
 #pragma mark helper
@@ -75,15 +73,16 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
                         change:(NSDictionary *)change context:(void *)context;
 {
-    if (object == self.screenshotsController &&
-        ([keyPath isEqualToString:@"arrangedObjects"] || [keyPath isEqualToString:@"selectionIndex"])) {
+    
+    if ((object == self.screenshotsController && [keyPath isEqualToString:@"arrangedObjects"]) ||
+        (object == self.segmentedControl && [keyPath isEqualToString:@"cell.selectedSegment"])) {
         [self updateScreenshots];
     }
 }
 
 - (void)updateScreenshots;
 {
-    RMAppScreenshotType type = (RMAppScreenshotType)self.screenshotsController.selectionIndex;
+    RMAppScreenshotType type = (RMAppScreenshotType)self.segmentedControl.selectedSegment;
     NSArray *currentScreenshots = [self.screenshotsController.arrangedObjects
                                    filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"displayTarget == %d", type]];
     self.screenshotsView.screenshots = currentScreenshots;
