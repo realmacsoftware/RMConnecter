@@ -23,6 +23,7 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
 
+@property (nonatomic, strong) IBOutlet NSArrayController *versionsController;
 @property (nonatomic, strong) IBOutlet NSArrayController *localesController;
 @property (nonatomic, strong) IBOutlet NSArrayController *screenshotsController;
 @property (nonatomic, weak)   IBOutlet RMScreenshotsGroupView *screenshotsView;
@@ -104,15 +105,30 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
 
 - (void)screenshotsGroupViewDidUpdateScreenshots:(RMScreenshotsGroupView*)controller;
 {
-    // update screenshot models with correct type
-    RMAppScreenshotType currentType = (RMAppScreenshotType)self.segmentedControl.selectedSegment;
+    RMAppVersion *activeVersion = [self.versionsController.selectedObjects firstObject];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    
+    // update screenshot models with correct displayTarget & update filenames
+    RMAppScreenshotType currentDisplayTarget = (RMAppScreenshotType)self.segmentedControl.selectedSegment;
     for (RMAppScreenshot *screenshot in controller.screenshots) {
-        screenshot.displayTarget = currentType;
+        screenshot.displayTarget = currentDisplayTarget;
+        
+        if (screenshot.imageData != nil && [screenshot.filename hasPrefix:activeLocale.localeName] == NO) {
+            NSString *versionString = [activeVersion.versionString stringByReplacingOccurrencesOfString:@"." withString:@""];
+            versionString = [versionString stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            versionString = [versionString stringByReplacingOccurrencesOfString:@"_" withString:@""];
+            screenshot.filename = [NSString stringWithFormat: @"%@%@%d%d.png",
+                                   activeLocale.localeName,
+                                   versionString,
+                                   (int)screenshot.displayTarget,
+                                   (int)screenshot.position];
+        }
     }
     
-    // update model
-    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
-    activeLocale.screenshots = controller.screenshots;
+    // update model with new screenshots for current displayTarget
+    NSArray *filteredScreenshots = [self.screenshotsController.arrangedObjects
+                                    filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"displayTarget != %d", currentDisplayTarget]];
+    activeLocale.screenshots = [filteredScreenshots arrayByAddingObjectsFromArray:controller.screenshots];
 }
 
 #pragma mark reading/saving the document

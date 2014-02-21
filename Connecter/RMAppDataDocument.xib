@@ -10,6 +10,7 @@
                 <outlet property="screenshotsController" destination="5qQ-CF-0Zp" id="hSd-t6-9Vw"/>
                 <outlet property="screenshotsView" destination="aCv-uj-Pte" id="P4X-xp-4XM"/>
                 <outlet property="segmentedControl" destination="8A8-Pv-pvE" id="q1I-mE-oW1"/>
+                <outlet property="versionsController" destination="Qcn-rz-95j" id="KIK-HB-zrS"/>
                 <outlet property="window" destination="1" id="aEU-6c-cVH"/>
             </connections>
         </customObject>
