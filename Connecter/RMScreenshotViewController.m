@@ -21,6 +21,9 @@
     _screenshot = screenshot;
     
     self.imageView.image = [[NSImage alloc] initWithData:screenshot.imageData];
+    if(!self.imageView.image && screenshot != nil) {
+        self.imageView.image = [NSImage imageNamed:@"ScreenshotPlaceholder"];
+    }
 }
 
 - (IBAction)imageDidChange:(NSImageView*)sender;
