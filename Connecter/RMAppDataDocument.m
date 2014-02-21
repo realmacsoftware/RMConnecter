@@ -43,13 +43,7 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     return self;
 }
 
-- (void)dealloc
-{
-    [self.screenshotsController removeObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath];
-    [self.segmentedControl removeObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath];
-}
-
-#pragma mark additional setup
+#pragma mark window managment
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)windowController;
 {
@@ -59,6 +53,14 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
     [self.segmentedControl addObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath options:0 context:nil];
+}
+
+- (void)removeWindowController:(NSWindowController *)windowController;
+{
+    [super removeWindowController:windowController];
+    
+    [self.screenshotsController removeObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath];
+    [self.segmentedControl removeObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath];
 }
 
 #pragma mark helper
