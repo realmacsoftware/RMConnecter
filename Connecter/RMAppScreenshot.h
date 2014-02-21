@@ -6,16 +6,10 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
+#import "RMAppScreenshotTypeValueTransformer.h"
 #import "RMXMLObject.h"
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSInteger, RMAppScreenshotType) {
-    RMAppScreenshotTypeiPhone35inch,
-    RMAppScreenshotTypeiPhone4inch,
-    RMAppScreenshotTypeiPad,
-    RMAppScreenshotTypeMac
-};
 
 @interface RMAppScreenshot : NSObject <RMXMLObject>
 
