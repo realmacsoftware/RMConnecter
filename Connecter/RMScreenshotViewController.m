@@ -32,9 +32,8 @@
     {
         // get PNG representation
         [sender.image lockFocus];
-        NSBitmapImageRep *bitmapRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:
-                                       NSMakeRect(0, 0, sender.image.size.width, sender.image.size.height)];
-        NSData *imageData = [bitmapRep representationUsingType:NSPNGFileType properties:Nil];
+        NSBitmapImageRep *bitmapRep = [sender.image.representations firstObject];
+        NSData *imageData = [bitmapRep representationUsingType:NSPNGFileType properties:nil];
         [sender.image unlockFocus];
         
         // update screenshot
