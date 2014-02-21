@@ -10,8 +10,18 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol RMScreenshotsGroupViewDelegate;
+
 @interface RMScreenshotsGroupView : NSView
 
 @property (nonatomic, strong) NSArray *screenshots;
 
+@property (nonatomic, weak) id<RMScreenshotsGroupViewDelegate> delegate;
+
 @end
+
+
+@protocol RMScreenshotsGroupViewDelegate <NSObject>
+- (void)screenshotsGroupViewDidUpdateScreenshots:(RMScreenshotsGroupView*)controller;
+@end
+

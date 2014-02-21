@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RMAppDataDocument">
             <connections>
+                <outlet property="localesController" destination="wkQ-lw-xLY" id="3ps-cI-OeU"/>
                 <outlet property="screenshotsController" destination="5qQ-CF-0Zp" id="hSd-t6-9Vw"/>
                 <outlet property="screenshotsView" destination="aCv-uj-Pte" id="P4X-xp-4XM"/>
                 <outlet property="segmentedControl" destination="8A8-Pv-pvE" id="q1I-mE-oW1"/>
@@ -353,7 +354,6 @@
                 <outlet property="delegate" destination="-2" id="JZ2-BH-z4M"/>
             </connections>
         </window>
-        <userDefaultsController representsSharedInstance="YES" id="Noj-2I-CqB"/>
         <arrayController objectClassName="RMAppVersion" editable="NO" id="Qcn-rz-95j" userLabel="Versions Array Controller">
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="self.metaData.versions" id="7Qx-LK-0Cx"/>

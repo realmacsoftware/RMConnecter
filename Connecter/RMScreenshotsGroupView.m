@@ -83,6 +83,11 @@
         [screenshots addObject:controller.screenshot];
     }
     [self setScreenshots:[screenshots copy]];
+    
+    // inform delegate
+    if (self.delegate) {
+        [self.delegate screenshotsGroupViewDidUpdateScreenshots:self];
+    }
 }
 
 @end

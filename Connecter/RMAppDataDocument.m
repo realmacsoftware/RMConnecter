@@ -9,16 +9,18 @@
 #import "RMScreenshotsGroupView.h"
 #import "RMAppScreenshot.h"
 #import "RMAppMetaData.h"
+#import "RMAppLocale.h"
 
 #import "RMAppDataDocument.h"
 
 NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
 
-@interface RMAppDataDocument ()
+@interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate>
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
 
+@property (nonatomic, strong) IBOutlet NSArrayController *localesController;
 @property (nonatomic, strong) IBOutlet NSArrayController *screenshotsController;
 @property (nonatomic, weak)   IBOutlet RMScreenshotsGroupView *screenshotsView;
 @property (nonatomic, weak)   IBOutlet NSSegmentedControl *segmentedControl;
@@ -49,6 +51,8 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
 - (void)windowControllerDidLoadNib:(NSWindowController *)windowController;
 {
     [super windowControllerDidLoadNib:windowController];
+    
+    self.screenshotsView.delegate = self;
     
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
     [self.segmentedControl addObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath options:0 context:nil];
@@ -89,6 +93,21 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     NSArray *currentScreenshots = [self.screenshotsController.arrangedObjects
                                    filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"displayTarget == %d", type]];
     self.screenshotsView.screenshots = currentScreenshots;
+}
+
+#pragma mark RMScreenshotsGroupViewDelegate
+
+- (void)screenshotsGroupViewDidUpdateScreenshots:(RMScreenshotsGroupView*)controller;
+{
+    // update screenshot models with correct type
+    RMAppScreenshotType currentType = (RMAppScreenshotType)self.segmentedControl.selectedSegment;
+    for (RMAppScreenshot *screenshot in controller.screenshots) {
+        screenshot.displayTarget = currentType;
+    }
+    
+    // update model
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    activeLocale.screenshots = controller.screenshots;
 }
 
 #pragma mark reading/saving the document
