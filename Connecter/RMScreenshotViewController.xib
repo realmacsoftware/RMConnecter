@@ -27,7 +27,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Vgp-6X-fSm">
                     <rect key="frame" x="-2" y="12" width="78" height="13"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="None" id="Bbv-no-5fP">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" alignment="center" placeholderString="None" id="Bbv-no-5fP">
                         <font key="font" size="10" name="LucidaGrande"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -44,7 +44,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8mp-4z-gKF">
                     <rect key="frame" x="-2" y="0.0" width="78" height="13"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="-" id="QGx-HY-Bl4">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" alignment="center" placeholderString="-" id="QGx-HY-Bl4">
                         <font key="font" size="10" name="LucidaGrande"/>
                         <color key="textColor" red="0.42473378779999998" green="0.42470559479999997" blue="0.42472207550000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
