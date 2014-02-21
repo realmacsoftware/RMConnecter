@@ -9,6 +9,7 @@
 #import "RMScreenshotsGroupView.h"
 #import "RMAppScreenshot.h"
 #import "RMAppMetaData.h"
+#import "RMAppVersion.h"
 #import "RMAppLocale.h"
 
 #import "RMAppDataDocument.h"
@@ -119,12 +120,17 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     NSData *xmlData = [[self.metaData xmlDocumentRepresentation] XMLDataWithOptions:NSXMLNodePrettyPrint];
     NSFileWrapper *xmlWrapper = [[NSFileWrapper alloc] initRegularFileWithContents:xmlData];
     NSFileWrapper *folderWrapper = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{[self xmlFileName]:xmlWrapper}];
-    
-    for (RMAppScreenshot* screenshot in self.screenshotsController.arrangedObjects) {
-        if (screenshot.imageData) {
-            NSFileWrapper *filewrapper = [[NSFileWrapper alloc] initRegularFileWithContents:screenshot.imageData];
-            filewrapper.preferredFilename = screenshot.filename;
-            [folderWrapper addFileWrapper:filewrapper];
+
+    // save screenshots
+    for (RMAppVersion *version in self.metaData.versions) {
+        for (RMAppLocale *locale in version.locales) {
+            for (RMAppScreenshot* screenshot in locale.screenshots) {
+                if (screenshot.imageData) {
+                    NSFileWrapper *filewrapper = [[NSFileWrapper alloc] initRegularFileWithContents:screenshot.imageData];
+                    filewrapper.preferredFilename = screenshot.filename;
+                    [folderWrapper addFileWrapper:filewrapper];
+                }
+            }
         }
     }
     
