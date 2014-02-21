@@ -13,6 +13,8 @@
 
 #import "RMAppDataDocument.h"
 
+NSString *const RMAppDataErrorDomain = @"RMAppDataErrorDomain";
+
 NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
 
@@ -129,19 +131,23 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     return folderWrapper;
 }
 
-- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName
-              error:(NSError *__autoreleasing *)outError;
+- (BOOL)readFromFileWrapper:(NSFileWrapper *)fileWrapper ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError;
 {
-    NSString *xmlPath = [[url path] stringByAppendingPathComponent:[self xmlFileName]];
-    NSData *xmlData = [NSData dataWithContentsOfFile:xmlPath options:0 error:outError];
-    NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:xmlData options:0 error:outError];
-    self.metaData = [[RMAppMetaData alloc] initWithXMLElement:document.rootElement];
+    NSDictionary *fileWrappers = [fileWrapper fileWrappers];
     
-    if (*outError != nil) {
-        return NO;
-    } else {
+    // parse xml file
+    NSData *xmlData = [fileWrappers[[self xmlFileName]] regularFileContents];
+    if (xmlData) {
+        NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:xmlData options:0 error:outError];
+        self.metaData = [[RMAppMetaData alloc] initWithXMLElement:document.rootElement];
+        
         return YES;
     }
+    
+    NSString *errorMessage = [NSString stringWithFormat:@"Could not read xml document named %@", [self xmlFileName]];
+    *outError = [NSError errorWithDomain:RMAppDataErrorDomain code:0
+                                userInfo:@{NSLocalizedFailureReasonErrorKey:errorMessage}];
+    return NO;
 }
 
 @end
