@@ -6,9 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RMScreenshotViewController">
             <connections>
-                <outlet property="filenameLabel" destination="Vgp-6X-fSm" id="Xbg-Qb-QFD"/>
-                <outlet property="imageView" destination="8lE-Sd-5Wz" id="bOt-iS-C8q"/>
-                <outlet property="sizeLabel" destination="8mp-4z-gKF" id="rBb-50-BYZ"/>
+                <outlet property="imageView" destination="8lE-Sd-5Wz" id="dAC-Jl-gyP"/>
                 <outlet property="view" destination="1" id="b4y-r9-yP2"/>
             </connections>
         </customObject>

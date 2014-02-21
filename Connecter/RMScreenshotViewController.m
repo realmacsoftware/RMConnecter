@@ -11,17 +11,39 @@
 #import "RMScreenshotViewController.h"
 
 @interface RMScreenshotViewController ()
-@property (weak) IBOutlet NSImageView *imageView;
-@property (strong) IBOutlet NSTextField *filenameLabel;
-@property (strong) IBOutlet NSTextField *sizeLabel;
-- (IBAction)imageDidChange:(NSImageView*)sender;
 @end
 
 @implementation RMScreenshotViewController
 
+- (void)setScreenshot:(RMAppScreenshot *)screenshot;
+{
+    if (screenshot == _screenshot) return;
+    [self willChangeValueForKey:@"screenshot"];
+    _screenshot = screenshot;
+    [self didChangeValueForKey:@"screenshot"];
+    
+    self.imageView.image = [[NSImage alloc] initWithData:screenshot.imageData];
+}
+
 - (IBAction)imageDidChange:(NSImageView*)sender;
 {
-    //
+    if (sender.image)
+    {
+        // get PNG representation
+        [sender.image lockFocus];
+        NSBitmapImageRep *bitmapRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:
+                                       NSMakeRect(0, 0, sender.image.size.width, sender.image.size.height)];
+        NSData *imageData = [bitmapRep representationUsingType:NSPNGFileType properties:Nil];
+        [sender.image unlockFocus];
+        
+        // update screenshot
+        self.screenshot.imageData = imageData;
+    }
+    else
+    {
+        // remove screenshot
+        self.screenshot = nil;
+    }
 }
 
 @end

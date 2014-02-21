@@ -12,6 +12,8 @@
 
 @interface RMScreenshotViewController : NSViewController
 
-@property (nonatomic, weak) RMAppScreenshot *screenshot;
+@property (weak) IBOutlet NSImageView *imageView;
+
+@property (nonatomic, strong) RMAppScreenshot *screenshot;
 
 @end
