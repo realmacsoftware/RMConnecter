@@ -117,6 +117,15 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     NSData *xmlData = [[self.metaData xmlDocumentRepresentation] XMLDataWithOptions:NSXMLNodePrettyPrint];
     NSFileWrapper *xmlWrapper = [[NSFileWrapper alloc] initRegularFileWithContents:xmlData];
     NSFileWrapper *folderWrapper = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:@{[self xmlFileName]:xmlWrapper}];
+    
+    for (RMAppScreenshot* screenshot in self.screenshotsController.arrangedObjects) {
+        if (screenshot.imageData) {
+            NSFileWrapper *filewrapper = [[NSFileWrapper alloc] initRegularFileWithContents:screenshot.imageData];
+            filewrapper.preferredFilename = screenshot.filename;
+            [folderWrapper addFileWrapper:filewrapper];
+        }
+    }
+    
     return folderWrapper;
 }
 
