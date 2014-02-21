@@ -10,7 +10,7 @@
 
 #import "RMScreenshotsGroupView.h"
 
-@interface RMScreenshotsGroupView ()
+@interface RMScreenshotsGroupView () <RMScreenshotViewControllerDelegate>
 @property (nonatomic, copy) NSArray *screenshotViewController;
 @end
 
@@ -28,6 +28,7 @@
     for (NSInteger i=0; i<5; i++) {
         RMScreenshotViewController *controller = [[RMScreenshotViewController alloc] initWithNibName:@"RMScreenshotViewController" bundle:nil];
         controller.position = i+1;
+        controller.delegate = self;
         [controllerArray addObject:controller];
         [self addSubview:controller.view];
     }
@@ -55,6 +56,7 @@
 - (void)setScreenshots:(NSArray*)screenshots;
 {
     _screenshots = screenshots;
+    if (_screenshots == nil) _screenshots = [NSArray array];
 
     for (RMScreenshotViewController *controller in self.screenshotViewController) {
         controller.screenshot = nil;
@@ -66,6 +68,21 @@
             [self.screenshotViewController[index] setScreenshot:screenshot];
         }
     }
+}
+
+#pragma mark updates
+
+- (void)screenshotViewControllerDidUpdateScreenshot:(RMScreenshotViewController*)controller;
+{
+    NSInteger index = (controller.position-1);
+    NSMutableArray *screenshots = [NSMutableArray arrayWithArray:self.screenshots];
+    if (screenshots.count > index) {
+        [screenshots replaceObjectAtIndex:index withObject:controller.screenshot];
+    } else {
+        controller.screenshot.position = screenshots.count+1;
+        [screenshots addObject:controller.screenshot];
+    }
+    [self setScreenshots:[screenshots copy]];
 }
 
 @end

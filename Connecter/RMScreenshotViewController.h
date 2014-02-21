@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class RMAppScreenshot;
+@protocol RMScreenshotViewControllerDelegate;
 
 @interface RMScreenshotViewController : NSViewController
 
@@ -17,4 +18,12 @@
 @property (nonatomic, assign) NSInteger position;
 @property (nonatomic, strong) RMAppScreenshot *screenshot;
 
+@property (nonatomic, weak) id<RMScreenshotViewControllerDelegate> delegate;
+
+@end
+
+
+
+@protocol RMScreenshotViewControllerDelegate <NSObject>
+- (void)screenshotViewControllerDidUpdateScreenshot:(RMScreenshotViewController*)controller;
 @end

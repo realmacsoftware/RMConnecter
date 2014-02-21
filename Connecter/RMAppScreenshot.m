@@ -68,14 +68,19 @@ NSString *const RMAppScreenshotChecksumTypeStringMD5 = @"md5";
 
 - (void)setImageData:(NSData *)imageData;
 {
-    if (imageData==_imageData) return;
-    [self willChangeValueForKey:@"imageData"];
+    if (imageData == _imageData) return;
     _imageData = imageData;
-    [self didChangeValueForKey:@"imageData"];
     
     self.checksum = [imageData md5CheckSum];
     self.checksumType = RMAppScreenshotChecksumTypeStringMD5;
     self.size = [imageData length];
+    [self updateFilename];
+}
+
+- (void)setPosition:(int)position;
+{
+    if (position == _position) return;
+    _position = position;
     [self updateFilename];
 }
 

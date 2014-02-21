@@ -49,6 +49,11 @@
         // remove screenshot
         self.screenshot = nil;
     }
+    
+    // inform delegate
+    if (self.delegate) {
+        [self.delegate screenshotViewControllerDidUpdateScreenshot:self];
+    }
 }
 
 @end
