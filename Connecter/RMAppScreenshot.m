@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
+#import "NSData+MD5.h"
+
 #import "RMAppScreenshot.h"
 
 @implementation RMAppScreenshot
@@ -17,13 +19,15 @@
                                     forName:RMAppScreenshotTypeValueTransformerName];
 }
 
+#pragma mark RMXMLObject
+
 - (id)initWithXMLElement:(NSXMLElement *)xmlElement
 {
     self = [super init];
     if (self) {
         if ([[xmlElement name] isEqualToString:@"software_screenshot"]) {
             NSString *typeString = [[xmlElement attributeForName:@"display_target"] objectValue];
-            self.displayTarget = [[[self valueTransformer] transformedValue:typeString] integerValue];
+            self.displayTarget = [[[self displayTargetValueTransformer] transformedValue:typeString] integerValue];
             
             self.position = [[[xmlElement attributeForName:@"position"] objectValue] integerValue];
             self.filename = [[[xmlElement elementsForName:@"file_name"] firstObject] objectValue];
@@ -41,7 +45,7 @@
 {
     NSXMLElement *screenshot = [NSXMLElement elementWithName:@"software_screenshot"];
     
-    NSString *typeString = [[self valueTransformer] reverseTransformedValue:@(self.displayTarget)];
+    NSString *typeString = [[self displayTargetValueTransformer] reverseTransformedValue:@(self.displayTarget)];
     [screenshot setAttributesWithDictionary:@{@"display_target":typeString,
                                               @"position":[NSString stringWithFormat:@"%d", self.position]}];
     
@@ -58,22 +62,36 @@
     return screenshot;
 }
 
-- (NSString*)generateFilename;
+#pragma mark RMAppScreenshot
+
+- (void)setImageData:(NSData *)imageData;
 {
-    return [NSString stringWithFormat: @"%@_%d.png",
-            [[self valueTransformer] reverseTransformedValue:@(self.displayTarget)],
-            self.position];
+    if (imageData==_imageData) return;
+    [self willChangeValueForKey:@"imageData"];
+    _imageData = imageData;
+    [self didChangeValueForKey:@"imageData"];
+    
+    self.checksum = [imageData md5CheckSum];
+    self.size = [imageData length];
+    [self updateFilename];
+}
+
+- (void)updateFilename;
+{
+    self.filename = [NSString stringWithFormat: @"%@_%d.png",
+                     [[self displayTargetValueTransformer] reverseTransformedValue:@(self.displayTarget)],
+                     self.position];
 }
 
 - (NSString *)description;
 {
     return [NSString stringWithFormat: @"%@ - %@, %d., %@, %d",
             [super description],
-            [[self valueTransformer] reverseTransformedValue:@(self.displayTarget)],
+            [[self displayTargetValueTransformer] reverseTransformedValue:@(self.displayTarget)],
             self.position, self.filename, self.size];
 }
 
-- (RMAppScreenshotTypeValueTransformer*)valueTransformer;
+- (RMAppScreenshotTypeValueTransformer*)displayTargetValueTransformer;
 {
     return (RMAppScreenshotTypeValueTransformer*)[NSValueTransformer valueTransformerForName:RMAppScreenshotTypeValueTransformerName];
 }

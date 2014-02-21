@@ -16,12 +16,12 @@
 @property (nonatomic, assign) RMAppScreenshotType displayTarget;
 @property (nonatomic, assign) int position;
 
+@property (nonatomic, strong) NSData *imageData;
+
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *checksum;
 @property (nonatomic, strong) NSString *checksumType;
 @property (nonatomic, assign) int size;
-
-- (NSString*)generateFilename;
 
 @end
 
