@@ -18,9 +18,7 @@
 - (void)setScreenshot:(RMAppScreenshot *)screenshot;
 {
     if (screenshot == _screenshot) return;
-    [self willChangeValueForKey:@"screenshot"];
     _screenshot = screenshot;
-    [self didChangeValueForKey:@"screenshot"];
     
     self.imageView.image = [[NSImage alloc] initWithData:screenshot.imageData];
 }
@@ -38,10 +36,13 @@
         
         // update screenshot
         if (!self.screenshot) {
-            self.screenshot = [[RMAppScreenshot alloc] init];
-            self.screenshot.position = self.position;
+            RMAppScreenshot *screenshot = [[RMAppScreenshot alloc] init];
+            screenshot.position = self.position;
+            screenshot.imageData = imageData;
+            self.screenshot = screenshot;
+        } else {
+            self.screenshot.imageData = imageData;
         }
-        self.screenshot.imageData = imageData;
     }
     else
     {
