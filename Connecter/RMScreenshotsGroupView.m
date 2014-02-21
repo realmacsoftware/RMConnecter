@@ -83,9 +83,14 @@
             [screenshots removeObjectAtIndex:index];
         }
     } else {
-        controller.screenshot.position = screenshots.count+1;
         [screenshots addObject:controller.screenshot];
     }
+    
+    // fix positions
+    [screenshots enumerateObjectsUsingBlock:^(RMAppScreenshot *screenshot, NSUInteger idx, BOOL *stop) {
+        screenshot.position = idx+1;
+    }];
+    
     [self setScreenshots:[screenshots copy]];
     
     // inform delegate
