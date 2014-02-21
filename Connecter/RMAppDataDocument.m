@@ -147,6 +147,18 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
         NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:xmlData options:0 error:outError];
         self.metaData = [[RMAppMetaData alloc] initWithXMLElement:document.rootElement];
         
+        // read screenshots
+        for (RMAppVersion *version in self.metaData.versions) {
+            for (RMAppLocale *locale in version.locales) {
+                for (RMAppScreenshot* screenshot in locale.screenshots) {
+                    NSFileWrapper *fileWrapper = fileWrappers[screenshot.filename];
+                    if (fileWrapper) {
+                        screenshot.imageData = [fileWrapper regularFileContents];
+                    }
+                }
+            }
+        }
+        
         return YES;
     }
     
