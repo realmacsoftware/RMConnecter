@@ -50,10 +50,11 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="90c-KK-WZ2" name="value" keyPath="selection.size" id="0vB-6G-SFt">
+                        <binding destination="90c-KK-WZ2" name="value" keyPath="selection.size" id="6kY-Bo-SqK">
                             <dictionary key="options">
                                 <string key="NSNullPlaceholder">-</string>
                                 <string key="NSNoSelectionPlaceholder">-</string>
+                                <string key="NSValueTransformerName">RMByteValueTransformer</string>
                             </dictionary>
                         </binding>
                     </connections>

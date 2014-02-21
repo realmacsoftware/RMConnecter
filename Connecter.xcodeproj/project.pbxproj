@@ -29,6 +29,7 @@
 		D26E390818B4F95E0061527C /* RMScreenshotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E390718B4F95E0061527C /* RMScreenshotViewController.m */; };
 		D26E390B18B4F9970061527C /* RMScreenshotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26E390A18B4F9970061527C /* RMScreenshotViewController.xib */; };
 		D26E391118B770460061527C /* RMAppScreenshotTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */; };
+		D26E391518B774FF0061527C /* RMByteValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391418B774FF0061527C /* RMByteValueTransformer.m */; };
 		D2DFEC5318B3695600FF33AD /* RMAppMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */; };
 		D2DFEC5A18B3754200FF33AD /* RMAppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5918B3754200FF33AD /* RMAppVersion.m */; };
 		D2DFEC5D18B377A100FF33AD /* RMAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5C18B377A100FF33AD /* RMAppLocale.m */; };
@@ -92,6 +93,8 @@
 		D26E390A18B4F9970061527C /* RMScreenshotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMScreenshotViewController.xib; sourceTree = "<group>"; };
 		D26E390F18B770460061527C /* RMAppScreenshotTypeValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppScreenshotTypeValueTransformer.h; sourceTree = "<group>"; };
 		D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppScreenshotTypeValueTransformer.m; sourceTree = "<group>"; };
+		D26E391318B774FF0061527C /* RMByteValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMByteValueTransformer.h; sourceTree = "<group>"; };
+		D26E391418B774FF0061527C /* RMByteValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMByteValueTransformer.m; sourceTree = "<group>"; };
 		D2DFEC5118B3695600FF33AD /* RMAppMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppMetaData.h; sourceTree = "<group>"; };
 		D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppMetaData.m; sourceTree = "<group>"; };
 		D2DFEC5518B36A2600FF33AD /* RMXMLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMXMLObject.h; sourceTree = "<group>"; };
@@ -258,6 +261,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		D26E391218B774ED0061527C /* Value Transformer */ = {
+			isa = PBXGroup;
+			children = (
+				D26E390F18B770460061527C /* RMAppScreenshotTypeValueTransformer.h */,
+				D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */,
+				D26E391318B774FF0061527C /* RMByteValueTransformer.h */,
+				D26E391418B774FF0061527C /* RMByteValueTransformer.m */,
+			);
+			name = "Value Transformer";
+			sourceTree = "<group>";
+		};
 		D2DFEC5418B3695D00FF33AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,8 +284,7 @@
 				D2DFEC5C18B377A100FF33AD /* RMAppLocale.m */,
 				D26E38FD18B4CB260061527C /* RMAppScreenshot.h */,
 				D26E38FE18B4CB260061527C /* RMAppScreenshot.m */,
-				D26E390F18B770460061527C /* RMAppScreenshotTypeValueTransformer.h */,
-				D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */,
+				D26E391218B774ED0061527C /* Value Transformer */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -400,6 +413,7 @@
 				D2ED44A318AE654100976E49 /* NSData+MD5.m in Sources */,
 				D2DFEC5D18B377A100FF33AD /* RMAppLocale.m in Sources */,
 				D26E391118B770460061527C /* RMAppScreenshotTypeValueTransformer.m in Sources */,
+				D26E391518B774FF0061527C /* RMByteValueTransformer.m in Sources */,
 				6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */,
 				6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */,
 				247F281E189127D8000F8041 /* RMConnecterAppDelegate.m in Sources */,
