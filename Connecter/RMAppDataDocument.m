@@ -47,7 +47,7 @@
 {
     [super windowControllerDidLoadNib:windowController];
     
-    [self.screenshotsController addObserver:self forKeyPath:@"arrangedObjects" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
+    [self.screenshotsController addObserver:self forKeyPath:@"arrangedObjects" options:NSKeyValueObservingOptionInitial context:nil];
     [self.segmentedControl addObserver:self forKeyPath:@"cell.selectedSegment" options:0 context:nil];
 }
 
