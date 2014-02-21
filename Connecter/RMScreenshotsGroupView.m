@@ -77,7 +77,11 @@
     NSInteger index = (controller.position-1);
     NSMutableArray *screenshots = [NSMutableArray arrayWithArray:self.screenshots];
     if (screenshots.count > index) {
-        [screenshots replaceObjectAtIndex:index withObject:controller.screenshot];
+        if (controller.screenshot) {
+            [screenshots replaceObjectAtIndex:index withObject:controller.screenshot];
+        } else {
+            [screenshots removeObjectAtIndex:index];
+        }
     } else {
         controller.screenshot.position = screenshots.count+1;
         [screenshots addObject:controller.screenshot];
