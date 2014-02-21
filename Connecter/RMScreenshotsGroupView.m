@@ -27,6 +27,7 @@
     NSMutableArray *controllerArray = [NSMutableArray array];
     for (NSInteger i=0; i<5; i++) {
         RMScreenshotViewController *controller = [[RMScreenshotViewController alloc] initWithNibName:@"RMScreenshotViewController" bundle:nil];
+        controller.position = i+1;
         [controllerArray addObject:controller];
         [self addSubview:controller.view];
     }

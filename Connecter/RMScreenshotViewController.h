@@ -14,6 +14,7 @@
 
 @property (weak) IBOutlet NSImageView *imageView;
 
+@property (nonatomic, assign) NSInteger position;
 @property (nonatomic, strong) RMAppScreenshot *screenshot;
 
 @end

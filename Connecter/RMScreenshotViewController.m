@@ -37,6 +37,10 @@
         [sender.image unlockFocus];
         
         // update screenshot
+        if (!self.screenshot) {
+            self.screenshot = [[RMAppScreenshot alloc] init];
+            self.screenshot.position = self.position;
+        }
         self.screenshot.imageData = imageData;
     }
     else

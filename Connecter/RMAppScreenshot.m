@@ -10,6 +10,8 @@
 
 #import "RMAppScreenshot.h"
 
+NSString *const RMAppScreenshotChecksumTypeStringMD5 = @"md5";
+
 @implementation RMAppScreenshot
 
 + (void)initialize;
@@ -72,6 +74,7 @@
     [self didChangeValueForKey:@"imageData"];
     
     self.checksum = [imageData md5CheckSum];
+    self.checksumType = RMAppScreenshotChecksumTypeStringMD5;
     self.size = [imageData length];
     [self updateFilename];
 }
@@ -79,8 +82,7 @@
 - (void)updateFilename;
 {
     self.filename = [NSString stringWithFormat: @"%@_%d.png",
-                     [[self displayTargetValueTransformer] reverseTransformedValue:@(self.displayTarget)],
-                     self.position];
+                     [self.checksum substringToIndex:6], self.position];
 }
 
 - (NSString *)description;
