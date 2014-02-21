@@ -12,6 +12,9 @@
 
 #import "RMAppDataDocument.h"
 
+NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
+NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
+
 @interface RMAppDataDocument ()
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
@@ -37,8 +40,8 @@
 
 - (void)dealloc
 {
-    [self.screenshotsController removeObserver:self forKeyPath:@"arrangedObjects"];
-    [self.segmentedControl removeObserver:self forKeyPath:@"cell.selectedSegment"];
+    [self.screenshotsController removeObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath];
+    [self.segmentedControl removeObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath];
 }
 
 #pragma mark additional setup
@@ -47,8 +50,8 @@
 {
     [super windowControllerDidLoadNib:windowController];
     
-    [self.screenshotsController addObserver:self forKeyPath:@"arrangedObjects" options:NSKeyValueObservingOptionInitial context:nil];
-    [self.segmentedControl addObserver:self forKeyPath:@"cell.selectedSegment" options:0 context:nil];
+    [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
+    [self.segmentedControl addObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath options:0 context:nil];
 }
 
 #pragma mark helper
@@ -74,8 +77,8 @@
                         change:(NSDictionary *)change context:(void *)context;
 {
     
-    if ((object == self.screenshotsController && [keyPath isEqualToString:@"arrangedObjects"]) ||
-        (object == self.segmentedControl && [keyPath isEqualToString:@"cell.selectedSegment"])) {
+    if ((object == self.screenshotsController && [keyPath isEqualToString:RMAppDataArrangedObjectsKVOPath]) ||
+        (object == self.segmentedControl && [keyPath isEqualToString:RMAppDataSelectedSegmentKVOPath])) {
         [self updateScreenshots];
     }
 }
