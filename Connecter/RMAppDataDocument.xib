@@ -175,11 +175,7 @@
                                     <size key="minSize" width="448" height="56"/>
                                     <size key="maxSize" width="538" height="10000000"/>
                                     <connections>
-                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.whatsNew" id="KkS-6o-dqi">
-                                            <dictionary key="options">
-                                                <string key="NSValueTransformerName">RMAttributedStringValueTransformer</string>
-                                            </dictionary>
-                                        </binding>
+                                        <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.whatsNew" id="9ZQ-vN-dfh"/>
                                     </connections>
                                 </textView>
                             </subviews>
@@ -220,11 +216,7 @@
                                     <size key="minSize" width="448" height="131"/>
                                     <size key="maxSize" width="538" height="10000000"/>
                                     <connections>
-                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.description" id="skm-CG-tkA">
-                                            <dictionary key="options">
-                                                <string key="NSValueTransformerName">RMAttributedStringValueTransformer</string>
-                                            </dictionary>
-                                        </binding>
+                                        <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.description" id="APF-nt-dcq"/>
                                     </connections>
                                 </textView>
                             </subviews>
