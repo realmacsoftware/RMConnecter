@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RMAppMetaData;
+
 @interface RMAppDataDocument : NSDocument
 
 @property (nonatomic, readonly) RMAppMetaData *metaData;
