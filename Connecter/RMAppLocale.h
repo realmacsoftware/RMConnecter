@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *description;
-@property (nonatomic, strong) NSString *keywords;
+@property (nonatomic, strong) NSArray *keywords;
 @property (nonatomic, strong) NSString *whatsNew;
 @property (nonatomic, strong) NSString *softwareURL;
 @property (nonatomic, strong) NSString *supportURL;

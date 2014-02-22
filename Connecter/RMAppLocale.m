@@ -29,12 +29,12 @@
             self.privacyURL = [[[xmlElement elementsForName:@"privacy_url"] firstObject] stringValue];
             
             // keywords
-            NSMutableString *keywordsString = [NSMutableString string];
-            NSXMLElement *keywords = [[xmlElement elementsForName:@"keywords"] firstObject];
-            for (NSXMLElement *element in [keywords children]) {
-                [keywordsString appendFormat:@"%@,", [element stringValue]];
+            NSMutableArray *keywordsArray = [NSMutableArray array];
+            NSXMLElement *keywordElements = [[xmlElement elementsForName:@"keywords"] firstObject];
+            for (NSXMLElement *element in [keywordElements children]) {
+                [keywordsArray addObject:[element stringValue]];
             }
-            self.keywords = keywordsString;
+            self.keywords = [keywordsArray copy];
             
             // screenshots
             NSMutableArray *screenshots = [NSMutableArray array];
@@ -79,7 +79,7 @@
         
         // keywords
         NSXMLElement *keywords = [NSXMLElement elementWithName:@"keywords"];
-        NSArray *keywordStrings = [self.keywords componentsSeparatedByString:@","];
+        NSArray *keywordStrings = self.keywords;
         for (NSString *keywordString in keywordStrings) {
             [keywords addChild:[NSXMLElement elementWithName:@"keyword"
                                                  stringValue:keywordString]];

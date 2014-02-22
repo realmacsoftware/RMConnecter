@@ -24,6 +24,7 @@
 		6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */; };
 		6D739031189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */; };
 		D225B07218AE7A290061CA42 /* RMAppDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D225B07118AE7A290061CA42 /* RMAppDataDocument.m */; };
+		D24B03DA18B8FA0B003FD954 /* RMAttributedStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D24B03D918B8FA0B003FD954 /* RMAttributedStringValueTransformer.m */; };
 		D26E38FF18B4CB260061527C /* RMAppScreenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E38FE18B4CB260061527C /* RMAppScreenshot.m */; };
 		D26E390518B4F9280061527C /* RMScreenshotsGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E390418B4F9280061527C /* RMScreenshotsGroupView.m */; };
 		D26E390818B4F95E0061527C /* RMScreenshotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E390718B4F95E0061527C /* RMScreenshotViewController.m */; };
@@ -84,6 +85,8 @@
 		6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMConnecterCredentials+Keychain.m"; sourceTree = "<group>"; };
 		D225B07018AE7A290061CA42 /* RMAppDataDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppDataDocument.h; sourceTree = "<group>"; };
 		D225B07118AE7A290061CA42 /* RMAppDataDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppDataDocument.m; sourceTree = "<group>"; };
+		D24B03D818B8FA0B003FD954 /* RMAttributedStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAttributedStringValueTransformer.h; sourceTree = "<group>"; };
+		D24B03D918B8FA0B003FD954 /* RMAttributedStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAttributedStringValueTransformer.m; sourceTree = "<group>"; };
 		D26E38FD18B4CB260061527C /* RMAppScreenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppScreenshot.h; sourceTree = "<group>"; };
 		D26E38FE18B4CB260061527C /* RMAppScreenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppScreenshot.m; sourceTree = "<group>"; };
 		D26E390318B4F9280061527C /* RMScreenshotsGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMScreenshotsGroupView.h; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */,
 				D26E391318B774FF0061527C /* RMByteValueTransformer.h */,
 				D26E391418B774FF0061527C /* RMByteValueTransformer.m */,
+				D24B03D818B8FA0B003FD954 /* RMAttributedStringValueTransformer.h */,
+				D24B03D918B8FA0B003FD954 /* RMAttributedStringValueTransformer.m */,
 			);
 			name = "Value Transformer";
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				D26E38FF18B4CB260061527C /* RMAppScreenshot.m in Sources */,
 				D26E390818B4F95E0061527C /* RMScreenshotViewController.m in Sources */,
 				D26E390518B4F9280061527C /* RMScreenshotsGroupView.m in Sources */,
+				D24B03DA18B8FA0B003FD954 /* RMAttributedStringValueTransformer.m in Sources */,
 				6D739031189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

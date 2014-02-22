@@ -165,7 +165,7 @@
                             <rect key="frame" x="2" y="2" width="448" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="TzS-aS-4PR">
+                                <textView importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" id="TzS-aS-4PR">
                                     <rect key="frame" x="0.0" y="0.0" width="448" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -175,7 +175,11 @@
                                     <size key="minSize" width="448" height="56"/>
                                     <size key="maxSize" width="538" height="10000000"/>
                                     <connections>
-                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.whatsNew" id="nL0-nd-zJr"/>
+                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.whatsNew" id="KkS-6o-dqi">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">RMAttributedStringValueTransformer</string>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </textView>
                             </subviews>
@@ -206,7 +210,7 @@
                             <rect key="frame" x="2" y="2" width="448" height="131"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="L2T-Md-bL4">
+                                <textView importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" id="L2T-Md-bL4">
                                     <rect key="frame" x="0.0" y="0.0" width="448" height="131"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,7 +220,11 @@
                                     <size key="minSize" width="448" height="131"/>
                                     <size key="maxSize" width="538" height="10000000"/>
                                     <connections>
-                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.description" id="vIL-7B-Wtx"/>
+                                        <binding destination="wkQ-lw-xLY" name="attributedString" keyPath="selection.description" id="skm-CG-tkA">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">RMAttributedStringValueTransformer</string>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </textView>
                             </subviews>
