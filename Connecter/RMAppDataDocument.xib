@@ -216,7 +216,7 @@
                                     <size key="minSize" width="448" height="131"/>
                                     <size key="maxSize" width="538" height="10000000"/>
                                     <connections>
-                                        <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.description" id="APF-nt-dcq"/>
+                                        <binding destination="wkQ-lw-xLY" name="value" keyPath="selection.appDescription" id="97c-jy-h0a"/>
                                     </connections>
                                 </textView>
                             </subviews>

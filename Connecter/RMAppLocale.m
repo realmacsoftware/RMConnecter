@@ -22,7 +22,7 @@
             self.localeName = [[xmlElement attributeForName:@"name"] stringValue];
             
             self.title = [[[xmlElement elementsForName:@"title"] firstObject] stringValue];
-            self.description = [[[xmlElement elementsForName:@"description"] firstObject] stringValue];
+            self.appDescription = [[[xmlElement elementsForName:@"description"] firstObject] stringValue];
             self.whatsNew = [[[xmlElement elementsForName:@"version_whats_new"] firstObject] stringValue];
             self.softwareURL = [[[xmlElement elementsForName:@"software_url"] firstObject] stringValue];
             self.supportURL = [[[xmlElement elementsForName:@"support_url"] firstObject] stringValue];
@@ -63,7 +63,7 @@
                                            stringValue:self.title]];
         
         [locale addChild:[NSXMLElement elementWithName:@"description"
-                                           stringValue:self.description]];
+                                           stringValue:self.appDescription]];
         
         [locale addChild:[NSXMLElement elementWithName:@"version_whats_new"
                                            stringValue:self.whatsNew]];

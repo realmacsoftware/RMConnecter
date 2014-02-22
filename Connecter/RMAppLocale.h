@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *localeName;
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *appDescription;
 @property (nonatomic, strong) NSArray *keywords;
 @property (nonatomic, strong) NSString *whatsNew;
 @property (nonatomic, strong) NSString *softwareURL;
