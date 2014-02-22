@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package xmlns="http://apple.com/itunes/importer" version="software5.1">
+    <metadata_token>someToken</metadata_token>
+    <provider>someProvider</provider>
+    <team_id>someTeamID-01</team_id>
+    <software>
+        <vendor_id>test</vendor_id>
+        <software_metadata>
+            <versions>
+                <version string="2.0">
+                    <locales>
+                        <locale name="de-DE">
+                            <title>german name</title>
+                            <description>Berlin, du kannst so schön hässlich sein. So dreckig und grau.</description>
+                            <version_whats_new>Die Eröffnung des Berliner Flughafens verzögert sich.</version_whats_new>
+                            <software_url></software_url>
+                            <support_url></support_url>
+                            <privacy_url></privacy_url>
+                            <keywords>
+                                <keyword>berlin</keyword>
+                                <keyword>munich</keyword>
+                            </keywords>
+                            <software_screenshots>
+                                <software_screenshot display_target="iOS-3.5-in" position="1">
+                                    <file_name>de-DE1704.png</file_name>
+                                    <size>172190</size>
+                                    <checksum type="md5">fb6b243baf13426a88f8382ab79283c2</checksum>
+                                </software_screenshot>
+                                <software_screenshot display_target="iOS-iPad" position="1">
+                                    <file_name>de-DE1721.png</file_name>
+                                    <size>655892</size>
+                                    <checksum type="md5">bcd2598924a7d0309d27dcdfa3cc2149</checksum>
+                                </software_screenshot>
+                                <software_screenshot display_target="iOS-4-in" position="1">
+                                    <file_name>de-DE1712.png</file_name>
+                                    <size>186242</size>
+                                    <checksum type="md5">7347462d3b543f33ccc6ba3c790602c3</checksum>
+                                </software_screenshot>
+                            </software_screenshots>
+                        </locale>
+                        <locale name="en-US">
+                            <title>english title</title>
+                            <description>Just some random text.</description>
+                            <version_whats_new>yep thats new!</version_whats_new>
+                            <software_url>www.google.com</software_url>
+                            <support_url>www.support.url</support_url>
+                            <privacy_url></privacy_url>
+                            <keywords>
+                                <keyword>nyc</keyword>
+                                <keyword>sf</keyword>
+                            </keywords>
+                            <software_screenshots>
+                                <software_screenshot display_target="iOS-3.5-in" position="1">
+                                    <file_name>1.png</file_name>
+                                    <size>168337</size>
+                                    <checksum type="md5">957cce7ad063f79c8beffdc43d2e9e6b</checksum>
+                                </software_screenshot>
+                            </software_screenshots>
+                        </locale>
+                    </locales>
+                </version>
+            </versions>
+        </software_metadata>
+    </software>
+</package>

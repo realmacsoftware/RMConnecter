@@ -17,7 +17,7 @@
 		247F282A189127D8000F8041 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F2829189127D8000F8041 /* XCTest.framework */; };
 		247F282B189127D8000F8041 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F280A189127D8000F8041 /* Cocoa.framework */; };
 		247F2833189127D8000F8041 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 247F2831189127D8000F8041 /* InfoPlist.strings */; };
-		247F2835189127D8000F8041 /* ConnecterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 247F2834189127D8000F8041 /* ConnecterTests.m */; };
+		247F2835189127D8000F8041 /* RMMetaDataModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 247F2834189127D8000F8041 /* RMMetaDataModelTests.m */; };
 		6D0C75BE189EB632008ADECB /* RMConnecterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */; };
 		6D739024189E79E9000764E4 /* RMConnecterWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739022189E79E9000764E4 /* RMConnecterWindowController.m */; };
 		6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739027189E91BE000764E4 /* RMConnecterCredentials.m */; };
@@ -25,6 +25,10 @@
 		6D739031189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */; };
 		D225B07218AE7A290061CA42 /* RMAppDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D225B07118AE7A290061CA42 /* RMAppDataDocument.m */; };
 		D24B03DA18B8FA0B003FD954 /* RMAttributedStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D24B03D918B8FA0B003FD954 /* RMAttributedStringValueTransformer.m */; };
+		D24B03DD18B8FD8F003FD954 /* testmetadata.xml in Resources */ = {isa = PBXBuildFile; fileRef = D24B03DC18B8FD8F003FD954 /* testmetadata.xml */; };
+		D24B03DE18B903CD003FD954 /* RMAppScreenshotTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */; };
+		D24B03DF18B903CD003FD954 /* RMByteValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391418B774FF0061527C /* RMByteValueTransformer.m */; };
+		D24B03E018B903CD003FD954 /* RMAttributedStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D24B03D918B8FA0B003FD954 /* RMAttributedStringValueTransformer.m */; };
 		D26E38FF18B4CB260061527C /* RMAppScreenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E38FE18B4CB260061527C /* RMAppScreenshot.m */; };
 		D26E390518B4F9280061527C /* RMScreenshotsGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E390418B4F9280061527C /* RMScreenshotsGroupView.m */; };
 		D26E390818B4F95E0061527C /* RMScreenshotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E390718B4F95E0061527C /* RMScreenshotViewController.m */; };
@@ -69,7 +73,7 @@
 		247F2829189127D8000F8041 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		247F2830189127D8000F8041 /* ConnecterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConnecterTests-Info.plist"; sourceTree = "<group>"; };
 		247F2832189127D8000F8041 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		247F2834189127D8000F8041 /* ConnecterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnecterTests.m; sourceTree = "<group>"; };
+		247F2834189127D8000F8041 /* RMMetaDataModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMMetaDataModelTests.m; sourceTree = "<group>"; };
 		247F283E1891282D000F8041 /* Connecter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Connecter.entitlements; sourceTree = "<group>"; };
 		59A0CF47412B459084E2ABDA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0C75BF189EB632008ADECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RMConnecterWindow.xib; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		D225B07118AE7A290061CA42 /* RMAppDataDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppDataDocument.m; sourceTree = "<group>"; };
 		D24B03D818B8FA0B003FD954 /* RMAttributedStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAttributedStringValueTransformer.h; sourceTree = "<group>"; };
 		D24B03D918B8FA0B003FD954 /* RMAttributedStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAttributedStringValueTransformer.m; sourceTree = "<group>"; };
+		D24B03DC18B8FD8F003FD954 /* testmetadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testmetadata.xml; sourceTree = "<group>"; };
 		D26E38FD18B4CB260061527C /* RMAppScreenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppScreenshot.h; sourceTree = "<group>"; };
 		D26E38FE18B4CB260061527C /* RMAppScreenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppScreenshot.m; sourceTree = "<group>"; };
 		D26E390318B4F9280061527C /* RMScreenshotsGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMScreenshotsGroupView.h; sourceTree = "<group>"; };
@@ -203,7 +208,8 @@
 		247F282E189127D8000F8041 /* ConnecterTests */ = {
 			isa = PBXGroup;
 			children = (
-				247F2834189127D8000F8041 /* ConnecterTests.m */,
+				D24B03DB18B8FD8F003FD954 /* TestData */,
+				247F2834189127D8000F8041 /* RMMetaDataModelTests.m */,
 				247F282F189127D8000F8041 /* Supporting Files */,
 			);
 			path = ConnecterTests;
@@ -250,6 +256,14 @@
 				6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */,
 			);
 			name = Operations;
+			sourceTree = "<group>";
+		};
+		D24B03DB18B8FD8F003FD954 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				D24B03DC18B8FD8F003FD954 /* testmetadata.xml */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 		D26E390918B4F9610061527C /* Views */ = {
@@ -401,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D24B03DD18B8FD8F003FD954 /* testmetadata.xml in Resources */,
 				247F2833189127D8000F8041 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,10 +451,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D24B03DE18B903CD003FD954 /* RMAppScreenshotTypeValueTransformer.m in Sources */,
 				D2DFEC6018B3799200FF33AD /* RMAppLocale.m in Sources */,
-				247F2835189127D8000F8041 /* ConnecterTests.m in Sources */,
+				247F2835189127D8000F8041 /* RMMetaDataModelTests.m in Sources */,
 				D2DFEC5F18B3799200FF33AD /* RMAppVersion.m in Sources */,
+				D24B03DF18B903CD003FD954 /* RMByteValueTransformer.m in Sources */,
 				D2DFEC5E18B3799200FF33AD /* RMAppMetaData.m in Sources */,
+				D24B03E018B903CD003FD954 /* RMAttributedStringValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
