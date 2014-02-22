@@ -14,6 +14,7 @@ NSString *const RMAppMetaDataXMLNS = @"http://apple.com/itunes/importer";
 NSString *const RMAppMetaDataVersion = @"software5.1";
 
 @interface RMAppMetaData ()
+@property (nonatomic, strong) NSXMLElement *readOnlyNode;
 @property (nonatomic, strong) NSArray *unhandledMetaDataXMLNodes;
 @end
 
@@ -48,6 +49,7 @@ NSString *const RMAppMetaDataVersion = @"software5.1";
             self.teamID = [[[xmlElement elementsForName:@"team_id"] firstObject] objectValue];
             self.vendorID = [[[software elementsForName:@"vendor_id"] firstObject] objectValue];
             
+            self.readOnlyNode = [[software elementsForName:@"read_only_info"] firstObject];
             self.unhandledMetaDataXMLNodes = [metaData.children filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name != 'versions'"]];
             
         }
@@ -70,6 +72,7 @@ NSString *const RMAppMetaDataVersion = @"software5.1";
     NSXMLElement *metadata = [NSXMLElement elementWithName:@"software_metadata"];
     [root addChild:software];
     [software addChild:vendor];
+    [software addChild:self.readOnlyNode];
     [software addChild:metadata];
     
     // versions
