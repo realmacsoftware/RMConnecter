@@ -42,8 +42,11 @@
 {
     [super setFrame:frameRect];
     
-    NSInteger xPos=0, margin=12;
+    NSInteger xPos=0, margin=0;
     NSInteger viewWidth = [[[self.screenshotViewController firstObject] view] frame].size.width;
+    margin = 5 + (frameRect.size.width-viewWidth*5)/8.0;
+    xPos = floor((frameRect.size.width-(viewWidth*5+margin*4))/2.0);
+    
     for (NSView *view in [self.screenshotViewController valueForKey:@"view"]) {
         [view setFrameOrigin:NSMakePoint(xPos, 0)];
         [view setFrameSize:NSMakeSize(viewWidth, frameRect.size.height)];

@@ -17,9 +17,8 @@
 NSString *const RMAppDataErrorDomain = @"RMAppDataErrorDomain";
 
 NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
-NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
 
-@interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate>
+@interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate, NSTabViewDelegate>
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
 
@@ -27,7 +26,7 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
 @property (nonatomic, strong) IBOutlet NSArrayController *localesController;
 @property (nonatomic, strong) IBOutlet NSArrayController *screenshotsController;
 @property (nonatomic, weak)   IBOutlet RMScreenshotsGroupView *screenshotsView;
-@property (nonatomic, weak)   IBOutlet NSSegmentedControl *segmentedControl;
+@property (nonatomic, weak)   IBOutlet NSTabView *tabView;
 
 @end
 
@@ -51,9 +50,7 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     [super windowControllerDidLoadNib:windowController];
     
     self.screenshotsView.delegate = self;
-    
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
-    [self.segmentedControl addObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath options:0 context:nil];
 }
 
 - (void)removeWindowController:(NSWindowController *)windowController;
@@ -61,7 +58,6 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     [super removeWindowController:windowController];
     
     [self.screenshotsController removeObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath];
-    [self.segmentedControl removeObserver:self forKeyPath:RMAppDataSelectedSegmentKVOPath];
 }
 
 #pragma mark helper
@@ -81,21 +77,25 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     return YES;
 }
 
-#pragma mark KVO
+#pragma mark KVO / NSTabViewDelegate
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
                         change:(NSDictionary *)change context:(void *)context;
 {
     
-    if ((object == self.screenshotsController && [keyPath isEqualToString:RMAppDataArrangedObjectsKVOPath]) ||
-        (object == self.segmentedControl && [keyPath isEqualToString:RMAppDataSelectedSegmentKVOPath])) {
+    if ((object == self.screenshotsController && [keyPath isEqualToString:RMAppDataArrangedObjectsKVOPath])) {
         [self updateScreenshots];
     }
 }
 
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem;
+{
+    [self updateScreenshots];
+}
+
 - (void)updateScreenshots;
 {
-    RMAppScreenshotType type = (RMAppScreenshotType)self.segmentedControl.selectedSegment;
+    RMAppScreenshotType type = (RMAppScreenshotType)[self.tabView.selectedTabViewItem.identifier integerValue];
     NSArray *currentScreenshots = [self.screenshotsController.arrangedObjects
                                    filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"displayTarget == %d", type]];
     self.screenshotsView.screenshots = currentScreenshots;
@@ -109,7 +109,7 @@ NSString *const RMAppDataSelectedSegmentKVOPath = @"cell.selectedSegment";
     RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
     
     // update screenshot models with correct displayTarget & update filenames
-    RMAppScreenshotType currentDisplayTarget = (RMAppScreenshotType)self.segmentedControl.selectedSegment;
+    RMAppScreenshotType currentDisplayTarget = (RMAppScreenshotType)[self.tabView.selectedTabViewItem.identifier integerValue];
     for (RMAppScreenshot *screenshot in controller.screenshots) {
         screenshot.displayTarget = currentDisplayTarget;
         
