@@ -66,7 +66,7 @@
     XCTAssertEqualObjects(@(deLocale.shouldDeleteLocale), @(NO));
     XCTAssertEqualObjects(deLocale.localeName, @"de-DE");
     XCTAssertEqualObjects(deLocale.title, @"german name");
-    XCTAssertEqualObjects(deLocale.description, @"Berlin, du kannst so schön hässlich sein. So dreckig und grau.");
+    XCTAssertEqualObjects(deLocale.appDescription, @"Berlin, du kannst so schön hässlich sein. So dreckig und grau.");
     XCTAssertEqualObjects(deLocale.keywords, (@[@"berlin", @"munich"]));
     XCTAssertEqualObjects(deLocale.whatsNew, @"Die Eröffnung des Berliner Flughafens verzögert sich.");
     XCTAssertEqualObjects(deLocale.softwareURL, @"");
@@ -78,7 +78,7 @@
     XCTAssertEqualObjects(@(enLocale.shouldDeleteLocale), @(NO));
     XCTAssertEqualObjects(enLocale.localeName, @"en-US");
     XCTAssertEqualObjects(enLocale.title, @"english title");
-    XCTAssertEqualObjects(enLocale.description, @"Just some random text.");
+    XCTAssertEqualObjects(enLocale.appDescription, @"Just some random text.");
     XCTAssertEqualObjects(enLocale.keywords, (@[@"nyc", @"sf"]));
     XCTAssertEqualObjects(enLocale.whatsNew, @"yep thats new!");
     XCTAssertEqualObjects(enLocale.softwareURL, @"www.google.com");
