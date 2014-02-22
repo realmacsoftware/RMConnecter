@@ -11,19 +11,24 @@
 
 NSString *const RMAppScreenshotTypeValueTransformerName = @"RMAppScreenshotTypeValueTransformerName";
 
+NSString *const RMAppScreenshotTypeStringIphone35inch = @"iOS-3.5-in";
+NSString *const RMAppScreenshotTypeStringIphone4inch = @"iOS-4-in";
+NSString *const RMAppScreenshotTypeStringIpad = @"iOS-iPad";
+NSString *const RMAppScreenshotTypeStringMac = @"Mac";
+
 @implementation RMAppScreenshotTypeValueTransformer
 
 - (id)transformedValue:(id)value;
 {
     if ([value isKindOfClass:[NSString class]]) {
         NSString *string = (NSString*)value;
-        if ([string isEqualToString:@"iOS-3.5-in"]) {
+        if ([string isEqualToString:RMAppScreenshotTypeStringIphone35inch]) {
             return @(RMAppScreenshotTypeiPhone35inch);
-        } else if ([string isEqualToString:@"iOS-4-in"]) {
+        } else if ([string isEqualToString:RMAppScreenshotTypeStringIphone4inch]) {
             return @(RMAppScreenshotTypeiPhone4inch);
-        } else if ([string isEqualToString:@"iOS-iPad"]) {
+        } else if ([string isEqualToString:RMAppScreenshotTypeStringIpad]) {
             return @(RMAppScreenshotTypeiPad);
-        } else if ([string isEqualToString:@"Mac"]) {
+        } else if ([string isEqualToString:RMAppScreenshotTypeStringMac]) {
             return @(RMAppScreenshotTypeMac);
         }
     }
@@ -35,13 +40,13 @@ NSString *const RMAppScreenshotTypeValueTransformerName = @"RMAppScreenshotTypeV
     if ([value isKindOfClass:[NSNumber class]]) {
         RMAppScreenshotType type = [value integerValue];
         if (type == RMAppScreenshotTypeiPhone35inch) {
-            return @"iOS-3.5-in";
+            return RMAppScreenshotTypeStringIphone35inch;
         } else if (type == RMAppScreenshotTypeiPhone4inch) {
-            return @"iOS-4-in";
+            return RMAppScreenshotTypeStringIphone4inch;
         } else if (type == RMAppScreenshotTypeiPad) {
-            return @"iOS-iPad";
+            return RMAppScreenshotTypeStringIpad;
         } else if (type == RMAppScreenshotTypeMac) {
-            return @"Mac";
+            return RMAppScreenshotTypeStringMac;
         }
     }
     return nil;
