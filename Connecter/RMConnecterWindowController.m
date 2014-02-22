@@ -271,11 +271,22 @@ static NSString *_RMConnecterTransporterPath(void)
 		[self setLog:connecterResult];
 		
 		if (openPackageUponTermination) {
-			[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[packageURL]];
+            [self openDocumentWithPackageURL:packageURL];
 		}
 	}];
 	[resultOperation addDependency:connecterOperation];
 	[[NSOperationQueue mainQueue] addOperation:resultOperation];
+}
+
+- (NSError*)openDocumentWithPackageURL:(NSURL*)packageURL;
+{
+    NSError *error;
+    NSString *filename = [NSString stringWithFormat: @"%@.itmsp", [self appSKU]];
+    NSString *filePath = [[packageURL relativePath] stringByAppendingPathComponent:filename];
+    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+    [[NSDocumentController sharedDocumentController] openDocumentWithContentsOfURL:fileURL display:YES error:&error];
+    
+    return error;
 }
 
 #pragma mark - NSControlSubclassNotifications
