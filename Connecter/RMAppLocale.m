@@ -12,6 +12,15 @@
 
 @implementation RMAppLocale
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.localeName = @"en-US";
+    }
+    return self;
+}
+
 - (id)initWithXMLElement:(NSXMLElement *)xmlElement;
 {
     self = [super init];

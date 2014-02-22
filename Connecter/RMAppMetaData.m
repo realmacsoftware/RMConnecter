@@ -15,6 +15,15 @@ NSString *const RMAppMetaDataVersion = @"software5.1";
 
 @implementation RMAppMetaData
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.versions = @[[[RMAppVersion alloc] init]];
+    }
+    return self;
+}
+
 - (id)initWithXMLElement:(NSXMLElement*)xmlElement;
 {
     self = [super init];

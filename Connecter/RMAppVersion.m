@@ -12,6 +12,16 @@
 
 @implementation RMAppVersion
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.versionString = @"1.0";
+        self.locales = @[[[RMAppLocale alloc] init]];
+    }
+    return self;
+}
+
 - (id)initWithXMLElement:(NSXMLElement*)xmlElement;
 {
     self = [super init];
