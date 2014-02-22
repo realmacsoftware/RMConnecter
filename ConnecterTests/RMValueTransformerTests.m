@@ -48,4 +48,21 @@
     XCTAssertEqualObjects([transformer reverseTransformedValue:@"text"], nil);
 }
 
+- (void)testByteValueTransformer;
+{
+    RMByteValueTransformer *transformer = [[RMByteValueTransformer alloc] init];
+    
+    XCTAssertEqualObjects([transformer transformedValue:@(0)], @"0 b");
+    XCTAssertEqualObjects([transformer transformedValue:@(-121421)], @"0 b");
+    XCTAssertEqualObjects([transformer transformedValue:@(500)], @"500 b");
+    XCTAssertEqualObjects([transformer transformedValue:@(1520)], @"2 kb");
+    XCTAssertEqualObjects([transformer transformedValue:@(258213)], @"258 kb");
+    XCTAssertEqualObjects([transformer transformedValue:@(4893252)], @"4.9 MB");
+    XCTAssertEqualObjects([transformer transformedValue:@(83249234)], @"83.2 MB");
+    XCTAssertEqualObjects([transformer transformedValue:@(100000000)], @"100.0 MB");
+    
+    XCTAssertEqualObjects([transformer transformedValue:nil], nil);
+    XCTAssertEqualObjects([transformer transformedValue:@"text"], nil);
+}
+
 @end

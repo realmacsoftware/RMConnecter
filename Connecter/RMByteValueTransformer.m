@@ -14,6 +14,7 @@
 {
     if ([value isKindOfClass:[NSNumber class]]) {
         CGFloat newValue = [value floatValue];
+        if (newValue < 0) newValue = 0;
         
         if (newValue > 1000000) {
             newValue /= 1000000;
