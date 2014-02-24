@@ -13,6 +13,12 @@ If you’ve got any feedback, feel free to open an Issue, submit a Pull Request 
 
 ![Screenshot](assets/screenshots.png)
 
+## Contributors
+
+- [Nik Fletcher](https://twitter.com/nikf), Realmac Software
+- [Damien DeVille](https://twitter.com/damiendeville), Realmac Software
+- [Markus Emrich](https://twitter.com/jaydee3), nxtbgthng GmbH
+
 ## Points of Interest
 
 - Connecter is sandboxed. However as the iTMSTransporter binary requires read-write access to ~/.itmstransporter/ Connecter has a temporary entitlement for this location.
