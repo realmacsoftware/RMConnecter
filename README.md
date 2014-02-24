@@ -19,6 +19,12 @@ If you’ve got any feedback, feel free to open an Issue, submit a Pull Request 
 - [Damien DeVille](https://twitter.com/damiendeville), Realmac Software
 - [Markus Emrich](https://twitter.com/jaydee3), nxtbgthng GmbH
 
+## Contributors
+
+- [Nik Fletcher](https://twitter.com/nikf), Realmac Software
+- [Damien DeVille](https://twitter.com/damiendeville), Realmac Software
+- [Markus Emrich](https://twitter.com/jaydee3), nxtbgthng GmbH
+
 ## Points of Interest
 
 - Connecter is sandboxed. However as the iTMSTransporter binary requires read-write access to ~/.itmstransporter/ Connecter has a temporary entitlement for this location.
@@ -52,7 +58,7 @@ Connecter is released under the MIT License:
 
 	The MIT License (MIT)
 
-	Copyright (c) 2014 Realmac Software
+	Copyright (c) 2014 Realmac Software & Contributors
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
