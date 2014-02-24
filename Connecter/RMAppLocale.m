@@ -21,6 +21,22 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone;
+{
+    RMAppLocale *version = [[RMAppLocale alloc] init];
+    version.shouldDeleteLocale = self.shouldDeleteLocale;
+    version.localeName = self.localeName;
+    version.title = self.title;
+    version.appDescription = self.appDescription;
+    version.whatsNew = self.whatsNew;
+    version.softwareURL = self.softwareURL;
+    version.supportURL = self.supportURL;
+    version.privacyURL = self.privacyURL;
+    version.keywords = [self.keywords copy];
+    version.screenshots = [self.screenshots copy];
+    return version;
+}
+
 - (id)initWithXMLElement:(NSXMLElement *)xmlElement;
 {
     self = [super init];
@@ -29,6 +45,7 @@
         
         if ([[xmlElement name] isEqualToString:@"locale"]) {
             self.localeName = [[xmlElement attributeForName:@"name"] stringValue];
+            self.shouldDeleteLocale = [[[xmlElement attributeForName:@"remove"] stringValue] boolValue];
             
             self.title = [[[xmlElement elementsForName:@"title"] firstObject] stringValue];
             self.appDescription = [[[xmlElement elementsForName:@"description"] firstObject] stringValue];
@@ -107,5 +124,11 @@
     return locale;
 }
 
+@end
+
+
+@implementation RMAppLocale (TreeController)
+- (NSArray *)children { return nil; }
+- (NSString *)description { return self.localeName; }
 @end
 

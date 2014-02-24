@@ -22,6 +22,14 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone;
+{
+    RMAppVersion *version = [[RMAppVersion alloc] init];
+    version.versionString = self.versionString;
+    version.locales = [self.locales copy];
+    return version;
+}
+
 - (id)initWithXMLElement:(NSXMLElement*)xmlElement;
 {
     self = [super init];
@@ -58,3 +66,10 @@
 }
 
 @end
+
+
+@implementation RMAppVersion (TreeController)
+- (NSArray *)children { return self.locales; }
+- (NSString *)description { return self.versionString; }
+@end
+

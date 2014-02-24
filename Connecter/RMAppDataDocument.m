@@ -18,7 +18,7 @@ NSString *const RMAppDataErrorDomain = @"RMAppDataErrorDomain";
 
 NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 
-@interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate, NSTabViewDelegate>
+@interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate, NSTabViewDelegate, NSOutlineViewDelegate>
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
 
@@ -75,6 +75,18 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 + (BOOL)autosavesInPlace
 {
     return YES;
+}
+
+#pragma mark NSOutlineViewDelegate
+
+- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item;
+{
+    NSTextField *textField = [[NSTextField alloc] init];
+    [textField setEditable:NO];
+    [textField setSelectable:YES];
+    [textField setBezeled:NO];
+    [textField setBackgroundColor:[NSColor clearColor]];
+    return textField;
 }
 
 #pragma mark KVO / NSTabViewDelegate

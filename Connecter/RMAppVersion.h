@@ -9,9 +9,14 @@
 #import "RMXMLObject.h"
 #import <Foundation/Foundation.h>
 
-@interface RMAppVersion : NSObject <RMXMLObject>
+@interface RMAppVersion : NSObject <RMXMLObject, NSCopying>
 
-@property (nonatomic, strong) NSString *versionString;
+@property (nonatomic, copy) NSString *versionString;
 @property (nonatomic, strong) NSArray *locales;
 
+@end
+
+
+@interface RMAppVersion (TreeController)
+@property (nonatomic, readonly) NSArray *children;
 @end
