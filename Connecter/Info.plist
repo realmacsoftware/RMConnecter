@@ -36,7 +36,7 @@
 				<string>itmsp</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string></string>
+			<string>ConnectorFileIcon</string>
 			<key>CFBundleTypeName</key>
 			<string>iTunes App Metadata</string>
 			<key>CFBundleTypeOSTypes</key>

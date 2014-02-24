@@ -34,6 +34,7 @@
 		D26E390B18B4F9970061527C /* RMScreenshotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26E390A18B4F9970061527C /* RMScreenshotViewController.xib */; };
 		D26E391118B770460061527C /* RMAppScreenshotTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */; };
 		D26E391518B774FF0061527C /* RMByteValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391418B774FF0061527C /* RMByteValueTransformer.m */; };
+		D29CFD4418BB6BE300627DA3 /* ConnectorFileIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D29CFD4318BB6BE300627DA3 /* ConnectorFileIcon.icns */; };
 		D2DFEC5318B3695600FF33AD /* RMAppMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */; };
 		D2DFEC5A18B3754200FF33AD /* RMAppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5918B3754200FF33AD /* RMAppVersion.m */; };
 		D2DFEC5D18B377A100FF33AD /* RMAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5C18B377A100FF33AD /* RMAppLocale.m */; };
@@ -101,6 +102,7 @@
 		D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppScreenshotTypeValueTransformer.m; sourceTree = "<group>"; };
 		D26E391318B774FF0061527C /* RMByteValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMByteValueTransformer.h; sourceTree = "<group>"; };
 		D26E391418B774FF0061527C /* RMByteValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMByteValueTransformer.m; sourceTree = "<group>"; };
+		D29CFD4318BB6BE300627DA3 /* ConnectorFileIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ConnectorFileIcon.icns; sourceTree = "<group>"; };
 		D2DFEC5118B3695600FF33AD /* RMAppMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppMetaData.h; sourceTree = "<group>"; };
 		D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppMetaData.m; sourceTree = "<group>"; };
 		D2DFEC5518B36A2600FF33AD /* RMXMLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMXMLObject.h; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				D2ED44A418AE65E900976E49 /* Categories */,
 				247F2811189127D8000F8041 /* Supporting Files */,
 				247F2822189127D8000F8041 /* Images.xcassets */,
+				D29CFD4318BB6BE300627DA3 /* ConnectorFileIcon.icns */,
 			);
 			path = Connecter;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29CFD4418BB6BE300627DA3 /* ConnectorFileIcon.icns in Resources */,
 				247F2815189127D8000F8041 /* InfoPlist.strings in Resources */,
 				D26E390B18B4F9970061527C /* RMScreenshotViewController.xib in Resources */,
 				247F2823189127D8000F8041 /* Images.xcassets in Resources */,
