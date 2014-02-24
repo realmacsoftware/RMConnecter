@@ -1,7 +1,7 @@
 Connecter
 ===========
 
-Connecter is an OS X app to help you interact with iTunes Connect. It allows you to download/edit & update app metadata from and for iTunes Connect. If you’ve got Xcode installed, you’re all sorted and ready to use this with your Apple ID and password.
+Connecter is an OS X app to help you interact with iTunes Connect. It allows you to **download, edit & update app metadata** from and for iTunes Connect. If you’ve got Xcode installed, you’re all sorted and ready to use this with your Apple ID and password.
 
 Connecter is a work-in-progress, built quickly to allow us to improve our own iTunes Connect workflow. For the more seasoned developers amongst us, looking back at the commit history you can probably tell that the codebase was written in a morning by a Product Manager :-). 
 
@@ -12,12 +12,6 @@ If you’ve got any feedback, feel free to open an Issue, submit a Pull Request 
 ## Screenshots
 
 ![Screenshot](Assets/screenshots.png)
-
-## Contributors
-
-- [Nik Fletcher](https://twitter.com/nikf), Realmac Software
-- [Damien DeVille](https://twitter.com/damiendeville), Realmac Software
-- [Markus Emrich](https://twitter.com/jaydee3), nxtbgthng GmbH
 
 ## Contributors
 
