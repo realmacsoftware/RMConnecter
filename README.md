@@ -9,6 +9,12 @@ We’re open-sourcing it because we think it might be useful to other iOS and OS
 
 If you’ve got any feedback, feel free to open an Issue, submit a Pull Request or contact me on Twitter ([@nikf](https://twitter.com/nikf)). Thanks to [Damien DeVille](https://twitter.com/damiendeville) for the code review.
 
+## Contributors
+
+- [Nik Fletcher](https://twitter.com/nikf), Realmac Software
+- [Damien DeVille](https://twitter.com/damiendeville), Realmac Software
+- [Markus Emrich](https://twitter.com/jaydee3), nxtbgthng GmbH
+
 ## Points of Interest
 
 - Connecter is sandboxed. However as the iTMSTransporter binary requires read-write access to ~/.itmstransporter/ Connecter has a temporary entitlement for this location.
