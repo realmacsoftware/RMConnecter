@@ -1,13 +1,23 @@
 Connecter
 ===========
 
-Connecter is an OS X app to help you interact with iTunes Connect’s Transporter binary, which allows you to interact with app metadata in iTunes Connect. If you’ve got Xcode installed, you’re all sorted and ready to use this with your Apple ID and password.
+Connecter is an OS X app to help you interact with iTunes Connect. It allows you to download/edit & update app metadata from and for iTunes Connect. If you’ve got Xcode installed, you’re all sorted and ready to use this with your Apple ID and password.
 
 Connecter is a work-in-progress, built quickly to allow us to improve our own iTunes Connect workflow. For the more seasoned developers amongst us, looking back at the commit history you can probably tell that the codebase was written in a morning by a Product Manager :-). 
 
-We’re open-sourcing it because we think it might be useful to other iOS and OS X developers, and because as we add more features to the app it’ll save you time.
+We’re open-sourcing it because we think it might be useful to other iOS and OS X developers, and because as we add more features to the app it’ll save all of us time.
 
-If you’ve got any feedback, feel free to open an Issue, submit a Pull Request or contact me on Twitter ([@nikf](https://twitter.com/nikf)). Thanks to [Damien DeVille](https://twitter.com/damiendeville) for the code review.
+If you’ve got any feedback, feel free to open an Issue, submit a Pull Request or contact nikf ([@nikf](https://twitter.com/nikf)) or jaydee3 ([@jaydee3](https://twitter.com/jaydee3)). Thanks to [Damien DeVille](https://twitter.com/damiendeville) for the code review.
+
+## Screenshots
+
+![Screenshot](assets/screenshots.png)
+
+## Contributors
+
+- [Nik Fletcher](https://twitter.com/nikf), Realmac Software
+- [Damien DeVille](https://twitter.com/damiendeville), Realmac Software
+- [Markus Emrich](https://twitter.com/jaydee3), nxtbgthng GmbH
 
 ## Contributors
 
@@ -22,10 +32,25 @@ If you’ve got any feedback, feel free to open an Issue, submit a Pull Request 
 
 ## Still To-Do
 
+**Core:**
+
 - Better presentation of feedback from the Transporter binary.
-- Support retrieval of In-App Purchase and Game Centre metadata.
+- Support retrieval of In-App Purchase and Game Center metadata.
 - Persist login details in the Keychain.
 - Error handling.
+
+**Editor:**
+
+- Make locales list editable (remove/add locales)
+- Reuse existing NSFileWrapper (don't rewrite screenshots, if no changes happened)
+- Make the "Download from ITC" part its own window (shown when creating a new file)
+- Make the verify/submit part its own window (shown when verify/submit is selected in the menu, while a document is open)
+- Move ITC credentials into a separate settings window
+- ~~Add a document icon~~ be91b16
+- Support drag & drop for multiple screenshots at once, automatically assign correct device types
+- Support drag & drop reordering of screenshots
+- Visible Input validation (required fields, Max length. especially for keywords, screenshot size/format)
+
 
 ## License
 
