@@ -11,7 +11,7 @@ If you’ve got any feedback, feel free to open an Issue, submit a Pull Request 
 
 ## Screenshots
 
-![Screenshot](assets/screenshots.png)
+![Screenshot](Assets/screenshots.png)
 
 ## Contributors
 
