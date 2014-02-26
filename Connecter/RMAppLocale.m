@@ -108,5 +108,12 @@
     return locale;
 }
 
+- (NSString *)formattedLocaleName;
+{
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *language = [locale displayNameForKey:NSLocaleLanguageCode value:self.localeName];
+    return [NSString stringWithFormat: @"%@ (%@)", language, self.localeName];
+}
+
 @end
 
