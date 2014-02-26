@@ -7,6 +7,7 @@
 //
 
 #import "RMScreenshotsGroupView.h"
+#import "RMOutlineDataSource.h"
 #import "RMAppScreenshot.h"
 #import "RMAppMetaData.h"
 #import "RMAppVersion.h"
@@ -21,11 +22,13 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 @interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate, NSTabViewDelegate, NSOutlineViewDelegate>
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
+@property (nonatomic, strong) RMOutlineDataSource *outlineDataSource;
 
 @property (nonatomic, strong) IBOutlet NSArrayController *versionsController;
 @property (nonatomic, strong) IBOutlet NSArrayController *localesController;
 @property (nonatomic, strong) IBOutlet NSArrayController *screenshotsController;
 @property (nonatomic, weak)   IBOutlet RMScreenshotsGroupView *screenshotsView;
+@property (nonatomic, weak)   IBOutlet NSOutlineView *outlineView;
 @property (nonatomic, weak)   IBOutlet NSTabView *tabView;
 
 @end
@@ -48,6 +51,13 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 - (void)windowControllerDidLoadNib:(NSWindowController *)windowController;
 {
     [super windowControllerDidLoadNib:windowController];
+    
+    self.outlineDataSource = [[RMOutlineDataSource alloc] init];
+    self.outlineDataSource.versionsController = self.versionsController;
+    self.outlineDataSource.localesController = self.localesController;
+    self.outlineView.dataSource = self.outlineDataSource;
+    self.outlineView.delegate = self.outlineDataSource;
+    [self.outlineView reloadData];
     
     self.screenshotsView.delegate = self;
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
@@ -75,18 +85,6 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 + (BOOL)autosavesInPlace
 {
     return YES;
-}
-
-#pragma mark NSOutlineViewDelegate
-
-- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item;
-{
-    NSTextField *textField = [[NSTextField alloc] init];
-    [textField setEditable:NO];
-    [textField setSelectable:YES];
-    [textField setBezeled:NO];
-    [textField setBackgroundColor:[NSColor clearColor]];
-    return textField;
 }
 
 #pragma mark KVO / NSTabViewDelegate

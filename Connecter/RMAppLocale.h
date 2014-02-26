@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RMAppLocale : NSObject <RMXMLObject, NSCopying>
+@interface RMAppLocale : NSObject <RMXMLObject>
 
 @property (nonatomic, assign) BOOL shouldDeleteLocale;
 
@@ -27,7 +27,3 @@
 
 @end
 
-
-@interface RMAppLocale (TreeController)
-@property (nonatomic, readonly) NSArray *children;
-@end
