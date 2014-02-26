@@ -57,7 +57,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     self.outlineDataSource.localesController = self.localesController;
     self.outlineView.dataSource = self.outlineDataSource;
     self.outlineView.delegate = self.outlineDataSource;
-    [self.outlineView reloadData];
+    [self.outlineView expandItem:nil expandChildren:YES];
     
     self.screenshotsView.delegate = self;
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
