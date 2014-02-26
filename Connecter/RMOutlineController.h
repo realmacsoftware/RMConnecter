@@ -1,5 +1,5 @@
 //
-//  RMOutlineDataSource.h
+//  RMOutlineController.h
 //  Connecter
 //
 //  Created by Markus on 25.02.14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
-@interface RMOutlineDataSource : NSObject <NSOutlineViewDataSource, NSOutlineViewDelegate>
+@interface RMOutlineController : NSObject <NSOutlineViewDataSource, NSOutlineViewDelegate>
 
 @property (nonatomic, weak) NSArrayController *versionsController;
 @property (nonatomic, weak) NSArrayController *localesController;

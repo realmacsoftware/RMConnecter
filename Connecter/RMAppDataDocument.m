@@ -7,7 +7,7 @@
 //
 
 #import "RMScreenshotsGroupView.h"
-#import "RMOutlineDataSource.h"
+#import "RMOutlineController.h"
 #import "RMAppScreenshot.h"
 #import "RMAppMetaData.h"
 #import "RMAppVersion.h"
@@ -22,7 +22,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 @interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate, NSTabViewDelegate, NSOutlineViewDelegate>
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
-@property (nonatomic, strong) RMOutlineDataSource *outlineDataSource;
+@property (nonatomic, strong) RMOutlineController *outlineController;
 
 @property (nonatomic, strong) IBOutlet NSArrayController *versionsController;
 @property (nonatomic, strong) IBOutlet NSArrayController *localesController;
@@ -52,11 +52,11 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 {
     [super windowControllerDidLoadNib:windowController];
     
-    self.outlineDataSource = [[RMOutlineDataSource alloc] init];
-    self.outlineDataSource.versionsController = self.versionsController;
-    self.outlineDataSource.localesController = self.localesController;
-    self.outlineView.dataSource = self.outlineDataSource;
-    self.outlineView.delegate = self.outlineDataSource;
+    self.outlineController = [[RMOutlineController alloc] init];
+    self.outlineController.versionsController = self.versionsController;
+    self.outlineController.localesController = self.localesController;
+    self.outlineView.dataSource = self.outlineController;
+    self.outlineView.delegate = self.outlineController;
     [self.outlineView expandItem:nil expandChildren:YES];
     
     self.screenshotsView.delegate = self;

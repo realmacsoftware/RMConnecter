@@ -1,5 +1,5 @@
 //
-//  RMOutlineDataSource.m
+//  RMOutlineController.m
 //  Connecter
 //
 //  Created by Markus on 25.02.14.
@@ -9,9 +9,9 @@
 #import "RMAppVersion.h"
 #import "RMAppLocale.h"
 
-#import "RMOutlineDataSource.h"
+#import "RMOutlineController.h"
 
-@implementation RMOutlineDataSource
+@implementation RMOutlineController
 
 #pragma mark Helper
 
