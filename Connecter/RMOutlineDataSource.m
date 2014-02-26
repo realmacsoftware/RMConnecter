@@ -81,4 +81,32 @@
     return [NSIndexSet indexSetWithIndex:index];
 }
 
+#pragma mark NSOutlineView Notifications
+
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification;
+{
+    NSOutlineView *view = notification.object;
+    RMAppLocale *locale = [view itemAtRow:view.selectedRow];
+    RMAppVersion *version = [view parentForItem:locale];
+    
+    if (locale && version) {
+        NSAssert([locale isKindOfClass:[RMAppLocale class]] && [version isKindOfClass:[RMAppVersion class]],
+                 @"Selected item is not of type RMAppLocale, or parent is not of type RMAppVersion.");
+        [self.versionsController setSelectedObjects:@[version]];
+        [self.localesController setSelectedObjects:@[locale]];
+    }
+}
+
+- (void)outlineViewItemDidExpand:(NSNotification *)notification;
+{
+    NSOutlineView *view = notification.object;
+    RMAppVersion *version = [notification.userInfo objectForKey:@"NSObject"];
+    NSAssert([version isKindOfClass:[RMAppVersion class]], @"Expanded item is not of type RMAppVersion.");
+    
+    if (version == self.versionsController.selectedObjects.firstObject) {
+        NSInteger row = [view rowForItem:self.localesController.selectedObjects.firstObject];
+        [view selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+    }
+}
+
 @end
