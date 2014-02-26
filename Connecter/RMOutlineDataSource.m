@@ -13,6 +13,8 @@
 
 @implementation RMOutlineDataSource
 
+#pragma mark Helper
+
 - (NSString*)displayValueForItem:(id)item;
 {
     if ([item isKindOfClass:[RMAppVersion class]]) {
@@ -26,6 +28,12 @@
     return nil;
 }
 
+- (BOOL)isItemAButton:(id)item;
+{
+    return ([item isKindOfClass:[NSString class]] &&
+            [item isEqualToString:@"Button"]);
+}
+
 #pragma mark NSOutlineViewDataSource
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
@@ -34,7 +42,7 @@
         RMAppVersion *version = item;
         return version.locales.count;
     }
-    return [self.versionsController.arrangedObjects count];
+    return [self.versionsController.arrangedObjects count] + 1;
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item;
@@ -43,41 +51,67 @@
         RMAppVersion *version = item;
         return version.locales[index];
     }
-    return [self.versionsController.arrangedObjects objectAtIndex:index];
+    
+    if ([self.versionsController.arrangedObjects count] > index) {
+        return [self.versionsController.arrangedObjects objectAtIndex:index];
+    } else {
+        return @"Button";
+    }
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item;
 {
-    if ([item isKindOfClass:[RMAppLocale class]]) {
-        return NO;
+    if ([item isKindOfClass:[RMAppVersion class]]) {
+        return YES;
     }
-    return YES;
+    return NO;
 }
 
 #pragma mark NSOutlineViewDelegate
 
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 {
-    NSTextField *textField = [[NSTextField alloc] init];
-    [textField setEditable:NO];
-    [textField setSelectable:YES];
-    [textField setBezeled:NO];
-    [textField setBackgroundColor:[NSColor clearColor]];
+    if([item isKindOfClass:[RMAppLocale class]] || [item isKindOfClass:[RMAppVersion class]]) {
+        NSTextField *textField = [[NSTextField alloc] init];
+        [textField setEditable:NO];
+        [textField setSelectable:YES];
+        [textField setBezeled:NO];
+        [textField setBackgroundColor:[NSColor clearColor]];
+        
+        textField.stringValue = [self displayValueForItem:item];
+        
+        return textField;
+    }
     
-    textField.stringValue = [self displayValueForItem:item];
+    else if([self isItemAButton:item]) {
+        NSButton *button = [[NSButton alloc] init];
+        [button setBezelStyle:NSInlineBezelStyle];
+        [button setTitle:@"Add Locale"];
+        [button setTarget:self];
+        [button setAction:@selector(addLocale:)];
+        return button;
+    }
     
-    return textField;
+    return nil;
 }
 
 - (NSIndexSet *)outlineView:(NSOutlineView *)outlineView selectionIndexesForProposedSelection:(NSIndexSet *)proposedSelectionIndexes;
 {
     NSUInteger index = [proposedSelectionIndexes firstIndex];
     id item = [outlineView itemAtRow:index];
-    while ([item isKindOfClass:[RMAppVersion class]]) {
+    
+    // don't change selection, if button row is selected
+    if([self isItemAButton:item]) {
+        return [NSIndexSet indexSetWithIndex:[outlineView selectedRow]];
+    }
+    
+    // find next locale, if another item is selected (e.g. a version)
+    while (![item isKindOfClass:[RMAppLocale class]]) {
         index++;
         item = [outlineView itemAtRow:index];
         if (!item) return nil;
     }
+    
     return [NSIndexSet indexSetWithIndex:index];
 }
 
@@ -107,6 +141,13 @@
         NSInteger row = [view rowForItem:self.localesController.selectedObjects.firstObject];
         [view selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
     }
+}
+
+#pragma mark Actions
+
+- (void)addLocale:(NSButton*)button;
+{
+    
 }
 
 @end
