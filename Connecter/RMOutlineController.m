@@ -147,7 +147,9 @@
 
 - (void)addLocale:(NSButton*)button;
 {
-    
+    if (self.addLocaleBlock) {
+        self.addLocaleBlock(button);
+    }
 }
 
 @end

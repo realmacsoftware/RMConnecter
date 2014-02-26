@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
+@class RMOutlineController;
+typedef void(^OutlineControllerAddLocaleBlock)(id sender);
+
 @interface RMOutlineController : NSObject <NSOutlineViewDataSource, NSOutlineViewDelegate>
 
 @property (nonatomic, weak) NSArrayController *versionsController;
 @property (nonatomic, weak) NSArrayController *localesController;
+
+@property (nonatomic, copy) OutlineControllerAddLocaleBlock addLocaleBlock;
 
 @end

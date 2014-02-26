@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
+#import "RMAddLocaleWindowController.h"
 #import "RMScreenshotsGroupView.h"
 #import "RMOutlineController.h"
 #import "RMAppScreenshot.h"
@@ -23,6 +24,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
 @property (nonatomic, strong) RMOutlineController *outlineController;
+@property (nonatomic, strong) RMAddLocaleWindowController *localeSelectionWindow;
 
 @property (nonatomic, strong) IBOutlet NSArrayController *versionsController;
 @property (nonatomic, strong) IBOutlet NSArrayController *localesController;
@@ -58,6 +60,16 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     self.outlineView.dataSource = self.outlineController;
     self.outlineView.delegate = self.outlineController;
     [self.outlineView expandItem:nil expandChildren:YES];
+    
+    __weak typeof(self) blockSelf = self;
+    self.outlineController.addLocaleBlock = ^(NSButton *sender){
+        blockSelf.localeSelectionWindow = [[RMAddLocaleWindowController alloc] init];
+        [sender.window beginSheet:blockSelf.localeSelectionWindow.window
+                completionHandler:^(NSModalResponse returnCode) {
+                    [blockSelf.localeSelectionWindow.window orderOut:nil];
+                    blockSelf.localeSelectionWindow = nil;
+                }];
+    };
     
     self.screenshotsView.delegate = self;
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
