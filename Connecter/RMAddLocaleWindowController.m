@@ -15,6 +15,7 @@ NSString *const RMAddLocaleSelectionVersionKeyPath = @"versionsController.select
 
 @interface RMAddLocaleWindowController ()
 @property (nonatomic, strong) IBOutlet NSArrayController *versionsController;
+@property (nonatomic, strong) IBOutlet NSArrayController *filterLocalesController;
 @property (nonatomic, strong) NSArray *filteredLocales;
 @property (nonatomic, readonly) NSArray *allLocales;
 @end
@@ -59,6 +60,12 @@ NSString *const RMAddLocaleSelectionVersionKeyPath = @"versionsController.select
 
 - (IBAction)addLocale:(id)sender;
 {
+    RMAppVersion *selectedVersion = [[self.versionsController selectedObjects] firstObject];
+    RMAppLocale *selectedLocale = [[self.filterLocalesController selectedObjects] firstObject];
+    if ([selectedLocale isKindOfClass:[RMAppLocale class]]) {
+        [selectedVersion addLocale:selectedLocale];
+    }
+    
     [self.window.sheetParent endSheet:self.window
                            returnCode:NSModalResponseOK];
 }

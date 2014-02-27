@@ -9,10 +9,14 @@
 #import "RMXMLObject.h"
 #import <Foundation/Foundation.h>
 
+@class RMAppLocale;
+
 @interface RMAppVersion : NSObject <RMXMLObject>
 
 @property (nonatomic, copy) NSString *versionString;
 @property (nonatomic, strong) NSArray *locales;
+
+- (void)addLocale:(RMAppLocale*)locale;
 
 @end
 

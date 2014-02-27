@@ -35,7 +35,7 @@
             for (NSXMLElement *localeElement in localeElements) {
                 [locales addObject:[[RMAppLocale alloc] initWithXMLElement:localeElement]];
             }
-            self.locales = locales;
+            self.locales = [locales copy];
         }
     }
     return self;
@@ -55,6 +55,11 @@
     [version addChild:locales];
     
     return version;
+}
+
+- (void)addLocale:(RMAppLocale*)locale;
+{
+    self.locales = [self.locales arrayByAddingObject:locale];
 }
 
 @end

@@ -24,7 +24,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
 @property (nonatomic, strong) RMOutlineController *outlineController;
-@property (nonatomic, strong) RMAddLocaleWindowController *localeSelectionWindow;
+@property (nonatomic, strong) RMAddLocaleWindowController *addLocaleWindowController;
 
 @property (nonatomic, strong) IBOutlet NSArrayController *versionsController;
 @property (nonatomic, strong) IBOutlet NSArrayController *localesController;
@@ -63,11 +63,15 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     
     __weak typeof(self) blockSelf = self;
     self.outlineController.addLocaleBlock = ^(NSButton *sender){
-        blockSelf.localeSelectionWindow = [[RMAddLocaleWindowController alloc] initWithMetaData:blockSelf.metaData];
-        [sender.window beginSheet:blockSelf.localeSelectionWindow.window
+        RMAddLocaleWindowController *addLocaleController = [[RMAddLocaleWindowController alloc] initWithMetaData:blockSelf.metaData];
+        blockSelf.addLocaleWindowController = addLocaleController;
+        [sender.window beginSheet:addLocaleController.window
                 completionHandler:^(NSModalResponse returnCode) {
-                    [blockSelf.localeSelectionWindow.window orderOut:nil];
-                    blockSelf.localeSelectionWindow = nil;
+                    if (returnCode == NSModalResponseOK) {
+                        [blockSelf.outlineView reloadData];
+                    }
+                    [addLocaleController.window orderOut:nil];
+                    blockSelf.addLocaleWindowController = nil;
                 }];
     };
     
