@@ -6,9 +6,15 @@
 //  Copyright (c) 2014 Realmac Software. All rights reserved.
 //
 
+// Controller
 #import "RMAddLocaleWindowController.h"
-#import "RMScreenshotsGroupView.h"
 #import "RMOutlineViewController.h"
+
+// Views
+#import "RMScreenshotsGroupView.h"
+#import "RMOutlineView.h"
+
+// Model
 #import "RMAppScreenshot.h"
 #import "RMAppMetaData.h"
 #import "RMAppVersion.h"
@@ -30,7 +36,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 @property (nonatomic, strong) IBOutlet NSArrayController *localesController;
 @property (nonatomic, strong) IBOutlet NSArrayController *screenshotsController;
 @property (nonatomic, weak)   IBOutlet RMScreenshotsGroupView *screenshotsView;
-@property (nonatomic, weak)   IBOutlet NSOutlineView *outlineView;
+@property (nonatomic, weak)   IBOutlet RMOutlineView *outlineView;
 @property (nonatomic, weak)   IBOutlet NSTabView *tabView;
 
 @end
@@ -62,6 +68,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     self.outlineView.delegate = self.outlineController;
     [self.outlineView expandItem:nil expandChildren:YES];
     
+    // add new locales action
     __weak typeof(self) blockSelf = self;
     self.outlineController.addLocaleBlock = ^(NSButton *sender){
         RMAddLocaleWindowController *addLocaleController = [[RMAddLocaleWindowController alloc] initWithMetaData:blockSelf.metaData];
@@ -74,6 +81,15 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
                     [addLocaleController.window orderOut:nil];
                     blockSelf.addLocaleWindowController = nil;
                 }];
+    };
+    
+    // delete locales action
+    self.outlineView.deleteItemBlock = ^(id item){
+        if ([item isKindOfClass:[RMAppLocale class]]) {
+            RMAppLocale *locale = item;
+            locale.shouldDeleteLocale = YES;
+            [blockSelf.outlineView reloadData];
+        }
     };
     
     // setup screenshots view
