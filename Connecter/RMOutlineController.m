@@ -13,27 +13,6 @@
 
 @implementation RMOutlineController
 
-#pragma mark Helper
-
-- (NSString*)displayValueForItem:(id)item;
-{
-    if ([item isKindOfClass:[RMAppVersion class]]) {
-        RMAppVersion *version = item;
-        return version.versionString;
-    }
-    else if ([item isKindOfClass:[RMAppLocale class]]) {
-        RMAppLocale *locale = item;
-        return locale.formattedLocaleName;
-    }
-    return nil;
-}
-
-- (BOOL)isItemAButton:(id)item;
-{
-    return ([item isKindOfClass:[NSString class]] &&
-            [item isEqualToString:@"Button"]);
-}
-
 #pragma mark NSOutlineViewDataSource
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
@@ -150,6 +129,27 @@
     if (self.addLocaleBlock) {
         self.addLocaleBlock(button);
     }
+}
+
+#pragma mark Helper
+
+- (NSString*)displayValueForItem:(id)item;
+{
+    if ([item isKindOfClass:[RMAppVersion class]]) {
+        RMAppVersion *version = item;
+        return version.versionString;
+    }
+    else if ([item isKindOfClass:[RMAppLocale class]]) {
+        RMAppLocale *locale = item;
+        return locale.formattedLocaleName;
+    }
+    return nil;
+}
+
+- (BOOL)isItemAButton:(id)item;
+{
+    return ([item isKindOfClass:[NSString class]] &&
+            [item isEqualToString:@"Button"]);
 }
 
 @end
