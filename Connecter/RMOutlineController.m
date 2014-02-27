@@ -34,7 +34,7 @@
     if ([self.versionsController.arrangedObjects count] > index) {
         return [self.versionsController.arrangedObjects objectAtIndex:index];
     } else {
-        return @"Button";
+        return [self addLocaleButtonItem];
     }
 }
 
@@ -62,16 +62,27 @@
         return textField;
     }
     
-    else if([self isItemAButton:item]) {
-        NSButton *button = [[NSButton alloc] init];
+    else if([self isAddLocaleButtonItem:item]) {
+        NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 200, 100)];
+        NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+        button.autoresizingMask = NSViewMaxYMargin | NSViewWidthSizable;
         [button setBezelStyle:NSInlineBezelStyle];
         [button setTitle:@"Add Locale"];
         [button setTarget:self];
         [button setAction:@selector(addLocale:)];
-        return button;
+        [view addSubview:button];
+        return view;
     }
     
     return nil;
+}
+
+- (CGFloat)outlineView:(NSOutlineView *)outlineView heightOfRowByItem:(id)item;
+{
+    if ([self isAddLocaleButtonItem:item]) {
+        return outlineView.rowHeight*2;
+    }
+    return outlineView.rowHeight;
 }
 
 - (NSIndexSet *)outlineView:(NSOutlineView *)outlineView selectionIndexesForProposedSelection:(NSIndexSet *)proposedSelectionIndexes;
@@ -80,7 +91,7 @@
     id item = [outlineView itemAtRow:index];
     
     // don't change selection, if button row is selected
-    if([self isItemAButton:item]) {
+    if([self isAddLocaleButtonItem:item]) {
         return [NSIndexSet indexSetWithIndex:[outlineView selectedRow]];
     }
     
@@ -146,7 +157,12 @@
     return nil;
 }
 
-- (BOOL)isItemAButton:(id)item;
+- (id)addLocaleButtonItem;
+{
+    return @"Button";
+}
+
+- (BOOL)isAddLocaleButtonItem:(id)item;
 {
     return ([item isKindOfClass:[NSString class]] &&
             [item isEqualToString:@"Button"]);
