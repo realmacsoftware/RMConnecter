@@ -1,5 +1,5 @@
 //
-//  RMOutlineController.m
+//  RMOutlineViewController.m
 //  Connecter
 //
 //  Created by Markus on 25.02.14.
@@ -9,9 +9,9 @@
 #import "RMAppVersion.h"
 #import "RMAppLocale.h"
 
-#import "RMOutlineController.h"
+#import "RMOutlineViewController.h"
 
-@implementation RMOutlineController
+@implementation RMOutlineViewController
 
 #pragma mark NSOutlineViewDataSource
 

@@ -8,7 +8,7 @@
 
 #import "RMAddLocaleWindowController.h"
 #import "RMScreenshotsGroupView.h"
-#import "RMOutlineController.h"
+#import "RMOutlineViewController.h"
 #import "RMAppScreenshot.h"
 #import "RMAppMetaData.h"
 #import "RMAppVersion.h"
@@ -23,7 +23,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 @interface RMAppDataDocument () <RMScreenshotsGroupViewDelegate, NSTabViewDelegate, NSOutlineViewDelegate>
 
 @property (nonatomic, strong) RMAppMetaData *metaData;
-@property (nonatomic, strong) RMOutlineController *outlineController;
+@property (nonatomic, strong) RMOutlineViewController *outlineController;
 @property (nonatomic, strong) RMAddLocaleWindowController *addLocaleWindowController;
 
 @property (nonatomic, strong) IBOutlet NSArrayController *versionsController;
@@ -55,7 +55,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     [super windowControllerDidLoadNib:windowController];
     
     // setup outlineController / outlineView
-    self.outlineController = [[RMOutlineController alloc] init];
+    self.outlineController = [[RMOutlineViewController alloc] init];
     self.outlineController.versionsController = self.versionsController;
     self.outlineController.localesController = self.localesController;
     self.outlineView.dataSource = self.outlineController;

@@ -36,7 +36,7 @@
 		D26E390B18B4F9970061527C /* RMScreenshotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26E390A18B4F9970061527C /* RMScreenshotViewController.xib */; };
 		D26E391118B770460061527C /* RMAppScreenshotTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */; };
 		D26E391518B774FF0061527C /* RMByteValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391418B774FF0061527C /* RMByteValueTransformer.m */; };
-		D283F4CA18BD036F00CE4E8D /* RMOutlineController.m in Sources */ = {isa = PBXBuildFile; fileRef = D283F4C918BD036F00CE4E8D /* RMOutlineController.m */; };
+		D283F4CA18BD036F00CE4E8D /* RMOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D283F4C918BD036F00CE4E8D /* RMOutlineViewController.m */; };
 		D29CFD4418BB6BE300627DA3 /* ConnectorFileIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D29CFD4318BB6BE300627DA3 /* ConnectorFileIcon.icns */; };
 		D2DFEC5318B3695600FF33AD /* RMAppMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */; };
 		D2DFEC5A18B3754200FF33AD /* RMAppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5918B3754200FF33AD /* RMAppVersion.m */; };
@@ -108,8 +108,8 @@
 		D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppScreenshotTypeValueTransformer.m; sourceTree = "<group>"; };
 		D26E391318B774FF0061527C /* RMByteValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMByteValueTransformer.h; sourceTree = "<group>"; };
 		D26E391418B774FF0061527C /* RMByteValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMByteValueTransformer.m; sourceTree = "<group>"; };
-		D283F4C818BD036F00CE4E8D /* RMOutlineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOutlineController.h; sourceTree = "<group>"; };
-		D283F4C918BD036F00CE4E8D /* RMOutlineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOutlineController.m; sourceTree = "<group>"; };
+		D283F4C818BD036F00CE4E8D /* RMOutlineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOutlineViewController.h; sourceTree = "<group>"; };
+		D283F4C918BD036F00CE4E8D /* RMOutlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOutlineViewController.m; sourceTree = "<group>"; };
 		D29CFD4318BB6BE300627DA3 /* ConnectorFileIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ConnectorFileIcon.icns; sourceTree = "<group>"; };
 		D2DFEC5118B3695600FF33AD /* RMAppMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppMetaData.h; sourceTree = "<group>"; };
 		D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppMetaData.m; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 		D26E390918B4F9610061527C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D283F4C818BD036F00CE4E8D /* RMOutlineController.h */,
-				D283F4C918BD036F00CE4E8D /* RMOutlineController.m */,
+				D283F4C818BD036F00CE4E8D /* RMOutlineViewController.h */,
+				D283F4C918BD036F00CE4E8D /* RMOutlineViewController.m */,
 				D26E390318B4F9280061527C /* RMScreenshotsGroupView.h */,
 				D26E390418B4F9280061527C /* RMScreenshotsGroupView.m */,
 				D26E390618B4F95E0061527C /* RMScreenshotViewController.h */,
@@ -469,7 +469,7 @@
 				D2DFEC5318B3695600FF33AD /* RMAppMetaData.m in Sources */,
 				247F2817189127D8000F8041 /* main.m in Sources */,
 				D225B07218AE7A290061CA42 /* RMAppDataDocument.m in Sources */,
-				D283F4CA18BD036F00CE4E8D /* RMOutlineController.m in Sources */,
+				D283F4CA18BD036F00CE4E8D /* RMOutlineViewController.m in Sources */,
 				D2ED44A318AE654100976E49 /* NSData+MD5.m in Sources */,
 				D2DFEC5D18B377A100FF33AD /* RMAppLocale.m in Sources */,
 				D26E391118B770460061527C /* RMAppScreenshotTypeValueTransformer.m in Sources */,
