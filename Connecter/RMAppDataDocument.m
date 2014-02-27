@@ -86,9 +86,11 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     // delete locales action
     self.outlineView.deleteItemBlock = ^(id item){
         if ([item isKindOfClass:[RMAppLocale class]]) {
-            RMAppLocale *locale = item;
-            locale.shouldDeleteLocale = YES;
-            [blockSelf.outlineView reloadData];
+            [blockSelf showDeleteAlertWithConfirmedBlock:^(){
+                RMAppLocale *locale = item;
+                locale.shouldDeleteLocale = YES;
+                [blockSelf.outlineView reloadData];
+            }];
         }
     };
     
@@ -102,6 +104,25 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     [super removeWindowController:windowController];
     
     [self.screenshotsController removeObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath];
+}
+
+#pragma mark NSAlert helper
+
+- (void)showDeleteAlertWithConfirmedBlock:(void(^)(void))confirmedBlock;
+{
+    if (!confirmedBlock) return;
+    
+	NSAlert *alert = [[NSAlert alloc] init];
+	[alert addButtonWithTitle:@"Delete"];
+	[alert addButtonWithTitle:@"Cancel"];
+	[alert setMessageText:@"Delete Locale?"];
+	[alert setInformativeText:@"All attached data will be deleted, including any screenshot. This can't be restored."];
+	
+	[alert beginSheetModalForWindow:[self.outlineView window] completionHandler:^ (NSModalResponse returnCode) {
+		if (returnCode == NSAlertFirstButtonReturn) {
+			confirmedBlock();
+		}
+	}];
 }
 
 #pragma mark helper
