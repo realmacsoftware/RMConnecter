@@ -108,11 +108,32 @@
     return locale;
 }
 
-- (NSString *)formattedLocaleName;
+#pragma mark Locale Formatting
+
+- (NSString *)formattedLocaleNameShort;
 {
     NSLocale *locale = [NSLocale currentLocale];
-    NSString *language = [locale displayNameForKey:NSLocaleLanguageCode value:self.localeName];
+    NSString *language = [locale displayNameForKey:NSLocaleLanguageCode
+                                             value:[self mappedLocaleNameWithLocaleName:self.localeName]];
     return [NSString stringWithFormat: @"%@ (%@)", language, self.localeName];
+}
+
+- (NSString *)formattedLocaleNameFull;
+{
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *language = [locale displayNameForKey:NSLocaleIdentifier
+                                             value:[self mappedLocaleNameWithLocaleName:self.localeName]];
+    NSMutableString *spacer = [NSMutableString string];
+    for (NSInteger i=0; i<(10-self.localeName.length); i+=3) [spacer appendString:@"\t"];
+    return [NSString stringWithFormat: @"%@%@%@", self.localeName, spacer, language];
+}
+
+- (NSString*)mappedLocaleNameWithLocaleName:(NSString*)localeName;
+{
+    // iTunes Connect uses RFC 5646 naming, but OS X uses ISO 639-1/ISO 639-2 and ISO 3166-1 naming
+    NSDictionary *iosMapping = @{@"cmn-Hans": @"zh-Hans",@"cmn-Hant":@"zh-Hant"};
+    if (iosMapping[localeName]) return iosMapping[localeName];
+    return localeName;
 }
 
 @end

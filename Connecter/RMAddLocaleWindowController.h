@@ -8,6 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RMAppMetaData;
+
 @interface RMAddLocaleWindowController : NSWindowController
+
+@property (nonatomic, weak, readonly) RMAppMetaData *metaData;
+@property (nonatomic, readonly) NSArray *filteredLocales;
+
+- (id)initWithMetaData:(RMAppMetaData*)metaData;
 
 @end

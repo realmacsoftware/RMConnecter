@@ -63,7 +63,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     
     __weak typeof(self) blockSelf = self;
     self.outlineController.addLocaleBlock = ^(NSButton *sender){
-        blockSelf.localeSelectionWindow = [[RMAddLocaleWindowController alloc] init];
+        blockSelf.localeSelectionWindow = [[RMAddLocaleWindowController alloc] initWithMetaData:blockSelf.metaData];
         [sender.window beginSheet:blockSelf.localeSelectionWindow.window
                 completionHandler:^(NSModalResponse returnCode) {
                     [blockSelf.localeSelectionWindow.window orderOut:nil];

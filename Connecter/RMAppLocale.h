@@ -25,7 +25,8 @@
 @property (nonatomic, strong) NSArray *keywords;
 @property (nonatomic, strong) NSArray *screenshots;
 
-@property (nonatomic, readonly) NSString *formattedLocaleName;
+@property (nonatomic, readonly) NSString *formattedLocaleNameShort;
+@property (nonatomic, readonly) NSString *formattedLocaleNameFull;
 
 @end
 

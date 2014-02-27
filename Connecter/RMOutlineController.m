@@ -152,7 +152,7 @@
     }
     else if ([item isKindOfClass:[RMAppLocale class]]) {
         RMAppLocale *locale = item;
-        return locale.formattedLocaleName;
+        return locale.formattedLocaleNameShort;
     }
     return nil;
 }
