@@ -237,16 +237,8 @@
 		6D739029189E9A65000764E4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6D739021189E79E9000764E4 /* RMConnecterWindowController.h */,
-				6D739022189E79E9000764E4 /* RMConnecterWindowController.m */,
-				6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */,
-				D225B07018AE7A290061CA42 /* RMAppDataDocument.h */,
-				D225B07118AE7A290061CA42 /* RMAppDataDocument.m */,
-				D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */,
-				D2014D7918BE36F000565A27 /* RMAddLocaleWindowController.h */,
-				D2014D7A18BE36F000565A27 /* RMAddLocaleWindowController.m */,
-				D2014D7B18BE36F000565A27 /* RMAddLocaleWindowController.xib */,
-				D26E390918B4F9610061527C /* Views */,
+				D2014D8018BFA16E00565A27 /* Download / Upload Window */,
+				D2014D7F18BFA0D100565A27 /* App Data Document Window */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -269,6 +261,38 @@
 				6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */,
 			);
 			name = Operations;
+			sourceTree = "<group>";
+		};
+		D2014D7E18BFA0C800565A27 /* Add Locale Window */ = {
+			isa = PBXGroup;
+			children = (
+				D2014D7918BE36F000565A27 /* RMAddLocaleWindowController.h */,
+				D2014D7A18BE36F000565A27 /* RMAddLocaleWindowController.m */,
+				D2014D7B18BE36F000565A27 /* RMAddLocaleWindowController.xib */,
+			);
+			name = "Add Locale Window";
+			sourceTree = "<group>";
+		};
+		D2014D7F18BFA0D100565A27 /* App Data Document Window */ = {
+			isa = PBXGroup;
+			children = (
+				D225B07018AE7A290061CA42 /* RMAppDataDocument.h */,
+				D225B07118AE7A290061CA42 /* RMAppDataDocument.m */,
+				D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */,
+				D2014D7E18BFA0C800565A27 /* Add Locale Window */,
+				D26E390918B4F9610061527C /* Views */,
+			);
+			name = "App Data Document Window";
+			sourceTree = "<group>";
+		};
+		D2014D8018BFA16E00565A27 /* Download / Upload Window */ = {
+			isa = PBXGroup;
+			children = (
+				6D739021189E79E9000764E4 /* RMConnecterWindowController.h */,
+				6D739022189E79E9000764E4 /* RMConnecterWindowController.m */,
+				6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */,
+			);
+			name = "Download / Upload Window";
 			sourceTree = "<group>";
 		};
 		D24B03DB18B8FD8F003FD954 /* TestData */ = {
