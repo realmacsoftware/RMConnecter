@@ -336,9 +336,9 @@
                 <binding destination="-2" name="contentArray" keyPath="self.metaData.versions" id="7Qx-LK-0Cx"/>
             </connections>
         </arrayController>
-        <arrayController objectClassName="RMAppLocale" editable="NO" id="wkQ-lw-xLY" userLabel="Locales Array Controller">
+        <arrayController objectClassName="RMAppLocale" editable="NO" clearsFilterPredicateOnInsertion="NO" id="wkQ-lw-xLY" userLabel="Locales Array Controller">
             <connections>
-                <binding destination="Qcn-rz-95j" name="contentArray" keyPath="selection.locales" id="C41-qS-FNz"/>
+                <binding destination="Qcn-rz-95j" name="contentArray" keyPath="selection.activeLocales" id="1eM-KC-RPU"/>
             </connections>
         </arrayController>
         <arrayController objectClassName="RMAppScreenshot" id="5qQ-CF-0Zp" userLabel="Screenshots Array Controller">

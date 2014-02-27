@@ -93,7 +93,7 @@ NSString *const RMAddLocaleSelectionVersionKeyPath = @"versionsController.select
     NSMutableArray *locales = [[self allLocales] mutableCopy];
     if ([self.versionsController.selectedObjects count] > 0) {
         RMAppVersion *version = [[self.versionsController selectedObjects] firstObject];
-        for (RMAppLocale *locale in version.locales) {
+        for (RMAppLocale *locale in version.activeLocales) {
             [locales removeObject:locale.localeName];
             [locales removeObject:[locale.localeName substringToIndex:2]];
         }

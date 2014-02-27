@@ -19,7 +19,7 @@
 {
     if ([item isKindOfClass:[RMAppVersion class]]) {
         RMAppVersion *version = item;
-        return version.locales.count;
+        return version.activeLocales.count;
     }
     return [self.versionsController.arrangedObjects count] + 1;
 }
@@ -28,7 +28,7 @@
 {
     if ([item isKindOfClass:[RMAppVersion class]]) {
         RMAppVersion *version = item;
-        return version.locales[index];
+        return version.activeLocales[index];
     }
     
     if ([self.versionsController.arrangedObjects count] > index) {

@@ -54,6 +54,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 {
     [super windowControllerDidLoadNib:windowController];
     
+    // setup outlineController / outlineView
     self.outlineController = [[RMOutlineController alloc] init];
     self.outlineController.versionsController = self.versionsController;
     self.outlineController.localesController = self.localesController;
@@ -75,6 +76,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
                 }];
     };
     
+    // setup screenshots view
     self.screenshotsView.delegate = self;
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
 }

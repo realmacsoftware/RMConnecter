@@ -15,6 +15,7 @@
 
 @property (nonatomic, copy) NSString *versionString;
 @property (nonatomic, strong) NSArray *locales;
+@property (nonatomic, readonly) NSArray *activeLocales;
 
 - (void)addLocale:(RMAppLocale*)locale;
 
