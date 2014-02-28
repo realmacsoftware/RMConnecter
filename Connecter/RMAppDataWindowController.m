@@ -46,11 +46,6 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     return [super initWithWindowNibName:NSStringFromClass([self class])];
 }
 
-- (void)dealloc;
-{
-    [self.screenshotsController removeObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath];
-}
-
 - (void)windowDidLoad
 {
     [super windowDidLoad];
@@ -92,6 +87,14 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     // setup screenshots view
     self.screenshotsView.delegate = self;
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
+}
+
+- (void)setDocument:(NSDocument *)document;
+{
+    [super setDocument:document];
+    if (!document) {
+        [self.screenshotsController removeObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath];
+    }
 }
 
 - (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName;
