@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="RMAppDataDocument">
+        <customObject id="-2" userLabel="File's Owner" customClass="RMAppDataWindowController">
             <connections>
                 <outlet property="localesController" destination="wkQ-lw-xLY" id="3ps-cI-OeU"/>
                 <outlet property="outlineView" destination="ccT-qq-iMs" id="wG8-Ab-Gwd"/>
@@ -333,7 +333,7 @@
         </window>
         <arrayController objectClassName="RMAppVersion" editable="NO" id="Qcn-rz-95j" userLabel="Versions Array Controller">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="self.metaData.versions" id="7Qx-LK-0Cx"/>
+                <binding destination="-2" name="contentArray" keyPath="self.rmDocument.metaData.versions" id="dab-xq-bUc"/>
             </connections>
         </arrayController>
         <arrayController objectClassName="RMAppLocale" editable="NO" clearsFilterPredicateOnInsertion="NO" id="wkQ-lw-xLY" userLabel="Locales Array Controller">
