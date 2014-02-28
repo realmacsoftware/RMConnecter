@@ -94,6 +94,11 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     [self.screenshotsController addObserver:self forKeyPath:RMAppDataArrangedObjectsKVOPath options:NSKeyValueObservingOptionInitial context:nil];
 }
 
+- (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName;
+{
+    return [NSString stringWithFormat: @"%@ - Connector", displayName];
+}
+
 #pragma mark NSAlert helper
 
 - (void)showDeleteAlertWithConfirmedBlock:(void(^)(void))confirmedBlock;
