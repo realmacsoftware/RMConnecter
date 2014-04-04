@@ -99,7 +99,7 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
 
 - (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName;
 {
-    return [NSString stringWithFormat: @"%@ - Connector", displayName];
+    return [NSString stringWithFormat: @"%@ - Connecter", displayName];
 }
 
 #pragma mark NSAlert helper
