@@ -14,16 +14,19 @@
 
 @property (nonatomic, assign) BOOL shouldDeleteLocale;
 
-@property (nonatomic, strong) NSString *localeName;
+@property (nonatomic, copy) NSString *localeName;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *appDescription;
+@property (nonatomic, copy) NSString *whatsNew;
+@property (nonatomic, copy) NSString *softwareURL;
+@property (nonatomic, copy) NSString *supportURL;
+@property (nonatomic, copy) NSString *privacyURL;
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *appDescription;
 @property (nonatomic, strong) NSArray *keywords;
-@property (nonatomic, strong) NSString *whatsNew;
-@property (nonatomic, strong) NSString *softwareURL;
-@property (nonatomic, strong) NSString *supportURL;
-@property (nonatomic, strong) NSString *privacyURL;
-
 @property (nonatomic, strong) NSArray *screenshots;
 
+@property (nonatomic, readonly) NSString *formattedLocaleNameShort;
+@property (nonatomic, readonly) NSString *formattedLocaleNameFull;
+
 @end
+

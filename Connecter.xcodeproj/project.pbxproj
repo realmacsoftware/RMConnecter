@@ -23,6 +23,10 @@
 		6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739027189E91BE000764E4 /* RMConnecterCredentials.m */; };
 		6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */; };
 		6D739031189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */; };
+		D2014D7C18BE36F000565A27 /* RMAddLocaleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2014D7A18BE36F000565A27 /* RMAddLocaleWindowController.m */; };
+		D2014D7D18BE36F000565A27 /* RMAddLocaleWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2014D7B18BE36F000565A27 /* RMAddLocaleWindowController.xib */; };
+		D2014D8318BFAA5700565A27 /* RMOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2014D8218BFAA5700565A27 /* RMOutlineView.m */; };
+		D2014D8618C0BCD600565A27 /* RMAppDataWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2014D8518C0BCD600565A27 /* RMAppDataWindowController.m */; };
 		D225B07218AE7A290061CA42 /* RMAppDataDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D225B07118AE7A290061CA42 /* RMAppDataDocument.m */; };
 		D24B03DD18B8FD8F003FD954 /* testmetadata.xml in Resources */ = {isa = PBXBuildFile; fileRef = D24B03DC18B8FD8F003FD954 /* testmetadata.xml */; };
 		D24B03DE18B903CD003FD954 /* RMAppScreenshotTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */; };
@@ -34,6 +38,7 @@
 		D26E390B18B4F9970061527C /* RMScreenshotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26E390A18B4F9970061527C /* RMScreenshotViewController.xib */; };
 		D26E391118B770460061527C /* RMAppScreenshotTypeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */; };
 		D26E391518B774FF0061527C /* RMByteValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E391418B774FF0061527C /* RMByteValueTransformer.m */; };
+		D283F4CA18BD036F00CE4E8D /* RMOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D283F4C918BD036F00CE4E8D /* RMOutlineViewController.m */; };
 		D29CFD4418BB6BE300627DA3 /* ConnectorFileIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D29CFD4318BB6BE300627DA3 /* ConnectorFileIcon.icns */; };
 		D2DFEC5318B3695600FF33AD /* RMAppMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */; };
 		D2DFEC5A18B3754200FF33AD /* RMAppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5918B3754200FF33AD /* RMAppVersion.m */; };
@@ -42,7 +47,7 @@
 		D2DFEC5F18B3799200FF33AD /* RMAppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5918B3754200FF33AD /* RMAppVersion.m */; };
 		D2DFEC6018B3799200FF33AD /* RMAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DFEC5C18B377A100FF33AD /* RMAppLocale.m */; };
 		D2ED44A318AE654100976E49 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ED44A218AE654100976E49 /* NSData+MD5.m */; };
-		D2ED44A618AE6D2900976E49 /* RMAppDataDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */; };
+		D2ED44A618AE6D2900976E49 /* RMAppDataWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2ED44A518AE6D2900976E49 /* RMAppDataWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,13 @@
 		6D73902C189E9AE2000764E4 /* RMConnecterOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMConnecterOperation.m; sourceTree = "<group>"; };
 		6D73902F189EA5D6000764E4 /* RMConnecterCredentials+Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RMConnecterCredentials+Keychain.h"; sourceTree = "<group>"; };
 		6D739030189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RMConnecterCredentials+Keychain.m"; sourceTree = "<group>"; };
+		D2014D7918BE36F000565A27 /* RMAddLocaleWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAddLocaleWindowController.h; sourceTree = "<group>"; };
+		D2014D7A18BE36F000565A27 /* RMAddLocaleWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAddLocaleWindowController.m; sourceTree = "<group>"; };
+		D2014D7B18BE36F000565A27 /* RMAddLocaleWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMAddLocaleWindowController.xib; sourceTree = "<group>"; };
+		D2014D8118BFAA5700565A27 /* RMOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOutlineView.h; sourceTree = "<group>"; };
+		D2014D8218BFAA5700565A27 /* RMOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOutlineView.m; sourceTree = "<group>"; };
+		D2014D8418C0BCD600565A27 /* RMAppDataWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppDataWindowController.h; sourceTree = "<group>"; };
+		D2014D8518C0BCD600565A27 /* RMAppDataWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppDataWindowController.m; sourceTree = "<group>"; };
 		D225B07018AE7A290061CA42 /* RMAppDataDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppDataDocument.h; sourceTree = "<group>"; };
 		D225B07118AE7A290061CA42 /* RMAppDataDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppDataDocument.m; sourceTree = "<group>"; };
 		D24B03DC18B8FD8F003FD954 /* testmetadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testmetadata.xml; sourceTree = "<group>"; };
@@ -102,6 +114,8 @@
 		D26E391018B770460061527C /* RMAppScreenshotTypeValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppScreenshotTypeValueTransformer.m; sourceTree = "<group>"; };
 		D26E391318B774FF0061527C /* RMByteValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMByteValueTransformer.h; sourceTree = "<group>"; };
 		D26E391418B774FF0061527C /* RMByteValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMByteValueTransformer.m; sourceTree = "<group>"; };
+		D283F4C818BD036F00CE4E8D /* RMOutlineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMOutlineViewController.h; sourceTree = "<group>"; };
+		D283F4C918BD036F00CE4E8D /* RMOutlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMOutlineViewController.m; sourceTree = "<group>"; };
 		D29CFD4318BB6BE300627DA3 /* ConnectorFileIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ConnectorFileIcon.icns; sourceTree = "<group>"; };
 		D2DFEC5118B3695600FF33AD /* RMAppMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMAppMetaData.h; sourceTree = "<group>"; };
 		D2DFEC5218B3695600FF33AD /* RMAppMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppMetaData.m; sourceTree = "<group>"; };
@@ -112,7 +126,7 @@
 		D2DFEC5C18B377A100FF33AD /* RMAppLocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMAppLocale.m; sourceTree = "<group>"; };
 		D2ED44A118AE654100976E49 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
 		D2ED44A218AE654100976E49 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
-		D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMAppDataDocument.xib; sourceTree = "<group>"; };
+		D2ED44A518AE6D2900976E49 /* RMAppDataWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMAppDataWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,13 +243,8 @@
 		6D739029189E9A65000764E4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6D739021189E79E9000764E4 /* RMConnecterWindowController.h */,
-				6D739022189E79E9000764E4 /* RMConnecterWindowController.m */,
-				6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */,
-				D225B07018AE7A290061CA42 /* RMAppDataDocument.h */,
-				D225B07118AE7A290061CA42 /* RMAppDataDocument.m */,
-				D2ED44A518AE6D2900976E49 /* RMAppDataDocument.xib */,
-				D26E390918B4F9610061527C /* Views */,
+				D2014D8018BFA16E00565A27 /* Download / Upload Window */,
+				D2014D7F18BFA0D100565A27 /* App Data Document Window */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -260,6 +269,42 @@
 			name = Operations;
 			sourceTree = "<group>";
 		};
+		D2014D7E18BFA0C800565A27 /* Add Locale Window */ = {
+			isa = PBXGroup;
+			children = (
+				D2014D7918BE36F000565A27 /* RMAddLocaleWindowController.h */,
+				D2014D7A18BE36F000565A27 /* RMAddLocaleWindowController.m */,
+				D2014D7B18BE36F000565A27 /* RMAddLocaleWindowController.xib */,
+			);
+			name = "Add Locale Window";
+			sourceTree = "<group>";
+		};
+		D2014D7F18BFA0D100565A27 /* App Data Document Window */ = {
+			isa = PBXGroup;
+			children = (
+				D225B07018AE7A290061CA42 /* RMAppDataDocument.h */,
+				D225B07118AE7A290061CA42 /* RMAppDataDocument.m */,
+				D2014D8418C0BCD600565A27 /* RMAppDataWindowController.h */,
+				D2014D8518C0BCD600565A27 /* RMAppDataWindowController.m */,
+				D2ED44A518AE6D2900976E49 /* RMAppDataWindowController.xib */,
+				D283F4C818BD036F00CE4E8D /* RMOutlineViewController.h */,
+				D283F4C918BD036F00CE4E8D /* RMOutlineViewController.m */,
+				D2014D7E18BFA0C800565A27 /* Add Locale Window */,
+				D26E390918B4F9610061527C /* Views */,
+			);
+			name = "App Data Document Window";
+			sourceTree = "<group>";
+		};
+		D2014D8018BFA16E00565A27 /* Download / Upload Window */ = {
+			isa = PBXGroup;
+			children = (
+				6D739021189E79E9000764E4 /* RMConnecterWindowController.h */,
+				6D739022189E79E9000764E4 /* RMConnecterWindowController.m */,
+				6D0C75C0189EB632008ADECB /* RMConnecterWindow.xib */,
+			);
+			name = "Download / Upload Window";
+			sourceTree = "<group>";
+		};
 		D24B03DB18B8FD8F003FD954 /* TestData */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +316,8 @@
 		D26E390918B4F9610061527C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2014D8118BFAA5700565A27 /* RMOutlineView.h */,
+				D2014D8218BFAA5700565A27 /* RMOutlineView.m */,
 				D26E390318B4F9280061527C /* RMScreenshotsGroupView.h */,
 				D26E390418B4F9280061527C /* RMScreenshotsGroupView.m */,
 				D26E390618B4F95E0061527C /* RMScreenshotViewController.h */,
@@ -405,8 +452,9 @@
 				247F2815189127D8000F8041 /* InfoPlist.strings in Resources */,
 				D26E390B18B4F9970061527C /* RMScreenshotViewController.xib in Resources */,
 				247F2823189127D8000F8041 /* Images.xcassets in Resources */,
-				D2ED44A618AE6D2900976E49 /* RMAppDataDocument.xib in Resources */,
+				D2ED44A618AE6D2900976E49 /* RMAppDataWindowController.xib in Resources */,
 				247F281B189127D8000F8041 /* Credits.rtf in Resources */,
+				D2014D7D18BE36F000565A27 /* RMAddLocaleWindowController.xib in Resources */,
 				247F2821189127D8000F8041 /* MainMenu.xib in Resources */,
 				6D0C75BE189EB632008ADECB /* RMConnecterWindow.xib in Resources */,
 			);
@@ -428,9 +476,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2014D8318BFAA5700565A27 /* RMOutlineView.m in Sources */,
 				D2DFEC5318B3695600FF33AD /* RMAppMetaData.m in Sources */,
 				247F2817189127D8000F8041 /* main.m in Sources */,
 				D225B07218AE7A290061CA42 /* RMAppDataDocument.m in Sources */,
+				D283F4CA18BD036F00CE4E8D /* RMOutlineViewController.m in Sources */,
 				D2ED44A318AE654100976E49 /* NSData+MD5.m in Sources */,
 				D2DFEC5D18B377A100FF33AD /* RMAppLocale.m in Sources */,
 				D26E391118B770460061527C /* RMAppScreenshotTypeValueTransformer.m in Sources */,
@@ -438,11 +488,13 @@
 				6D73902D189E9AE2000764E4 /* RMConnecterOperation.m in Sources */,
 				6D739028189E91BE000764E4 /* RMConnecterCredentials.m in Sources */,
 				247F281E189127D8000F8041 /* RMConnecterAppDelegate.m in Sources */,
+				D2014D8618C0BCD600565A27 /* RMAppDataWindowController.m in Sources */,
 				D2DFEC5A18B3754200FF33AD /* RMAppVersion.m in Sources */,
 				6D739024189E79E9000764E4 /* RMConnecterWindowController.m in Sources */,
 				D26E38FF18B4CB260061527C /* RMAppScreenshot.m in Sources */,
 				D26E390818B4F95E0061527C /* RMScreenshotViewController.m in Sources */,
 				D26E390518B4F9280061527C /* RMScreenshotsGroupView.m in Sources */,
+				D2014D7C18BE36F000565A27 /* RMAddLocaleWindowController.m in Sources */,
 				6D739031189EA5D6000764E4 /* RMConnecterCredentials+Keychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +647,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Connecter/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -608,6 +661,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Connecter/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

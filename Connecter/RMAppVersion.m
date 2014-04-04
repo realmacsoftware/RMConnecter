@@ -35,7 +35,7 @@
             for (NSXMLElement *localeElement in localeElements) {
                 [locales addObject:[[RMAppLocale alloc] initWithXMLElement:localeElement]];
             }
-            self.locales = locales;
+            self.locales = [locales copy];
         }
     }
     return self;
@@ -57,4 +57,32 @@
     return version;
 }
 
++ (NSSet *)keyPathsForValuesAffectingActiveLocales;
+{
+    return [NSSet setWithObject:@"locales"];
+}
+
+- (NSArray *)activeLocales;
+{
+    return [self.locales filteredArrayUsingPredicate:
+            [NSPredicate predicateWithFormat:@"shouldDeleteLocale != %@", @(YES)]];
+}
+
+- (void)addLocale:(RMAppLocale*)locale;
+{
+    __block BOOL foundLocale = NO;
+    [self.locales enumerateObjectsUsingBlock:^(RMAppLocale *existingLocale, NSUInteger idx, BOOL *stop) {
+        if ([existingLocale.localeName isEqualToString:locale.localeName]) {
+            existingLocale.shouldDeleteLocale = NO;
+            foundLocale = YES;
+            *stop = YES;
+        }
+    }];
+    
+    if (!foundLocale) {
+        self.locales = [self.locales arrayByAddingObject:locale];
+    }
+}
+
 @end
+
