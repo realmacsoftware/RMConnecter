@@ -13,6 +13,8 @@ NSString *const RMAppScreenshotTypeValueTransformerName = @"RMAppScreenshotTypeV
 
 NSString *const RMAppScreenshotTypeStringIphone35inch = @"iOS-3.5-in";
 NSString *const RMAppScreenshotTypeStringIphone4inch = @"iOS-4-in";
+NSString *const RMAppScreenshotTypeStringIphone47inch = @"iOS-4.7-in";
+NSString *const RMAppScreenshotTypeStringIphone55inch = @"iOS-5.5-in";
 NSString *const RMAppScreenshotTypeStringIpad = @"iOS-iPad";
 NSString *const RMAppScreenshotTypeStringMac = @"Mac";
 
@@ -26,6 +28,10 @@ NSString *const RMAppScreenshotTypeStringMac = @"Mac";
             return @(RMAppScreenshotTypeiPhone35inch);
         } else if ([string isEqualToString:RMAppScreenshotTypeStringIphone4inch]) {
             return @(RMAppScreenshotTypeiPhone4inch);
+        } else if ([string isEqualToString:RMAppScreenshotTypeStringIphone47inch]) {
+            return @(RMAppScreenshotTypeiPhone47inch);
+        } else if ([string isEqualToString:RMAppScreenshotTypeStringIphone55inch]) {
+            return @(RMAppScreenshotTypeiPhone55inch);
         } else if ([string isEqualToString:RMAppScreenshotTypeStringIpad]) {
             return @(RMAppScreenshotTypeiPad);
         } else if ([string isEqualToString:RMAppScreenshotTypeStringMac]) {
@@ -43,6 +49,10 @@ NSString *const RMAppScreenshotTypeStringMac = @"Mac";
             return RMAppScreenshotTypeStringIphone35inch;
         } else if (type == RMAppScreenshotTypeiPhone4inch) {
             return RMAppScreenshotTypeStringIphone4inch;
+        } else if (type == RMAppScreenshotTypeiPhone47inch) {
+            return RMAppScreenshotTypeStringIphone47inch;
+        } else if (type == RMAppScreenshotTypeiPhone55inch) {
+            return RMAppScreenshotTypeStringIphone55inch;         
         } else if (type == RMAppScreenshotTypeiPad) {
             return RMAppScreenshotTypeStringIpad;
         } else if (type == RMAppScreenshotTypeMac) {
