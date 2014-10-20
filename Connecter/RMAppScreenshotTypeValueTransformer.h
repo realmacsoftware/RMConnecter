@@ -11,6 +11,8 @@
 typedef NS_ENUM(NSInteger, RMAppScreenshotType) {
     RMAppScreenshotTypeiPhone35inch,
     RMAppScreenshotTypeiPhone4inch,
+    RMAppScreenshotTypeiPhone47inch,
+    RMAppScreenshotTypeiPhone55inch,
     RMAppScreenshotTypeiPad,
     RMAppScreenshotTypeMac
 };

@@ -36,6 +36,16 @@
                                     <size>186242</size>
                                     <checksum type="md5">7347462d3b543f33ccc6ba3c790602c3</checksum>
                                 </software_screenshot>
+                                <software_screenshot display_target="iOS-4.7-in" position="1">
+                                    <file_name>de-DE1747.png</file_name>
+                                    <size>186255</size>
+                                    <checksum type="md5">89f7223010c05c784156d05f5e705a32</checksum>
+                                </software_screenshot>
+                                <software_screenshot display_target="iOS-5.5-in" position="1">
+                                    <file_name>de-DE1755.png</file_name>
+                                    <size>186266</size>
+                                    <checksum type="md5">e03dc4983f21227a92f5718df39f7f0e</checksum>
+                                </software_screenshot>
                             </software_screenshots>
                         </locale>
                         <locale name="en-US">

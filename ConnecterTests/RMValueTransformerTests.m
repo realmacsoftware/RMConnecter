@@ -24,6 +24,8 @@
     
     XCTAssertEqualObjects([transformer transformedValue:@"iOS-3.5-in"], @(RMAppScreenshotTypeiPhone35inch));
     XCTAssertEqualObjects([transformer transformedValue:@"iOS-4-in"], @(RMAppScreenshotTypeiPhone4inch));
+    XCTAssertEqualObjects([transformer transformedValue:@"iOS-4.7-in"], @(RMAppScreenshotTypeiPhone47inch));
+    XCTAssertEqualObjects([transformer transformedValue:@"iOS-5.5-in"], @(RMAppScreenshotTypeiPhone55inch));
     XCTAssertEqualObjects([transformer transformedValue:@"iOS-iPad"], @(RMAppScreenshotTypeiPad));
     XCTAssertEqualObjects([transformer transformedValue:@"Mac"], @(RMAppScreenshotTypeMac));
     
@@ -39,6 +41,8 @@
     
     XCTAssertEqualObjects([transformer reverseTransformedValue:@(RMAppScreenshotTypeiPhone35inch)], @"iOS-3.5-in");
     XCTAssertEqualObjects([transformer reverseTransformedValue:@(RMAppScreenshotTypeiPhone4inch)], @"iOS-4-in");
+    XCTAssertEqualObjects([transformer reverseTransformedValue:@(RMAppScreenshotTypeiPhone47inch)], @"iOS-4.7-in");
+    XCTAssertEqualObjects([transformer reverseTransformedValue:@(RMAppScreenshotTypeiPhone55inch)], @"iOS-5.5-in");
     XCTAssertEqualObjects([transformer reverseTransformedValue:@(RMAppScreenshotTypeiPad)], @"iOS-iPad");
     XCTAssertEqualObjects([transformer reverseTransformedValue:@(RMAppScreenshotTypeMac)], @"Mac");
     

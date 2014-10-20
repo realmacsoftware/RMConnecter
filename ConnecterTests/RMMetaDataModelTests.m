@@ -72,7 +72,7 @@
     XCTAssertEqualObjects(deLocale.softwareURL, @"");
     XCTAssertEqualObjects(deLocale.supportURL, @"");
     XCTAssertEqualObjects(deLocale.privacyURL, @"");
-    XCTAssertEqualObjects(@(deLocale.screenshots.count), @(3));
+    XCTAssertEqualObjects(@(deLocale.screenshots.count), @(5));
     
     RMAppLocale *enLocale = version.locales.lastObject;
     XCTAssertEqualObjects(@(enLocale.shouldDeleteLocale), @(NO));
@@ -115,6 +115,22 @@
     XCTAssertEqualObjects(deScreenshot.filename, @"de-DE1712.png");
     XCTAssertEqualObjects(@(deScreenshot.size), @(186242));
     XCTAssertEqualObjects(deScreenshot.checksum, @"7347462d3b543f33ccc6ba3c790602c3");
+    XCTAssertEqualObjects(deScreenshot.checksumType, @"md5");
+    
+    deScreenshot = deScreenshots[3];
+    XCTAssertEqualObjects(@(deScreenshot.displayTarget), @(RMAppScreenshotTypeiPhone47inch));
+    XCTAssertEqualObjects(@(deScreenshot.position), @(1));
+    XCTAssertEqualObjects(deScreenshot.filename, @"de-DE1747.png");
+    XCTAssertEqualObjects(@(deScreenshot.size), @(186255));
+    XCTAssertEqualObjects(deScreenshot.checksum, @"89f7223010c05c784156d05f5e705a32");
+    XCTAssertEqualObjects(deScreenshot.checksumType, @"md5");
+    
+    deScreenshot = deScreenshots[4];
+    XCTAssertEqualObjects(@(deScreenshot.displayTarget), @(RMAppScreenshotTypeiPhone55inch));
+    XCTAssertEqualObjects(@(deScreenshot.position), @(1));
+    XCTAssertEqualObjects(deScreenshot.filename, @"de-DE1755.png");
+    XCTAssertEqualObjects(@(deScreenshot.size), @(186266));
+    XCTAssertEqualObjects(deScreenshot.checksum, @"e03dc4983f21227a92f5718df39f7f0e");
     XCTAssertEqualObjects(deScreenshot.checksumType, @"md5");
     
     RMAppScreenshot *enScreenshot = enScreenshots[0];
