@@ -67,7 +67,7 @@ static NSString *_RMConnecterTransporterPath(void)
 		return nil;
 	}
 	
-	return [applicationLoaderPath stringByAppendingPathComponent:@"Contents/MacOS/itms/bin/iTMSTransporter"];
+	return [applicationLoaderPath stringByAppendingPathComponent:@"Contents/itms/bin/iTMSTransporter"];
 }
 
 + (void)load
