@@ -52,7 +52,7 @@ NSString *const RMAppScreenshotTypeStringMac = @"Mac";
         } else if (type == RMAppScreenshotTypeiPhone47inch) {
             return RMAppScreenshotTypeStringIphone47inch;
         } else if (type == RMAppScreenshotTypeiPhone55inch) {
-            return RMAppScreenshotTypeStringIphone55inch;         
+            return RMAppScreenshotTypeStringIphone55inch;
         } else if (type == RMAppScreenshotTypeiPad) {
             return RMAppScreenshotTypeStringIpad;
         } else if (type == RMAppScreenshotTypeMac) {
