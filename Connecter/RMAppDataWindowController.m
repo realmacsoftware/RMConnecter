@@ -102,6 +102,80 @@ NSString *const RMAppDataArrangedObjectsKVOPath = @"arrangedObjects";
     return [NSString stringWithFormat: @"%@ - Connecter", displayName];
 }
 
+#pragma mark - Actions
+
+- (IBAction)applyTitleToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.title = activeLocale.title;
+    }
+}
+
+- (IBAction)applyAppDescriptionToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.appDescription = activeLocale.appDescription;
+    }
+}
+
+- (IBAction)applyWhatsNewToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.whatsNew = activeLocale.whatsNew;
+    }
+}
+
+- (IBAction)applySoftwareURLToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.softwareURL = activeLocale.softwareURL;
+    }
+}
+
+- (IBAction)applySupportURLToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.supportURL = activeLocale.supportURL;
+    }
+}
+
+- (IBAction)applyPrivacyURLToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.privacyURL = activeLocale.privacyURL;
+    }
+}
+
+- (IBAction)applyKeywordsToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.keywords = activeLocale.keywords;
+    }
+}
+
+- (IBAction)applyScreenshotsToAll:(id)sender
+{
+    [self.window makeFirstResponder:nil];
+    RMAppLocale *activeLocale = [self.localesController.selectedObjects firstObject];
+    for (RMAppLocale *locale in self.localesController.content) {
+        locale.screenshots = activeLocale.screenshots;
+    }
+}
+
 #pragma mark NSAlert helper
 
 - (void)showDeleteAlertWithConfirmedBlock:(void(^)(void))confirmedBlock;
