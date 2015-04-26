@@ -78,7 +78,7 @@ NSString *const RMAddLocaleSelectionVersionKeyPath = @"versionsController.select
         // based on App Metadata Specification 5.1 Revision 1
         NSArray *allLocales = @[@"cmn-Hans",@"cmn-Hant",@"da",@"nl",@"en-AU",
                                 @"en-CA",@"en-GB",@"en-US",@"fi",@"fr-CA",
-                                @"fr-FR",@"de",@"el",@"id",@"it",@"ja",@"ko",
+                                @"fr-FR",@"de-DE",@"el",@"id",@"it",@"ja",@"ko",
                                 @"ms",@"no",@"pt-BR",@"pt-PT",@"ru",@"es-MX",
                                 @"es-ES",@"sv",@"th",@"tr",@"vi"];
         _allLocales = [allLocales sortedArrayUsingSelector:@selector(compare:)];
